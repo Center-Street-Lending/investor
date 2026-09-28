@@ -17,13 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links') || document.querySelector('.mobile-menu');
 
     if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuBtn.classList.toggle('active');
+            navLinks.classList.toggle('open');
             navLinks.classList.toggle('active');
             
             // Toggle hamburger animation
             const spans = menuBtn.querySelectorAll('span');
             if (spans.length >= 3) {
-                if (navLinks.classList.contains('active')) {
+                if (navLinks.classList.contains('open') || navLinks.classList.contains('active')) {
                     spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
                     spans[1].style.opacity = '0';
                     spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
@@ -32,6 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     spans[1].style.opacity = '1';
                     spans[2].style.transform = 'none';
                 }
+            }
+        });
+
+        // Close mobile menu on click outside
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                menuBtn.classList.remove('active');
+                navLinks.classList.remove('open');
+                navLinks.classList.remove('active');
             }
         });
     }
