@@ -1699,12 +1699,14 @@ body.no-scroll {
 }
 
 #philosophy,
-.capital-preservation-section {
+.capital-preservation-section,
+.strategy-profile-section {
     position: relative;
 }
 
 #philosophy::before,
-.capital-preservation-section::before {
+.capital-preservation-section::before,
+.strategy-profile-section::before {
     content: '';
     position: absolute;
     top: 0;
