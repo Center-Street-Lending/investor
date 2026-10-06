@@ -1693,7 +1693,7 @@ body.no-scroll {
     position: sticky;
     top: 64px !important; /* Docks 100% flush directly below 64px sticky header */
     z-index: 900;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 3.5px solid #1e2638;
     background-color: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(8px);
 }
