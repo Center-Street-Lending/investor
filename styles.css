@@ -2746,6 +2746,21 @@ body.no-scroll {
         width: 100% !important;
     }
 
+    .exec-cards-trio {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    .exec-cards-trio .exec-card-item {
+        flex: 0 0 calc(50% - 5px) !important;
+        width: calc(50% - 5px) !important;
+        padding: 20px 10px !important;
+        box-sizing: border-box !important;
+    }
+
     .exec-card-item {
         flex: 1 1 0% !important;
         width: 50% !important;
