@@ -1698,11 +1698,13 @@ body.no-scroll {
     backdrop-filter: blur(8px);
 }
 
-#philosophy {
+#philosophy,
+.capital-preservation-section {
     position: relative;
 }
 
-#philosophy::before {
+#philosophy::before,
+.capital-preservation-section::before {
     content: '';
     position: absolute;
     top: 0;
