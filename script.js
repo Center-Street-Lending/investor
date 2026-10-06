@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Modal Logic
+    // Modal Logic (Direct mailto handled natively)
     const modal = document.getElementById('investor-modal');
-    const openBtns = document.querySelectorAll('.request-access-btn');
+    const openBtns = document.querySelectorAll('.request-access-btn-modal-only');
     const closeBtn = document.querySelector('.close-modal');
 
     if (modal && openBtns.length > 0 && closeBtn) {

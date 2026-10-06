@@ -225,7 +225,7 @@ privacy_html = f"""<!DOCTYPE html>
             <div class="desktop-nav" style="display: flex; align-items: center; gap: 20px;">
                 <a href="who-we-are.html" class="nav-link" style="color: #334155; text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 6px 14px; border-radius: 6px; transition: all 0.2s;">Who we are</a>
                 <a href="csl-rtf-fund.html" class="nav-link" style="color: #334155; text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 6px 14px; border-radius: 6px; transition: all 0.2s;">CSL-RTF Fund</a>
-                <a href="#" class="nav-btn request-access-btn" style="background-color: #f26522; color: #ffffff; padding: 10px 22px; border-radius: 4px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: background-color 0.2s;">Request Access</a>
+                <a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" class="nav-btn request-access-btn" style="background-color: #f26522; color: #ffffff; padding: 10px 22px; border-radius: 4px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: background-color 0.2s;">Request Access</a>
             </div>
 
             <!-- Hamburger Button (Mobile) -->
@@ -242,7 +242,7 @@ privacy_html = f"""<!DOCTYPE html>
         <div class="mobile-menu-inner">
             <a href="who-we-are.html" class="mobile-nav-link">Who we are <span>&rarr;</span></a>
             <a href="csl-rtf-fund.html" class="mobile-nav-link">CSL-RTF Fund <span>&rarr;</span></a>
-            <a href="#" class="nav-btn request-access-btn mobile-cta-btn">Request Access</a>
+            <a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" class="nav-btn request-access-btn mobile-cta-btn">Request Access</a>
         </div>
     </div>
 
@@ -457,7 +457,7 @@ privacy_html += """        </div>
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="margin-bottom: 12px;"><a href="who-we-are.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Who We Are</a></li>
                         <li style="margin-bottom: 12px;"><a href="./#who-we-serve" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Who We Serve</a></li>
-                        <li><a href="#" class="request-access-btn" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Diligence Access</a></li>
+                        <li><a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" class="request-access-btn" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Diligence Access</a></li>
                     </ul>
                 </div>
                 <!-- Column 4 -->
@@ -637,7 +637,7 @@ terms_html = """<!DOCTYPE html>
             <div class="desktop-nav" style="display: flex; align-items: center; gap: 20px;">
                 <a href="who-we-are.html" class="nav-link" style="color: #334155; text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 6px 14px; border-radius: 6px; transition: all 0.2s;">Who we are</a>
                 <a href="csl-rtf-fund.html" class="nav-link" style="color: #334155; text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 6px 14px; border-radius: 6px; transition: all 0.2s;">CSL-RTF Fund</a>
-                <a href="#" class="nav-btn request-access-btn" style="background-color: #f26522; color: #ffffff; padding: 10px 22px; border-radius: 4px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: background-color 0.2s;">Request Access</a>
+                <a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" class="nav-btn request-access-btn" style="background-color: #f26522; color: #ffffff; padding: 10px 22px; border-radius: 4px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: background-color 0.2s;">Request Access</a>
             </div>
 
             <!-- Hamburger Button (Mobile) -->
@@ -654,7 +654,7 @@ terms_html = """<!DOCTYPE html>
         <div class="mobile-menu-inner">
             <a href="who-we-are.html" class="mobile-nav-link">Who we are <span>&rarr;</span></a>
             <a href="csl-rtf-fund.html" class="mobile-nav-link">CSL-RTF Fund <span>&rarr;</span></a>
-            <a href="#" class="nav-btn request-access-btn mobile-cta-btn">Request Access</a>
+            <a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" class="nav-btn request-access-btn mobile-cta-btn">Request Access</a>
         </div>
     </div>
 
@@ -825,7 +825,7 @@ terms_html = """<!DOCTYPE html>
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="margin-bottom: 12px;"><a href="who-we-are.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Who We Are</a></li>
                         <li style="margin-bottom: 12px;"><a href="./#who-we-serve" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Who We Serve</a></li>
-                        <li><a href="#" class="request-access-btn" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Diligence Access</a></li>
+                        <li><a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" class="request-access-btn" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Diligence Access</a></li>
                     </ul>
                 </div>
                 <!-- Column 4 -->

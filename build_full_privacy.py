@@ -48,10 +48,10 @@ html_content = f"""<!DOCTYPE html>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=5.00">
+    <link rel="stylesheet" href="styles.css?v=4.85">
     <style>
         :root {{
             --primary-navy: #0f172a;
@@ -60,7 +60,7 @@ html_content = f"""<!DOCTYPE html>
             --brand-blue-hover: #346892;
             --accent-orange: #f26522;
             --text-dark: #0f172a;
-            --text-muted: #334155;
+            --text-muted: #475569;
             --text-light: #64748b;
             --bg-light: #f8fafc;
             --border-light: #e2e8f0;
@@ -79,8 +79,8 @@ html_content = f"""<!DOCTYPE html>
         .privacy-hero {{
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #ffffff;
-            padding: 64px 5% 54px;
-            border-bottom: 4px solid var(--brand-blue);
+            padding: 60px 5% 50px;
+            border-bottom: 3px solid var(--brand-blue);
         }}
         .privacy-hero-container {{
             max-width: 960px;
@@ -89,20 +89,20 @@ html_content = f"""<!DOCTYPE html>
         .privacy-badge {{
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(70, 131, 179, 0.22);
+            gap: 6px;
+            background: rgba(70, 131, 179, 0.2);
             color: #7dd3fc;
-            border: 1px solid rgba(125, 211, 252, 0.35);
-            padding: 5px 14px;
+            border: 1px solid rgba(125, 211, 252, 0.3);
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 18px;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
         }}
         .privacy-hero h1 {{
-            font-size: 2.75rem;
+            font-size: 2.6rem;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.025em;
@@ -110,11 +110,10 @@ html_content = f"""<!DOCTYPE html>
             line-height: 1.2;
         }}
         .privacy-hero-subtitle {{
-            font-size: 1.12rem;
-            color: #cbd5e1;
-            max-width: 760px;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 720px;
             margin: 0 0 24px 0;
-            line-height: 1.6;
         }}
         .privacy-hero-meta {{
             display: flex;
@@ -123,19 +122,16 @@ html_content = f"""<!DOCTYPE html>
             flex-wrap: wrap;
             gap: 16px;
             padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-            font-size: 0.9rem;
-            color: #94a3b8;
-        }}
-        .privacy-hero-meta strong {{
-            color: #ffffff;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.88rem;
+            color: #cbd5e1;
         }}
 
         /* Main Content Container */
         .legal-container {{
             max-width: 960px;
             margin: 0 auto;
-            padding: 54px 5% 90px;
+            padding: 50px 5% 90px;
         }}
 
         /* Table of Contents Card */
@@ -143,47 +139,44 @@ html_content = f"""<!DOCTYPE html>
             background: var(--bg-light);
             border: 1px solid var(--border-light);
             border-radius: 12px;
-            padding: 30px 34px;
-            margin-bottom: 54px;
-            box-shadow: 0 2px 5px rgba(15, 23, 42, 0.03);
+            padding: 28px 32px;
+            margin-bottom: 50px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
         }}
         .toc-card-header {{
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 22px;
+            gap: 10px;
+            margin-bottom: 20px;
             padding-bottom: 14px;
-            border-bottom: 2px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
         }}
         .toc-card-title {{
             font-size: 1.05rem;
             font-weight: 700;
             color: var(--primary-navy);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
         }}
         .toc-grid {{
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px 28px;
+            gap: 10px 24px;
         }}
         @media (max-width: 680px) {{
             .toc-grid {{
                 grid-template-columns: 1fr;
             }}
             .privacy-hero h1 {{
-                font-size: 2.1rem;
-            }}
-            .toc-card {{
-                padding: 22px 20px;
+                font-size: 2rem;
             }}
         }}
         .toc-link {{
             color: var(--brand-blue);
             text-decoration: none;
-            font-size: 0.94rem;
+            font-size: 0.93rem;
             font-weight: 500;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 6px;
             transition: color 0.15s ease, transform 0.15s ease;
@@ -195,35 +188,36 @@ html_content = f"""<!DOCTYPE html>
 
         /* Typography & Section Styling */
         .legal-section {{
-            margin-bottom: 48px;
+            margin-bottom: 44px;
             scroll-margin-top: 100px;
         }}
         .legal-section h2 {{
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             font-weight: 700;
             color: var(--primary-navy);
-            margin: 0 0 20px 0;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--border-light);
-            letter-spacing: -0.01em;
+            margin: 0 0 18px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }}
         .legal-section p {{
             color: var(--text-muted);
             font-size: 1.02rem;
-            margin-bottom: 20px;
-            line-height: 1.78;
+            margin-bottom: 18px;
+            line-height: 1.75;
         }}
         .legal-section strong {{
             color: var(--primary-navy);
-            font-weight: 700;
         }}
         .legal-section ul {{
-            margin: 0 0 24px 22px;
+            margin: 0 0 24px 20px;
             padding: 0;
             color: var(--text-muted);
         }}
         .legal-section li {{
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-size: 1.02rem;
             line-height: 1.7;
         }}
@@ -231,35 +225,18 @@ html_content = f"""<!DOCTYPE html>
             color: var(--brand-blue);
             text-decoration: underline;
             text-underline-offset: 3px;
-            transition: color 0.15s;
         }}
         .legal-section a:hover {{
             color: var(--brand-blue-hover);
         }}
 
-        /* Sub-rights block */
-        .sub-right-block {{
-            background: #ffffff;
-            border-left: 3px solid var(--brand-blue);
-            padding: 14px 20px;
-            margin-bottom: 16px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-            border-top: 1px solid var(--border-light);
-            border-right: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
-        }}
-        .sub-right-block p {{
-            margin-bottom: 0 !important;
-        }}
-
         /* Table Styling (Section 3) */
         .table-wrapper {{
             overflow-x: auto;
-            margin: 28px 0 34px;
+            margin: 28px 0 32px;
             border: 1px solid var(--border-light);
             border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
             background-color: #ffffff;
         }}
         .privacy-table {{
@@ -267,7 +244,7 @@ html_content = f"""<!DOCTYPE html>
             border-collapse: collapse;
             font-size: 0.9rem;
             text-align: left;
-            min-width: 820px;
+            min-width: 800px;
         }}
         .privacy-table th {{
             background-color: var(--bg-light);
@@ -290,16 +267,26 @@ html_content = f"""<!DOCTYPE html>
             border-bottom: none;
         }}
         .privacy-table tr:nth-child(even) {{
-            background-color: #fdfefe;
+            background-color: #fafafa;
         }}
         .badge-no {{
             display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
+            background: #dcfce7;
+            color: #166534;
             font-weight: 600;
-            font-size: 0.8rem;
-            padding: 3px 10px;
+            font-size: 0.78rem;
+            padding: 2px 8px;
             border-radius: 4px;
+        }}
+        .badge-shared {{
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            font-weight: 600;
+            font-size: 0.78rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 6px;
         }}
 
         /* State Attorney General Grid (Section 8) */
@@ -307,7 +294,7 @@ html_content = f"""<!DOCTYPE html>
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 14px;
-            margin: 26px 0 34px;
+            margin: 24px 0 32px;
         }}
         @media (max-width: 840px) {{
             .ag-card-grid {{
@@ -323,7 +310,7 @@ html_content = f"""<!DOCTYPE html>
             background: var(--bg-light);
             border: 1px solid var(--border-light);
             border-radius: 8px;
-            padding: 14px 18px;
+            padding: 12px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -332,17 +319,16 @@ html_content = f"""<!DOCTYPE html>
         .ag-card:hover {{
             border-color: var(--brand-blue);
             background: #ffffff;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
         }}
         .ag-state-name {{
             font-weight: 600;
             color: var(--primary-navy);
-            font-size: 0.94rem;
+            font-size: 0.92rem;
         }}
         .ag-link {{
             color: var(--brand-blue);
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
@@ -359,9 +345,8 @@ html_content = f"""<!DOCTYPE html>
             border: 1px solid var(--border-light);
             border-left: 4px solid var(--brand-blue);
             border-radius: 10px;
-            padding: 30px;
-            margin-top: 24px;
-            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+            padding: 28px;
+            margin-top: 20px;
         }}
         .contact-card p {{
             margin-bottom: 8px !important;
@@ -369,19 +354,17 @@ html_content = f"""<!DOCTYPE html>
         }}
         .contact-detail {{
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
-            margin-top: 14px;
-            font-size: 0.98rem;
-            color: var(--text-muted);
+            margin-top: 12px;
+            font-size: 0.95rem;
         }}
         .contact-detail-icon {{
             color: var(--brand-blue);
             font-weight: 700;
-            font-size: 1.1rem;
         }}
 
-        /* Header Navigation Sticky Fix */
+        /* Header Fixes */
         .header-wrapper {{
             background-color: #ffffff;
             border-bottom: 1px solid var(--border-light);
@@ -429,9 +412,9 @@ html_content = f"""<!DOCTYPE html>
     <!-- Hero Header Banner -->
     <section class="privacy-hero">
         <div class="privacy-hero-container">
-            <div class="privacy-badge">Legal Notice &bull; Transparency & Privacy</div>
+            <div class="privacy-badge">Official Document &bull; Legal Disclosure</div>
             <h1>Privacy Policy</h1>
-            <div class="privacy-hero-subtitle">Comprehensive Privacy Policy and U.S. State Privacy Rights Notice for Center Street Capital</div>
+            <div class="privacy-hero-subtitle">Comprehensive Privacy Policy & U.S. State Privacy Rights Notice for Center Street Capital</div>
             <div class="privacy-hero-meta">
                 <span><strong>Effective Date:</strong> October 6, 2026</span>
                 <span><strong>Organization:</strong> Center Street Capital</span>
@@ -442,7 +425,7 @@ html_content = f"""<!DOCTYPE html>
     <!-- Main Content Container -->
     <main class="legal-container">
 
-        <!-- Table of Contents Card -->
+        <!-- Table of Contents -->
         <div class="toc-card">
             <div class="toc-card-header">
                 <div class="toc-card-title">Table of Contents</div>
@@ -457,7 +440,7 @@ html_content = f"""<!DOCTYPE html>
                 <a href="#section-7" class="toc-link">7. How We Disclose Personal Information</a>
                 <a href="#section-8" class="toc-link">8. Your U.S. State Privacy Rights</a>
                 <a href="#section-9" class="toc-link">9. Opt-Out Preference Signals</a>
-                <a href="#section-10" class="toc-link">10. Children and Individuals Under Eighteen</a>
+                <a href="#section-10" class="toc-link">10. Children Under Eighteen</a>
                 <a href="#section-11" class="toc-link">11. Newsletters and Emails</a>
                 <a href="#section-12" class="toc-link">12. Security of Your Information</a>
                 <a href="#section-13" class="toc-link">13. Retention of Personal Information</a>
@@ -505,7 +488,7 @@ html_content = f"""<!DOCTYPE html>
 
 for row in table_rows:
     cat, ex, purp, sold, ret = row
-    sold_badge = '<span class="badge-no">No</span>' if sold.strip() == 'No' else f'<span class="badge-no" style="background:#fff7ed; color:#c2410c;">Operational Sharing</span><br><span style="font-size: 0.82rem; color: var(--text-muted);">{html.escape(sold)}</span>'
+    sold_badge = '<span class="badge-no">No</span>' if sold.strip() == 'No' else f'<span class="badge-shared">Shared</span><br><span style="font-size: 0.82rem;">{html.escape(sold)}</span>'
     html_content += f"""                        <tr>
                             <td><strong>{html.escape(cat)}</strong></td>
                             <td>{html.escape(ex)}</td>
@@ -574,18 +557,17 @@ html_content += """                    </tbody>
         <div class="legal-section" id="section-8">
             <h2>8. Your U.S. State Privacy Rights</h2>
             <p>Depending on your state of residence, you may have some or all of the following rights with respect to your personal information, subject to the conditions, exceptions, and limitations of the law of your state:</p>
-            
-            <div class="sub-right-block"><p><strong>Right to confirm whether we process, and know/access</strong> the personal information we have collected about you (including categories, sources, purposes, and third parties to whom it was disclosed).</p></div>
-            <div class="sub-right-block"><p><strong>Request to Access.</strong> You may submit a request to obtain a copy of or access to the personal information that we have collected on you.</p></div>
-            <div class="sub-right-block"><p><strong>Request to Know.</strong> You may request information on the categories of personal information we have collected about you; the categories of sources; our business or commercial purpose for collecting, selling, or sharing personal information; the categories of third parties to whom we have disclosed personal information; and the specific pieces of personal information we have collected about you. You may also request the categories of personal information we have sold or shared and the categories of third parties to whom it was sold or shared, and the categories disclosed for a business purpose and the categories of persons to whom it was disclosed. The categories, sources, and disclosures will not exceed what is contained in this Policy. We are not required to retain information used only for a one-time transaction, to re-identify personal information not stored in that manner, or to provide personal information to you more than twice in a twelve-month period.</p></div>
-            <div class="sub-right-block"><p><strong>Right to correct inaccurate personal information.</strong> You may correct or update your personal information at any time by contacting us.</p></div>
-            <div class="sub-right-block"><p><strong>Right to delete personal information.</strong> You may request that we delete personal information we have collected from you. Subject to certain exceptions, we will, on receipt of a verifiable request, delete your personal information from our records, direct our service providers to do the same, and notify third parties with whom we have shared it to delete it unless this proves impossible or involves disproportionate effort. To the extent permitted or required by applicable law in your state, we may not delete your personal information if it is necessary to: complete a transaction you requested; protect security and prevent fraud; identify and fix technical errors; comply with legal obligations; conduct internal uses reasonably compatible with the context in which the information was collected; and establish, exercise, or defend legal claims.</p></div>
-            <div class="sub-right-block"><p><strong>Right to data portability</strong> (a copy in a portable format). You may request that we transfer your personal information to another entity, to the extent technically feasible.</p></div>
-            <div class="sub-right-block"><p><strong>Right to opt out</strong> of the sale or sharing of personal information and of processing for targeted advertising or profiling. We do not sell personal information, we do not share personal information for targeted advertising, and we do not use profiling in furtherance of decisions that produce legal or similarly significant effects. If these practices change, we will update this Policy and provide a "Do Not Sell or Share" link, and you may submit a request to opt out, including via a GPC signal.</p></div>
-            <div class="sub-right-block"><p><strong>Right to limit the use of sensitive personal information.</strong> We do not seek sensitive personal information through the public Site, and we only receive sensitive personal information that you voluntarily provide in inquiries or diligence-access requests. We use such information solely to respond to and service your requests. We do not sell or share your sensitive personal information, and we do not use sensitive personal information collected from the public Site to infer characteristics or for advertising. You may withdraw your consent to any use or disclosure of your sensitive personal information.</p></div>
-            <div class="sub-right-block"><p><strong>Right to Access Information About Automated Decision-Making.</strong> We do not currently engage in automated individual decision-making. In the event we ever do so, we will inform you of such change and you may request information about and opt out of such automated decision-making.</p></div>
-            <div class="sub-right-block"><p><strong>Right to a list of specific third parties.</strong> Residents of certain states may request a list of the specific third parties to which we have disclosed personal information.</p></div>
-            <div class="sub-right-block"><p><strong>Right to Appeal (in certain states).</strong> If we notify you that no action is to be taken in response to your request, you may appeal by contacting us within 30 days with the reason why you believe further action should be taken. We will respond within the period required by your state law (e.g., 45 or 60 days). If you are not satisfied with the result of the appeal and are a resident of one of the states listed below, you may contact the Attorney General of your state:</p></div>
+            <p><strong>Right to confirm whether we process, and know/access</strong> the personal information we have collected about you (including categories, sources, purposes, and third parties to whom it was disclosed).</p>
+            <p><strong>Request to Access.</strong> You may submit a request to obtain a copy of or access to the personal information that we have collected on you.</p>
+            <p><strong>Request to Know.</strong> You may request information on the categories of personal information we have collected about you; the categories of sources; our business or commercial purpose for collecting, selling, or sharing personal information; the categories of third parties to whom we have disclosed personal information; and the specific pieces of personal information we have collected about you. You may also request the categories of personal information we have sold or shared and the categories of third parties to whom it was sold or shared, and the categories disclosed for a business purpose and the categories of persons to whom it was disclosed. The categories, sources, and disclosures will not exceed what is contained in this Policy. We are not required to retain information used only for a one-time transaction, to re-identify personal information not stored in that manner, or to provide personal information to you more than twice in a twelve-month period.</p>
+            <p><strong>Right to correct inaccurate personal information.</strong> You may correct or update your personal information at any time by contacting us.</p>
+            <p><strong>Right to delete personal information.</strong> You may request that we delete personal information we have collected from you. Subject to certain exceptions, we will, on receipt of a verifiable request, delete your personal information from our records, direct our service providers to do the same, and notify third parties with whom we have shared it to delete it unless this proves impossible or involves disproportionate effort. To the extent permitted or required by applicable law in your state, we may not delete your personal information if it is necessary to: complete a transaction you requested; protect security and prevent fraud; identify and fix technical errors; comply with legal obligations; conduct internal uses reasonably compatible with the context in which the information was collected; and establish, exercise, or defend legal claims.</p>
+            <p><strong>Right to data portability</strong> (a copy in a portable format). You may request that we transfer your personal information to another entity, to the extent technically feasible.</p>
+            <p><strong>Right to opt out</strong> of the sale or sharing of personal information and of processing for targeted advertising or profiling. We do not sell personal information, we do not share personal information for targeted advertising, and we do not use profiling in furtherance of decisions that produce legal or similarly significant effects. If these practices change, we will update this Policy and provide a "Do Not Sell or Share" link, and you may submit a request to opt out, including via a GPC signal.</p>
+            <p><strong>Right to limit the use of sensitive personal information.</strong> We do not seek sensitive personal information through the public Site, and we only receive sensitive personal information that you voluntarily provide in inquiries or diligence-access requests. We use such information solely to respond to and service your requests. We do not sell or share your sensitive personal information, and we do not use sensitive personal information collected from the public Site to infer characteristics or for advertising. You may withdraw your consent to any use or disclosure of your sensitive personal information.</p>
+            <p><strong>Right to Access Information About Automated Decision-Making.</strong> We do not currently engage in automated individual decision-making. In the event we ever do so, we will inform you of such change and you may request information about and opt out of such automated decision-making.</p>
+            <p><strong>Right to a list of specific third parties.</strong> Residents of certain states may request a list of the specific third parties to which we have disclosed personal information.</p>
+            <p><strong>Right to Appeal (in certain states).</strong> If we notify you that no action is to be taken in response to your request, you may appeal by contacting us within 30 days with the reason why you believe further action should be taken. We will respond within the period required by your state law (e.g., 45 or 60 days). If you are not satisfied with the result of the appeal and are a resident of one of the states listed below, you may contact the Attorney General of your state:</p>
 
             <!-- State Attorney General Grid -->
             <div class="ag-card-grid">
@@ -619,7 +601,7 @@ html_content += """            </div>
         <!-- Section 11 -->
         <div class="legal-section" id="section-11">
             <h2>11. Newsletters and Emails</h2>
-            <p><strong>Newsletters and emails.</strong> At various times during your use of the Site, you may be given the option of opting in to recurring informational or promotional newsletters via email from Center Street Capital. When you provide your email address or sign up for one of our mailing lists, you may at any time choose to opt out of receiving additional informational or promotional newsletters by following the unsubscribe directions included at the bottom of each email or by contacting us at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>. We will process unsubscribe requests within ten (10) business days. When you communicate with us, we may retain your communications to process and respond to them and to improve our services.</p>
+            <p>At various times during your use of the Site, you may be given the option of opting in to recurring informational or promotional newsletters via email from Center Street Capital. When you provide your email address or sign up for one of our mailing lists, you may at any time choose to opt out of receiving additional informational or promotional newsletters by following the unsubscribe directions included at the bottom of each email or by contacting us at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>. We will process unsubscribe requests within ten (10) business days. When you communicate with us, we may retain your communications to process and respond to them and to improve our services.</p>
         </div>
 
         <!-- Section 12 -->
@@ -658,8 +640,8 @@ html_content += """            </div>
             <p>If you have any questions about this Policy, you may contact us by email at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>, or by mail at:</p>
             
             <div class="contact-card">
-                <p style="font-size: 1.05rem; font-weight: 700; color: var(--primary-navy);">Privacy Officer</p>
-                <p style="font-weight: 600; color: var(--text-muted); margin-bottom: 12px !important;">Center Street Capital, LLC</p>
+                <p><strong>Privacy Officer</strong></p>
+                <p>Center Street Capital, LLC</p>
                 <div class="contact-detail">
                     <span class="contact-detail-icon">&bull;</span>
                     <span>18201 Von Karman Ave STE 400, Irvine, CA 92612</span>
@@ -739,4 +721,4 @@ html_content += """            </div>
 with open('/Users/gregmontoya/AntiGravity Workspaces/CSLCompanies.com/privacy-policy.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Generated privacy-policy.html perfectly!")
+print("Generated privacy-policy.html successfully!")
