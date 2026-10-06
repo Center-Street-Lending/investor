@@ -8,348 +8,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Center Street Capital</title>
-    <meta name="description" content="Privacy Policy and U.S. State Privacy Notice for Center Street Capital. Learn how we collect, use, protect, and manage personal information.">
+    <meta name="description" content="Privacy Policy and U.S. State Privacy Notice for Center Street Capital. How we collect, use, disclose, and protect personal information.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=5.00">
+    <link rel="stylesheet" href="styles.css?v=5.20">
     <style>
-        :root {
-            --primary-navy: #0f172a;
-            --secondary-navy: #1e293b;
-            --brand-blue: #4683b3;
-            --brand-blue-hover: #346892;
-            --accent-orange: #f26522;
-            --text-dark: #0f172a;
-            --text-muted: #334155;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --border-light: #e2e8f0;
-            --border-subtle: #cbd5e1;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #ffffff !important;
-            color: var(--text-dark) !important;
-            line-height: 1.75;
-            -webkit-font-smoothing: antialiased;
+            color: #0f172a !important;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.8;
         }
-
-        /* Hero Header Styling */
-        .privacy-hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #ffffff;
-            padding: 64px 5% 54px;
-            border-bottom: 4px solid var(--brand-blue);
-        }
-        .privacy-hero-container {
-            max-width: 960px;
+        .legal-content {
+            max-width: 900px;
             margin: 0 auto;
+            padding: 60px 5% 100px;
+            color: #334155;
+            font-size: 1.02rem;
+            background-color: #ffffff;
         }
-        .privacy-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(70, 131, 179, 0.22);
-            color: #7dd3fc;
-            border: 1px solid rgba(125, 211, 252, 0.35);
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 18px;
-        }
-        .privacy-hero h1 {
-            font-size: 2.75rem;
+        .legal-content h1 {
+            font-size: 2.35rem;
             font-weight: 700;
-            color: #ffffff;
-            letter-spacing: -0.025em;
-            margin: 0 0 12px 0;
-            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
         }
-        .privacy-hero-subtitle {
-            font-size: 1.12rem;
-            color: #cbd5e1;
-            max-width: 760px;
-            margin: 0 0 24px 0;
-            line-height: 1.6;
-        }
-        .privacy-hero-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        .legal-date {
+            color: #64748b;
             font-size: 0.9rem;
-            color: #94a3b8;
+            font-weight: 600;
+            margin-bottom: 36px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 16px;
         }
-        .privacy-hero-meta strong {
-            color: #ffffff;
+        
+        /* Clean Raw Table of Contents */
+        .toc-wrapper {
+            margin-bottom: 44px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e2e8f0;
         }
-
-        /* Main Content Container */
-        .legal-container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 54px 5% 90px;
-        }
-
-        /* Table of Contents Card */
-        .toc-card {
-            background: var(--bg-light);
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 30px 34px;
-            margin-bottom: 54px;
-            box-shadow: 0 2px 5px rgba(15, 23, 42, 0.03);
-        }
-        .toc-card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 22px;
-            padding-bottom: 14px;
-            border-bottom: 2px solid var(--border-light);
-        }
-        .toc-card-title {
-            font-size: 1.05rem;
+        .toc-title {
+            font-size: 1rem;
             font-weight: 700;
-            color: var(--primary-navy);
+            color: #0f172a;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            margin-bottom: 16px;
         }
-        .toc-grid {
+        .toc-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
-        @media (max-width: 680px) {
-            .toc-grid {
-                grid-template-columns: 1fr;
-            }
-            .privacy-hero h1 {
-                font-size: 2.1rem;
-            }
-            .toc-card {
-                padding: 22px 20px;
-            }
-        }
-        .toc-link {
-            color: var(--brand-blue);
+        .toc-list a {
+            color: #4683b3;
             text-decoration: none;
-            font-size: 0.94rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: color 0.15s ease, transform 0.15s ease;
         }
-        .toc-link:hover {
-            color: var(--primary-navy);
+        .toc-list a:hover {
+            color: #0f172a;
             text-decoration: underline;
         }
 
-        /* Typography & Section Styling */
-        .legal-section {
-            margin-bottom: 48px;
-            scroll-margin-top: 100px;
-        }
-        .legal-section h2 {
-            font-size: 1.5rem;
+        .legal-content h2 {
+            font-size: 1.35rem;
             font-weight: 700;
-            color: var(--primary-navy);
-            margin: 0 0 20px 0;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--border-light);
-            letter-spacing: -0.01em;
-        }
-        .legal-section p {
-            color: var(--text-muted);
-            font-size: 1.02rem;
-            margin-bottom: 20px;
-            line-height: 1.78;
-        }
-        .legal-section strong {
-            color: var(--primary-navy);
-            font-weight: 700;
-        }
-        .legal-section ul {
-            margin: 0 0 24px 22px;
-            padding: 0;
-            color: var(--text-muted);
-        }
-        .legal-section li {
-            margin-bottom: 12px;
-            font-size: 1.02rem;
-            line-height: 1.7;
-        }
-        .legal-section a {
-            color: var(--brand-blue);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            transition: color 0.15s;
-        }
-        .legal-section a:hover {
-            color: var(--brand-blue-hover);
-        }
-
-        /* Sub-rights block */
-        .sub-right-block {
-            background: #ffffff;
-            border-left: 3px solid var(--brand-blue);
-            padding: 14px 20px;
+            color: #0f172a;
+            margin-top: 44px;
             margin-bottom: 16px;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-            border-top: 1px solid var(--border-light);
-            border-right: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+            scroll-margin-top: 90px;
         }
-        .sub-right-block p {
-            margin-bottom: 0 !important;
+        .legal-content h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+        .legal-content p {
+            margin-bottom: 20px;
+            color: #334155;
+        }
+        .legal-content strong {
+            color: #0f172a;
+        }
+        .legal-content ul {
+            margin: 0 0 24px 24px;
+            padding: 0;
+            color: #334155;
+        }
+        .legal-content li {
+            margin-bottom: 10px;
+        }
+        .legal-content a {
+            color: #4683b3;
+            text-decoration: underline;
         }
 
-        /* Table Styling (Section 3) */
-        .table-wrapper {
+        /* Clean Raw Table Styling */
+        .table-responsive {
             overflow-x: auto;
-            margin: 28px 0 34px;
-            border: 1px solid var(--border-light);
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-            background-color: #ffffff;
+            margin: 28px 0 36px 0;
+            border: 1px solid #e2e8f0;
         }
         .privacy-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.9rem;
             text-align: left;
-            min-width: 820px;
+            min-width: 750px;
         }
         .privacy-table th {
-            background-color: var(--bg-light);
-            color: var(--primary-navy);
+            background-color: #f8fafc;
+            color: #0f172a;
             font-weight: 700;
-            padding: 16px 18px;
-            border-bottom: 2px solid var(--border-light);
+            padding: 14px 16px;
+            border-bottom: 2px solid #cbd5e1;
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.03em;
         }
         .privacy-table td {
-            padding: 16px 18px;
-            border-bottom: 1px solid var(--border-light);
+            padding: 14px 16px;
+            border-bottom: 1px solid #e2e8f0;
             vertical-align: top;
-            color: var(--text-muted);
+            color: #334155;
             line-height: 1.6;
         }
         .privacy-table tr:last-child td {
             border-bottom: none;
         }
-        .privacy-table tr:nth-child(even) {
-            background-color: #fdfefe;
-        }
-        .badge-no {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            font-weight: 600;
-            font-size: 0.8rem;
-            padding: 3px 10px;
-            border-radius: 4px;
-        }
 
-        /* State Attorney General Grid (Section 8) */
-        .ag-card-grid {
+        /* Clean State AG List */
+        .ag-list {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin: 26px 0 34px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 24px;
+            margin: 16px 0 24px 0;
         }
-        @media (max-width: 840px) {
-            .ag-card-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 520px) {
-            .ag-card-grid {
+        @media (max-width: 640px) {
+            .ag-list {
                 grid-template-columns: 1fr;
             }
         }
-        .ag-card {
-            background: var(--bg-light);
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            padding: 14px 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.2s ease;
-        }
-        .ag-card:hover {
-            border-color: var(--brand-blue);
-            background: #ffffff;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
-            transform: translateY(-1px);
-        }
-        .ag-state-name {
-            font-weight: 600;
-            color: var(--primary-navy);
-            font-size: 0.94rem;
-        }
-        .ag-link {
-            color: var(--brand-blue);
-            font-size: 0.84rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .ag-link:hover {
-            text-decoration: underline;
+        .ag-list div {
+            font-size: 0.92rem;
+            color: #334155;
         }
 
-        /* Contact Box Styling (Section 17) */
-        .contact-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            border: 1px solid var(--border-light);
-            border-left: 4px solid var(--brand-blue);
-            border-radius: 10px;
-            padding: 30px;
-            margin-top: 24px;
-            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-        }
-        .contact-card p {
-            margin-bottom: 8px !important;
-            color: var(--primary-navy) !important;
-        }
-        .contact-detail {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 14px;
-            font-size: 0.98rem;
-            color: var(--text-muted);
-        }
-        .contact-detail-icon {
-            color: var(--brand-blue);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        /* Header Navigation Sticky Fix */
+        /* Header Navigation */
         .header-wrapper {
             background-color: #ffffff;
-            border-bottom: 1px solid var(--border-light);
+            border-bottom: 1px solid #e2e8f0;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -391,357 +208,234 @@
         </div>
     </div>
 
-    <!-- Hero Header Banner -->
-    <section class="privacy-hero">
-        <div class="privacy-hero-container">
-            <div class="privacy-badge">Legal Notice &bull; Transparency & Privacy</div>
-            <h1>Privacy Policy</h1>
-            <div class="privacy-hero-subtitle">Comprehensive Privacy Policy and U.S. State Privacy Rights Notice for Center Street Capital</div>
-            <div class="privacy-hero-meta">
-                <span><strong>Effective Date:</strong> October 6, 2026</span>
-                <span><strong>Organization:</strong> Center Street Capital</span>
-            </div>
-        </div>
-    </section>
-
     <!-- Main Content Container -->
-    <main class="legal-container">
+    <main class="legal-content">
+        <h1>Privacy Policy</h1>
+        <div class="legal-date">Updated: October 6, 2026</div>
 
-        <!-- Table of Contents Card -->
-        <div class="toc-card">
-            <div class="toc-card-header">
-                <div class="toc-card-title">Table of Contents</div>
-            </div>
-            <div class="toc-grid">
-                <a href="#section-1" class="toc-link">1. Introduction</a>
-                <a href="#section-2" class="toc-link">2. Scope</a>
-                <a href="#section-3" class="toc-link">3. Notice at Collection</a>
-                <a href="#section-4" class="toc-link">4. Sources of Collected Personal Information</a>
-                <a href="#section-5" class="toc-link">5. How We Use Personal Information</a>
-                <a href="#section-6" class="toc-link">6. Cookies and Other Technologies</a>
-                <a href="#section-7" class="toc-link">7. How We Disclose Personal Information</a>
-                <a href="#section-8" class="toc-link">8. Your U.S. State Privacy Rights</a>
-                <a href="#section-9" class="toc-link">9. Opt-Out Preference Signals</a>
-                <a href="#section-10" class="toc-link">10. Children and Individuals Under Eighteen</a>
-                <a href="#section-11" class="toc-link">11. Newsletters and Emails</a>
-                <a href="#section-12" class="toc-link">12. Security of Your Information</a>
-                <a href="#section-13" class="toc-link">13. Retention of Personal Information</a>
-                <a href="#section-14" class="toc-link">14. Linked Materials</a>
-                <a href="#section-15" class="toc-link">15. Changes to Our Privacy Policy</a>
-                <a href="#section-16" class="toc-link">16. Reasonable Fees</a>
-                <a href="#section-17" class="toc-link">17. How to Contact Us</a>
+        <!-- Clean Raw Table of Contents -->
+        <div class="toc-wrapper">
+            <div class="toc-title">Table of Contents</div>
+            <div class="toc-list">
+                <a href="#section-1">1. Introduction</a>
+                <a href="#section-2">2. Scope</a>
+                <a href="#section-3">3. Notice at Collection</a>
+                <a href="#section-4">4. Sources of Collected Personal Information</a>
+                <a href="#section-5">5. How We Use Personal Information (Purposes for Collection and Processing)</a>
+                <a href="#section-6">6. Cookies and Other Technologies</a>
+                <a href="#section-7">7. How We Disclose Personal Information</a>
+                <a href="#section-8">8. Your U.S. State Privacy Rights</a>
+                <a href="#section-9">9. Opt-Out Preference Signals</a>
+                <a href="#section-10">10. Children and Individuals Under the Age of Eighteen</a>
+                <a href="#section-11">11. Newsletters and Emails</a>
+                <a href="#section-12">12. Security of Your Information</a>
+                <a href="#section-13">13. Retention of Personal Information</a>
+                <a href="#section-14">14. Linked Materials</a>
+                <a href="#section-15">15. Changes to Our Privacy Policy</a>
+                <a href="#section-16">16. Reasonable Fees</a>
+                <a href="#section-17">17. How to Contact Us</a>
             </div>
         </div>
 
         <!-- Section 1 -->
-        <div class="legal-section" id="section-1">
-            <h2>1. Introduction</h2>
-            <p>Center Street Capital, LLC ("Center Street Capital," "we," "us," and "our") recognizes the importance of protecting the privacy of the personal information you provide to us.</p>
-            <p>"Personal information" means information that identifies, relates to, describes, is capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular consumer or household. "Personal information" does not include publicly available information (e.g., information from government records or information lawfully made available to the general public), deidentified information, or aggregate consumer information. If we process deidentified information, we publicly commit to maintain and use deidentified information only in deidentified form, not to attempt to re-identify it, and to contractually obligate recipients to do the same.</p>
-            <p>We have developed this Privacy Policy (the "Policy") so that you can make educated and informed decisions about the personal information that you entrust to us when you use <a href="./">www.centerstreetcapital.com</a> and any other website, mobile website, our official pages on third-party social media platforms (to the extent permitted by those platforms' terms), email communications you exchange with us, and any other digital platform, including any services, features, pages, and functions contained or offered therein, that are owned, operated, or provided by Center Street Capital (collectively, the "Site"), and so you understand how we collect, use, disclose, and otherwise manage this information.</p>
-            <p>This Policy is incorporated into our <a href="terms-of-use.html">Terms of Service</a>. If there are any terms in this Policy or in our Terms of Service to which you do not agree, you must discontinue your use of the Site. <strong>PLEASE READ THIS PRIVACY POLICY CAREFULLY. BY USING OUR SITE, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTAND, AND AGREE TO THE TERMS OF THIS PRIVACY POLICY.</strong> If you do not agree with this Policy, do not use the Site or provide personal information to us.</p>
-            <p>This Policy is written in the English language. We do not guarantee the accuracy of any translated versions of this Policy. To the extent any translated versions conflict with the English language version, the English language version shall control. Our Site is intended for United States residents only.</p>
-        </div>
+        <h2 id="section-1">1. Introduction</h2>
+        <p>Center Street Capital, LLC ("Center Street Capital," "we," "us," and "our") recognizes the importance of protecting the privacy of the personal information you provide to us.</p>
+        <p>"Personal information" means information that identifies, relates to, describes, is capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular consumer or household. "Personal information" does not include publicly available information (e.g., information from government records or information lawfully made available to the general public), deidentified information, or aggregate consumer information. If we process deidentified information, we publicly commit to maintain and use deidentified information only in deidentified form, not to attempt to re-identify it, and to contractually obligate recipients to do the same.</p>
+        <p>We have developed this Privacy Policy (the "Policy") so that you can make educated and informed decisions about the personal information that you entrust to us when you use <a href="./">www.centerstreetcapital.com</a> and any other website, mobile website, our official pages on third-party social media platforms (to the extent permitted by those platforms' terms), email communications you exchange with us, and any other digital platform, including any services, features, pages, and functions contained or offered therein, that are owned, operated, or provided by Center Street Capital (collectively, the "Site"), and so you understand how we collect, use, disclose, and otherwise manage this information.</p>
+        <p>This Policy is incorporated into our <a href="terms-of-use.html">Terms of Service</a>. If there are any terms in this Policy or in our Terms of Service to which you do not agree, you must discontinue your use of the Site. <strong>PLEASE READ THIS PRIVACY POLICY CAREFULLY. BY USING OUR SITE, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTAND, AND AGREE TO THE TERMS OF THIS PRIVACY POLICY.</strong> If you do not agree with this Policy, do not use the Site or provide personal information to us.</p>
+        <p>This Policy is written in the English language. We do not guarantee the accuracy of any translated versions of this Policy. To the extent any translated versions conflict with the English language version, the English language version shall control. Our Site is intended for United States residents only.</p>
 
         <!-- Section 2 -->
-        <div class="legal-section" id="section-2">
-            <h2>2. Scope</h2>
-            <p>This Policy applies to personal information collected through the Site.</p>
-        </div>
+        <h2 id="section-2">2. Scope</h2>
+        <p>This Policy applies to personal information collected through the Site.</p>
 
         <!-- Section 3 -->
-        <div class="legal-section" id="section-3">
-            <h2>3. Notice at Collection</h2>
-            <p>We collect the following categories of personal information:</p>
+        <h2 id="section-3">3. Notice at Collection</h2>
+        <p>We collect the following categories of personal information:</p>
 
-            <div class="table-wrapper">
-                <table class="privacy-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 17%;">Category</th>
-                            <th style="width: 22%;">Examples We Collect</th>
-                            <th style="width: 23%;">Purposes</th>
-                            <th style="width: 19%;">Sold or Shared?</th>
-                            <th style="width: 19%;">Retention</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Identifiers</strong></td>
-                            <td>Name, email address, phone number, postal address, IP address, device identifier, browser</td>
-                            <td>Responding to general inquiries and diligence-access requests; operating and securing the Site; routing communications; sending newsletters or other communications you request</td>
-                            <td><span class="badge-no" style="background:#fff7ed; color:#c2410c;">Operational Sharing</span><br><span style="font-size: 0.82rem; color: var(--text-muted);">Not sold for monetary consideration. Identifiers are shared with service providers to operate the site and provide analytics, which constitutes &quot;sharing&quot; and may constitute a &quot;sale&quot; under certain U.S. state privacy laws.</span></td>
-                            <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed. IP address and browser information are retained for a shorter operational period.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Professional or employment-related information</strong></td>
-                            <td>Firm, title</td>
-                            <td>Responding to inquiries and diligence-access requests; keeping professional records of those communications</td>
-                            <td><span class="badge-no">No</span></td>
-                            <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Customer-records information</strong></td>
-                            <td>Name, phone number, professional information,  and the content of messages you send us</td>
-                            <td>Responding to inquiries and diligence-access requests; sending newsletters or other communications you request; keeping professional records of those communications</td>
-                            <td><span class="badge-no" style="background:#fff7ed; color:#c2410c;">Operational Sharing</span><br><span style="font-size: 0.82rem; color: var(--text-muted);">Not sold for monetary consideration. Records are shared with service providers to operate the site and provide analytics, which constitutes &quot;sharing&quot; and may constitute a &quot;sale&quot; under certain U.S. state privacy laws.</span></td>
-                            <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Commercial information</strong></td>
-                            <td>Records of materials requested</td>
-                            <td>Responding to and documenting diligence-access requests</td>
-                            <td><span class="badge-no" style="background:#fff7ed; color:#c2410c;">Operational Sharing</span><br><span style="font-size: 0.82rem; color: var(--text-muted);">Not sold for monetary consideration. Only shared as necessary to respond to your request.</span></td>
-                            <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Internet/network activity</strong></td>
-                            <td>Cookies, pixel data, pages viewed, browser type, device identifiers, and dates and times of visits</td>
-                            <td>Analytics; site improvement; customer support</td>
-                            <td><span class="badge-no" style="background:#fff7ed; color:#c2410c;">Operational Sharing</span><br><span style="font-size: 0.82rem; color: var(--text-muted);">Not sold for monetary consideration. Activity is shared with service providers to operate the site and provide analytics, which constitutes &quot;sharing&quot; and may constitute a &quot;sale&quot; under certain U.S. state</span></td>
-                            <td>Retained for a short operational period and then deleted or de-identified when no longer needed.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sensitive personal information</strong></td>
-                            <td>We do not intentionally collect sensitive personal information.  We only receive sensitive personal information that site visitors voluntarily provide in service requests or inquiries. Do not submit Social Security numbers, government IDs, or wire instructions through the public Site.</td>
-                            <td>Not requested; if voluntarily submitted, used only to respond, then deleted/redacted</td>
-                            <td><span class="badge-no">No</span></td>
-                            <td>Not requested; if voluntarily submitted, Redacted or deleted promptly after we respond to your inquiry, unless retention is required by law.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p>In the preceding 12 months, we disclosed Identifiers, Internet/network activity, Professional information, Customer-records information, and Commercial information to service providers that provide website hosting, analytics, and email/form processing on our behalf.</p>
-            <p>For more information on retention of Personal Information for all Categories see Section 13 (Retention of Personal Information).</p>
-            <p>We do <strong>not</strong> sell personal information. We do not share personal information for cross-context behavioral advertising, and we do not use advertising or retargeting pixels. We do not engage in automated decision-making or profiling to make decisions that produce legal or similarly significant effects about individuals. If these practices change, we will update this Policy and provide a "Do Not Sell or Share" link.</p>
-            <p><strong>Non-personal information.</strong> Even if you do not provide any personal information to Center Street Capital, we collect non-personal information about your use of the Site — information that we cannot use to identify or contact you, such as aggregate statistics. If you do not want us to collect such information, please do not use the Site.</p>
+        <div class="table-responsive">
+            <table class="privacy-table">
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">Category</th>
+                        <th style="width: 22%;">Examples We Collect</th>
+                        <th style="width: 22%;">Purposes</th>
+                        <th style="width: 20%;">Sold or Shared?</th>
+                        <th style="width: 18%;">Retention</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Identifiers</strong></td>
+                        <td>Name, email address, phone number, postal address, IP address, device identifier, browser</td>
+                        <td>Responding to general inquiries and diligence-access requests; operating and securing the Site; routing communications; sending newsletters or other communications you request</td>
+                        <td>Not sold for monetary consideration. Identifiers are shared with service providers to operate the site and provide analytics, which constitutes &quot;sharing&quot; and may constitute a &quot;sale&quot; under certain U.S. state privacy laws.</td>
+                        <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed. IP address and browser information are retained for a shorter operational period.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Professional or employment-related information</strong></td>
+                        <td>Firm, title</td>
+                        <td>Responding to inquiries and diligence-access requests; keeping professional records of those communications</td>
+                        <td>No</td>
+                        <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Customer-records information</strong></td>
+                        <td>Name, phone number, professional information,  and the content of messages you send us</td>
+                        <td>Responding to inquiries and diligence-access requests; sending newsletters or other communications you request; keeping professional records of those communications</td>
+                        <td>Not sold for monetary consideration. Records are shared with service providers to operate the site and provide analytics, which constitutes &quot;sharing&quot; and may constitute a &quot;sale&quot; under certain U.S. state privacy laws.</td>
+                        <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Commercial information</strong></td>
+                        <td>Records of materials requested</td>
+                        <td>Responding to and documenting diligence-access requests</td>
+                        <td>Not sold for monetary consideration. Only shared as necessary to respond to your request.</td>
+                        <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Internet/network activity</strong></td>
+                        <td>Cookies, pixel data, pages viewed, browser type, device identifiers, and dates and times of visits</td>
+                        <td>Analytics; site improvement; customer support</td>
+                        <td>Not sold for monetary consideration. Activity is shared with service providers to operate the site and provide analytics, which constitutes &quot;sharing&quot; and may constitute a &quot;sale&quot; under certain U.S. state</td>
+                        <td>Retained for a short operational period and then deleted or de-identified when no longer needed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sensitive personal information</strong></td>
+                        <td>We do not intentionally collect sensitive personal information.  We only receive sensitive personal information that site visitors voluntarily provide in service requests or inquiries. Do not submit Social Security numbers, government IDs, or wire instructions through the public Site.</td>
+                        <td>Not requested; if voluntarily submitted, used only to respond, then deleted/redacted</td>
+                        <td>No</td>
+                        <td>Not requested; if voluntarily submitted, Redacted or deleted promptly after we respond to your inquiry, unless retention is required by law.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
+        <p>In the preceding 12 months, we disclosed Identifiers, Internet/network activity, Professional information, Customer-records information, and Commercial information to service providers that provide website hosting, analytics, and email/form processing on our behalf.</p>
+        <p>For more information on retention of Personal Information for all Categories see Section 13 (Retention of Personal Information).</p>
+        <p>We do <strong>not</strong> sell personal information. We do not share personal information for cross-context behavioral advertising, and we do not use advertising or retargeting pixels. We do not engage in automated decision-making or profiling to make decisions that produce legal or similarly significant effects about individuals. If these practices change, we will update this Policy and provide a "Do Not Sell or Share" link.</p>
+        <p><strong>Non-personal information.</strong> Even if you do not provide any personal information to Center Street Capital, we collect non-personal information about your use of the Site — information that we cannot use to identify or contact you, such as aggregate statistics. If you do not want us to collect such information, please do not use the Site.</p>
 
         <!-- Section 4 -->
-        <div class="legal-section" id="section-4">
-            <h2>4. Sources of Collected Personal Information</h2>
-            <p>Center Street Capital collects personal information from the following sources.</p>
-            <p><strong>Information you provide to us directly.</strong> Center Street Capital collects personal information from you directly when you interact with the Site, contact us, submit a diligence-access request, sign up to receive emails from us, or otherwise communicate with us. When you use the Site, we may collect your name, firm, title, email address, phone number, and the content of the messages you send us, including diligence-access requests. Please do not submit Social Security numbers, government IDs, or wire instructions through the public Site.</p>
-            <p><strong>Information we obtain indirectly.</strong> We may receive publicly available professional information about you, and information from service providers who host or analyze the Site. We may combine this with information we have already collected, such as your contact details and prior inquiry history, to respond to your requests and to improve the Site.</p>
-            <p><strong>Information collected automatically.</strong> When you use our Site, we collect certain information automatically through cookies and similar technologies, including your IP address, device and browser type, the referring URL, the pages you view, the dates and times of your visits, and cookie identifiers, to allow us to operate and provide the Site and to understand how you interact with it. To learn more, see the Cookies and Other Technologies section below.</p>
-        </div>
+        <h2 id="section-4">4. Sources of Collected Personal Information</h2>
+        <p>Center Street Capital collects personal information from the following sources.</p>
+        <p><strong>Information you provide to us directly.</strong> Center Street Capital collects personal information from you directly when you interact with the Site, contact us, submit a diligence-access request, sign up to receive emails from us, or otherwise communicate with us. When you use the Site, we may collect your name, firm, title, email address, phone number, and the content of the messages you send us, including diligence-access requests. Please do not submit Social Security numbers, government IDs, or wire instructions through the public Site.</p>
+        <p><strong>Information we obtain indirectly.</strong> We may receive publicly available professional information about you, and information from service providers who host or analyze the Site. We may combine this with information we have already collected, such as your contact details and prior inquiry history, to respond to your requests and to improve the Site.</p>
+        <p><strong>Information collected automatically.</strong> When you use our Site, we collect certain information automatically through cookies and similar technologies, including your IP address, device and browser type, the referring URL, the pages you view, the dates and times of your visits, and cookie identifiers, to allow us to operate and provide the Site and to understand how you interact with it. To learn more, see the Cookies and Other Technologies section below.</p>
 
         <!-- Section 5 -->
-        <div class="legal-section" id="section-5">
-            <h2>5. How We Use Personal Information (Purposes for Collection and Processing)</h2>
-            <p>Center Street Capital only collects and processes the minimum amount of personal information necessary for the purposes of our information processing activities and retains such information only as required to fulfill such purposes, including to:</p>
-            <ul>
-                <li>Operate, secure, and improve the Site;</li>
-                <li>Respond to general inquiries and diligence-access requests, and keep professional records of those communications;</li>
-                <li>Send you a newsletter or other communications you have requested;</li>
-                <li>Protect against fraud, abuse, and security incidents;</li>
-                <li>Comply with law and respond to lawful requests; and</li>
-                <li>Enforce our agreements.</li>
-            </ul>
-            <p>In some circumstances, we may collect aggregated data or anonymize your personal information (so that it can no longer be associated with you) for research or statistical purposes. Aggregated or anonymized information is not considered personal information under this Policy. Where applicable, if Center Street Capital intends to further process your personal information for a purpose other than that for which it was initially collected, Center Street Capital shall, prior to such processing, provide you with relevant information on such additional purpose and, to the extent required by applicable law, obtain your consent. To the extent you provide consent to Center Street Capital for any purpose, you may withdraw such consent at any time by contacting us at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>. We do not use your personal information to train artificial intelligence or machine-learning models, including large language models.</p>
-            <p>Through the Site, Center Street Capital does not request or intentionally collect any category of 'sensitive personal information' as defined under applicable state privacy law, including without limitation government identifiers, account credentials, precise geolocation, health, biometric, or neural data, or information revealing racial or ethnic origin, religious beliefs, sexual orientation, citizenship, or union membership. We ask that you not send nor disclose any sensitive personal information that we do not explicitly collect for the purposes outlined in this Policy or to provide our Site to you.</p>
-        </div>
+        <h2 id="section-5">5. How We Use Personal Information (Purposes for Collection and Processing)</h2>
+        <p>Center Street Capital only collects and processes the minimum amount of personal information necessary for the purposes of our information processing activities and retains such information only as required to fulfill such purposes, including to:</p>
+        <ul>
+            <li>Operate, secure, and improve the Site;</li>
+            <li>Respond to general inquiries and diligence-access requests, and keep professional records of those communications;</li>
+            <li>Send you a newsletter or other communications you have requested;</li>
+            <li>Protect against fraud, abuse, and security incidents;</li>
+            <li>Comply with law and respond to lawful requests; and</li>
+            <li>Enforce our agreements.</li>
+        </ul>
+        <p>In some circumstances, we may collect aggregated data or anonymize your personal information (so that it can no longer be associated with you) for research or statistical purposes. Aggregated or anonymized information is not considered personal information under this Policy. Where applicable, if Center Street Capital intends to further process your personal information for a purpose other than that for which it was initially collected, Center Street Capital shall, prior to such processing, provide you with relevant information on such additional purpose and, to the extent required by applicable law, obtain your consent. To the extent you provide consent to Center Street Capital for any purpose, you may withdraw such consent at any time by contacting us at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>. We do not use your personal information to train artificial intelligence or machine-learning models, including large language models.</p>
+        <p>Through the Site, Center Street Capital does not request or intentionally collect any category of 'sensitive personal information' as defined under applicable state privacy law, including without limitation government identifiers, account credentials, precise geolocation, health, biometric, or neural data, or information revealing racial or ethnic origin, religious beliefs, sexual orientation, citizenship, or union membership. We ask that you not send nor disclose any sensitive personal information that we do not explicitly collect for the purposes outlined in this Policy or to provide our Site to you.</p>
 
         <!-- Section 6 -->
-        <div class="legal-section" id="section-6">
-            <h2>6. Cookies and Other Technologies</h2>
-            <p>A "cookie" is a small file created by a web server that can be stored on a user's device for use either during a particular browsing session (a "session" cookie) or a future browsing session (a "persistent" cookie). We may use cookies, analytics software, log files, or similar technologies (collectively, "Cookies") to collect certain information about your online activity on the Site. This information allows us to keep track of analytics and enables Center Street Capital to operate, secure, and improve the Site. We do not use advertising or retargeting pixels. We use strictly necessary Cookies to operate the Site and analytics Cookies to understand Site usage. You are free to decline our Cookies, but if you do, some parts of the Site may not work properly for you. You may manage preferences via <a href="cookie-policy.html">Cookie Settings</a>, and you may disallow Cookies at any time through your web browser. We do not permit third parties to collect personal information about your online activities over time and across different websites when you use the Site.</p>
-            <p>If you would like more detailed information about first-party and third-party Cookies in use on the Site, please contact us using the information below.</p>
-        </div>
+        <h2 id="section-6">6. Cookies and Other Technologies</h2>
+        <p>A "cookie" is a small file created by a web server that can be stored on a user's device for use either during a particular browsing session (a "session" cookie) or a future browsing session (a "persistent" cookie). We may use cookies, analytics software, log files, or similar technologies (collectively, "Cookies") to collect certain information about your online activity on the Site. This information allows us to keep track of analytics and enables Center Street Capital to operate, secure, and improve the Site. We do not use advertising or retargeting pixels. We use strictly necessary Cookies to operate the Site and analytics Cookies to understand Site usage. You are free to decline our Cookies, but if you do, some parts of the Site may not work properly for you. You may manage preferences via <a href="cookie-policy.html">Cookie Settings</a>, and you may disallow Cookies at any time through your web browser. We do not permit third parties to collect personal information about your online activities over time and across different websites when you use the Site.</p>
+        <p>If you would like more detailed information about first-party and third-party Cookies in use on the Site, please contact us using the information below.</p>
 
         <!-- Section 7 -->
-        <div class="legal-section" id="section-7">
-            <h2>7. How We Disclose Personal Information</h2>
-            <p>We may share or disclose your personal information for the following limited purposes:</p>
-            <p><strong>Third parties providing services on our behalf.</strong> We may share information with vendors and suppliers (collectively, "Service Providers") who perform services and functions on our behalf, such as website hosting, analytics, and email or form processing. Service Providers do not have the right to use personal information we share with them beyond what is necessary to assist us, and we contractually require that they (1) protect the privacy of your personal information consistent with this Policy and (2) not use or disclose it for any purpose other than providing the limited service or function for Center Street Capital.</p>
-            <p><strong>Aggregate information.</strong> We may share non-identifying information, such as aggregate statistics or usage information, with third parties. Any aggregated information shared in this way will not contain personal information.</p>
-            <p><strong>With your consent.</strong> Center Street Capital may share personal information with third parties when we have your consent to do so. If you agree to have your personal information shared with a third party, it will be subject to that third party's privacy policy and business practices.</p>
-            <p><strong>Legal disclosure.</strong> We may disclose information to comply with a legal obligation; when we believe in good faith that the law requires it; at the request of governmental authorities conducting an investigation; to verify or enforce our agreements or policies; to respond to an emergency; or otherwise to protect the rights, property, safety, or security of third parties, visitors to our Site, or the public.</p>
-            <p><strong>Transfer in the event of sale or change of control.</strong> If the ownership of all or substantially all of our business changes, or we otherwise transfer assets relating to our business or the Site to a third party (such as by merger, acquisition, or bankruptcy proceeding), we may transfer personal information to the new owner. Unless prohibited by applicable law, your information would remain subject to the privacy policy applicable at the time of such transfer.</p>
-            <p><strong>Emergencies.</strong> We may disclose personal information to appropriate law enforcement or other emergency response professionals in response to a physical threat to you or others.</p>
-            <p>We do not disclose personal information to third parties for their own direct marketing.</p>
-        </div>
+        <h2 id="section-7">7. How We Disclose Personal Information</h2>
+        <p>We may share or disclose your personal information for the following limited purposes:</p>
+        <p><strong>Third parties providing services on our behalf.</strong> We may share information with vendors and suppliers (collectively, "Service Providers") who perform services and functions on our behalf, such as website hosting, analytics, and email or form processing. Service Providers do not have the right to use personal information we share with them beyond what is necessary to assist us, and we contractually require that they (1) protect the privacy of your personal information consistent with this Policy and (2) not use or disclose it for any purpose other than providing the limited service or function for Center Street Capital.</p>
+        <p><strong>Aggregate information.</strong> We may share non-identifying information, such as aggregate statistics or usage information, with third parties. Any aggregated information shared in this way will not contain personal information.</p>
+        <p><strong>With your consent.</strong> Center Street Capital may share personal information with third parties when we have your consent to do so. If you agree to have your personal information shared with a third party, it will be subject to that third party's privacy policy and business practices.</p>
+        <p><strong>Legal disclosure.</strong> We may disclose information to comply with a legal obligation; when we believe in good faith that the law requires it; at the request of governmental authorities conducting an investigation; to verify or enforce our agreements or policies; to respond to an emergency; or otherwise to protect the rights, property, safety, or security of third parties, visitors to our Site, or the public.</p>
+        <p><strong>Transfer in the event of sale or change of control.</strong> If the ownership of all or substantially all of our business changes, or we otherwise transfer assets relating to our business or the Site to a third party (such as by merger, acquisition, or bankruptcy proceeding), we may transfer personal information to the new owner. Unless prohibited by applicable law, your information would remain subject to the privacy policy applicable at the time of such transfer.</p>
+        <p><strong>Emergencies.</strong> We may disclose personal information to appropriate law enforcement or other emergency response professionals in response to a physical threat to you or others.</p>
+        <p>We do not disclose personal information to third parties for their own direct marketing.</p>
 
         <!-- Section 8 -->
-        <div class="legal-section" id="section-8">
-            <h2>8. Your U.S. State Privacy Rights</h2>
-            <p>Depending on your state of residence, you may have some or all of the following rights with respect to your personal information, subject to the conditions, exceptions, and limitations of the law of your state:</p>
-            
-            <div class="sub-right-block"><p><strong>Right to confirm whether we process, and know/access</strong> the personal information we have collected about you (including categories, sources, purposes, and third parties to whom it was disclosed).</p></div>
-            <div class="sub-right-block"><p><strong>Request to Access.</strong> You may submit a request to obtain a copy of or access to the personal information that we have collected on you.</p></div>
-            <div class="sub-right-block"><p><strong>Request to Know.</strong> You may request information on the categories of personal information we have collected about you; the categories of sources; our business or commercial purpose for collecting, selling, or sharing personal information; the categories of third parties to whom we have disclosed personal information; and the specific pieces of personal information we have collected about you. You may also request the categories of personal information we have sold or shared and the categories of third parties to whom it was sold or shared, and the categories disclosed for a business purpose and the categories of persons to whom it was disclosed. The categories, sources, and disclosures will not exceed what is contained in this Policy. We are not required to retain information used only for a one-time transaction, to re-identify personal information not stored in that manner, or to provide personal information to you more than twice in a twelve-month period.</p></div>
-            <div class="sub-right-block"><p><strong>Right to correct inaccurate personal information.</strong> You may correct or update your personal information at any time by contacting us.</p></div>
-            <div class="sub-right-block"><p><strong>Right to delete personal information.</strong> You may request that we delete personal information we have collected from you. Subject to certain exceptions, we will, on receipt of a verifiable request, delete your personal information from our records, direct our service providers to do the same, and notify third parties with whom we have shared it to delete it unless this proves impossible or involves disproportionate effort. To the extent permitted or required by applicable law in your state, we may not delete your personal information if it is necessary to: complete a transaction you requested; protect security and prevent fraud; identify and fix technical errors; comply with legal obligations; conduct internal uses reasonably compatible with the context in which the information was collected; and establish, exercise, or defend legal claims.</p></div>
-            <div class="sub-right-block"><p><strong>Right to data portability</strong> (a copy in a portable format). You may request that we transfer your personal information to another entity, to the extent technically feasible.</p></div>
-            <div class="sub-right-block"><p><strong>Right to opt out</strong> of the sale or sharing of personal information and of processing for targeted advertising or profiling. We do not sell personal information, we do not share personal information for targeted advertising, and we do not use profiling in furtherance of decisions that produce legal or similarly significant effects. If these practices change, we will update this Policy and provide a "Do Not Sell or Share" link, and you may submit a request to opt out, including via a GPC signal.</p></div>
-            <div class="sub-right-block"><p><strong>Right to limit the use of sensitive personal information.</strong> We do not seek sensitive personal information through the public Site, and we only receive sensitive personal information that you voluntarily provide in inquiries or diligence-access requests. We use such information solely to respond to and service your requests. We do not sell or share your sensitive personal information, and we do not use sensitive personal information collected from the public Site to infer characteristics or for advertising. You may withdraw your consent to any use or disclosure of your sensitive personal information.</p></div>
-            <div class="sub-right-block"><p><strong>Right to Access Information About Automated Decision-Making.</strong> We do not currently engage in automated individual decision-making. In the event we ever do so, we will inform you of such change and you may request information about and opt out of such automated decision-making.</p></div>
-            <div class="sub-right-block"><p><strong>Right to a list of specific third parties.</strong> Residents of certain states may request a list of the specific third parties to which we have disclosed personal information.</p></div>
-            <div class="sub-right-block"><p><strong>Right to Appeal (in certain states).</strong> If we notify you that no action is to be taken in response to your request, you may appeal by contacting us within 30 days with the reason why you believe further action should be taken. We will respond within the period required by your state law (e.g., 45 or 60 days). If you are not satisfied with the result of the appeal and are a resident of one of the states listed below, you may contact the Attorney General of your state:</p></div>
+        <h2 id="section-8">8. Your U.S. State Privacy Rights</h2>
+        <p>Depending on your state of residence, you may have some or all of the following rights with respect to your personal information, subject to the conditions, exceptions, and limitations of the law of your state:</p>
+        <p><strong>Right to confirm whether we process, and know/access</strong> the personal information we have collected about you (including categories, sources, purposes, and third parties to whom it was disclosed).</p>
+        <p><strong>Request to Access.</strong> You may submit a request to obtain a copy of or access to the personal information that we have collected on you.</p>
+        <p><strong>Request to Know.</strong> You may request information on the categories of personal information we have collected about you; the categories of sources; our business or commercial purpose for collecting, selling, or sharing personal information; the categories of third parties to whom we have disclosed personal information; and the specific pieces of personal information we have collected about you. You may also request the categories of personal information we have sold or shared and the categories of third parties to whom it was sold or shared, and the categories disclosed for a business purpose and the categories of persons to whom it was disclosed. The categories, sources, and disclosures will not exceed what is contained in this Policy. We are not required to retain information used only for a one-time transaction, to re-identify personal information not stored in that manner, or to provide personal information to you more than twice in a twelve-month period.</p>
+        <p><strong>Right to correct inaccurate personal information.</strong> You may correct or update your personal information at any time by contacting us.</p>
+        <p><strong>Right to delete personal information.</strong> You may request that we delete personal information we have collected from you. Subject to certain exceptions, we will, on receipt of a verifiable request, delete your personal information from our records, direct our service providers to do the same, and notify third parties with whom we have shared it to delete it unless this proves impossible or involves disproportionate effort. To the extent permitted or required by applicable law in your state, we may not delete your personal information if it is necessary to: complete a transaction you requested; protect security and prevent fraud; identify and fix technical errors; comply with legal obligations; conduct internal uses reasonably compatible with the context in which the information was collected; and establish, exercise, or defend legal claims.</p>
+        <p><strong>Right to data portability</strong> (a copy in a portable format). You may request that we transfer your personal information to another entity, to the extent technically feasible.</p>
+        <p><strong>Right to opt out</strong> of the sale or sharing of personal information and of processing for targeted advertising or profiling. We do not sell personal information, we do not share personal information for targeted advertising, and we do not use profiling in furtherance of decisions that produce legal or similarly significant effects. If these practices change, we will update this Policy and provide a "Do Not Sell or Share" link, and you may submit a request to opt out, including via a GPC signal.</p>
+        <p><strong>Right to limit the use of sensitive personal information.</strong> We do not seek sensitive personal information through the public Site, and we only receive sensitive personal information that you voluntarily provide in inquiries or diligence-access requests. We use such information solely to respond to and service your requests. We do not sell or share your sensitive personal information, and we do not use sensitive personal information collected from the public Site to infer characteristics or for advertising. You may withdraw your consent to any use or disclosure of your sensitive personal information.</p>
+        <p><strong>Right to Access Information About Automated Decision-Making.</strong> We do not currently engage in automated individual decision-making. In the event we ever do so, we will inform you of such change and you may request information about and opt out of such automated decision-making.</p>
+        <p><strong>Right to a list of specific third parties.</strong> Residents of certain states may request a list of the specific third parties to which we have disclosed personal information.</p>
+        <p><strong>Right to Appeal (in certain states).</strong> If we notify you that no action is to be taken in response to your request, you may appeal by contacting us within 30 days with the reason why you believe further action should be taken. We will respond within the period required by your state law (e.g., 45 or 60 days). If you are not satisfied with the result of the appeal and are a resident of one of the states listed below, you may contact the Attorney General of your state:</p>
 
-            <!-- State Attorney General Grid -->
-            <div class="ag-card-grid">
-                <div class="ag-card">
-                    <span class="ag-state-name">California</span>
-                    <a href="https://oag.ca.gov/contact/consumer-complaint-against-business-or-company" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Colorado</span>
-                    <a href="https://coag.gov/file-complaint/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Connecticut</span>
-                    <a href="https://portal.ct.gov/AG/Common/Complaint-Form-Landing-page" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Delaware</span>
-                    <a href="https://attorneygeneral.delaware.gov/fraud/cmu/complaint/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Florida</span>
-                    <a href="https://www.myfloridalegal.com/how-to-contact-us/file-a-complaint" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Indiana</span>
-                    <a href="https://www.in.gov/attorneygeneral/consumer-protection-division/file-a-complaint/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Iowa</span>
-                    <a href="https://www.iowaattorneygeneral.gov/for-consumers/file-a-consumer-complaint/complaint-form" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Kentucky</span>
-                    <a href="https://www.ag.ky.gov/about/Office-Divisions/OCP/Pages/default.aspx" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Maryland</span>
-                    <a href="https://portal.oag.state.md.us/cpdportal/?q=Home" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Minnesota</span>
-                    <a href="https://www.ag.state.mn.us/Office/Complaint.aspx" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Montana</span>
-                    <a href="https://dojmt.gov/office-of-consumer-protection/consumer-complaints/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Nebraska</span>
-                    <a href="https://protectthegoodlife.nebraska.gov/data-privacy-homepage" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">New Hampshire</span>
-                    <a href="https://www.doj.nh.gov/consumer/complaints/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">New Jersey</span>
-                    <a href="https://www.njconsumeraffairs.gov/Pages/Consumer-Complaints.aspx" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Oklahoma</span>
-                    <a href="https://oklahoma.gov/oag.html" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Oregon</span>
-                    <a href="https://www.doj.state.or.us/consumer-protection/id-theft-data-breaches/privacy/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Rhode Island</span>
-                    <a href="https://riag.ri.gov/forms/consumer-complaint" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Tennessee</span>
-                    <a href="https://www.tn.gov/attorneygeneral/working-for-tennessee/consumer/file-a-complaint.html" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Texas</span>
-                    <a href="https://consumerprotection.texasattorneygeneral.gov/consumercomplaintportal/s/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Utah</span>
-                    <a href="https://services.commerce.utah.gov/dcp-complaint/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Virginia</span>
-                    <a href="https://www.oag.state.va.us/consumer-protection/index.php/file-a-complaint" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-            </div>
-
-            <p>If you would like to exercise your rights as a resident of one of these states, submit requests by calling (949) 244-1090 or sending an email to <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>, providing enough information to identify you and enough specificity on the requested data. We will verify your request as required by law and respond within statutory time-frames (generally 45 days, extendable). To verify your identity we may ask you to confirm information we already hold (e.g., email address used to contact us). An authorized agent may submit a request on your behalf by providing signed written permission.</p>
-            <p><strong>Non-discrimination for exercising your rights.</strong> We may not, and will not, treat you differently for exercising your privacy rights.</p>
+        <div class="ag-list">
+            <div>California: <a href="https://oag.ca.gov/contact/consumer-complaint-against-business-or-company" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Colorado: <a href="https://coag.gov/file-complaint/" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Connecticut: <a href="https://portal.ct.gov/AG/Common/Complaint-Form-Landing-page" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Delaware: <a href="https://attorneygeneral.delaware.gov/fraud/cmu/complaint/" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Florida: <a href="https://www.myfloridalegal.com/how-to-contact-us/file-a-complaint" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Indiana: <a href="https://www.in.gov/attorneygeneral/consumer-protection-division/file-a-complaint/" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Iowa: <a href="https://www.iowaattorneygeneral.gov/for-consumers/file-a-consumer-complaint/complaint-form" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Kentucky: <a href="https://www.ag.ky.gov/about/Office-Divisions/OCP/Pages/default.aspx" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Maryland: <a href="https://portal.oag.state.md.us/cpdportal/?q=Home" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Minnesota: <a href="https://www.ag.state.mn.us/Office/Complaint.aspx" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Montana: <a href="https://dojmt.gov/office-of-consumer-protection/consumer-complaints/" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Nebraska: <a href="https://protectthegoodlife.nebraska.gov/data-privacy-homepage" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>New Hampshire: <a href="https://www.doj.nh.gov/consumer/complaints/" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>New Jersey: <a href="https://www.njconsumeraffairs.gov/Pages/Consumer-Complaints.aspx" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Oklahoma: <a href="https://oklahoma.gov/oag.html" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Oregon: <a href="https://www.doj.state.or.us/consumer-protection/id-theft-data-breaches/privacy/" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Rhode Island: <a href="https://riag.ri.gov/forms/consumer-complaint" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Tennessee: <a href="https://www.tn.gov/attorneygeneral/working-for-tennessee/consumer/file-a-complaint.html" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Texas: <a href="https://consumerprotection.texasattorneygeneral.gov/consumercomplaintportal/s/" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Utah: <a href="https://services.commerce.utah.gov/dcp-complaint/" target="_blank" rel="noopener">State Attorney General</a></div>
+            <div>Virginia: <a href="https://www.oag.state.va.us/consumer-protection/index.php/file-a-complaint" target="_blank" rel="noopener">State Attorney General</a></div>
         </div>
+
+        <p>If you would like to exercise your rights as a resident of one of these states, submit requests by calling (949) 244-1090 or sending an email to <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>, providing enough information to identify you and enough specificity on the requested data. We will verify your request as required by law and respond within statutory time-frames (generally 45 days, extendable). To verify your identity we may ask you to confirm information we already hold (e.g., email address used to contact us). An authorized agent may submit a request on your behalf by providing signed written permission.</p>
+        <p><strong>Non-discrimination for exercising your rights.</strong> We may not, and will not, treat you differently for exercising your privacy rights.</p>
 
         <!-- Section 9 -->
-        <div class="legal-section" id="section-9">
-            <h2>9. Opt-Out Preference Signals</h2>
-            <p>Because we do not sell or share personal information, opt-out preference signals do not currently affect our practices. Nevertheless, our Site recognizes Global Privacy Control (GPC) opt-out preference signals and displays a confirmation once your signal has been processed. Should our practices change, we will treat a GPC signal as a valid opt-out for the applicable browser. Apart from Global Privacy Control signals, the Site does not currently respond to browser “Do Not Track“ signals.</p>
-        </div>
+        <h2 id="section-9">9. Opt-Out Preference Signals</h2>
+        <p>Because we do not sell or share personal information, opt-out preference signals do not currently affect our practices. Nevertheless, our Site recognizes Global Privacy Control (GPC) opt-out preference signals and displays a confirmation once your signal has been processed. Should our practices change, we will treat a GPC signal as a valid opt-out for the applicable browser. Apart from Global Privacy Control signals, the Site does not currently respond to browser “Do Not Track“ signals.</p>
 
         <!-- Section 10 -->
-        <div class="legal-section" id="section-10">
-            <h2>10. Children and Individuals Under the Age of Eighteen</h2>
-            <p>We are committed to protecting the privacy of children. Our Site is not intended for or directed to persons under eighteen (18) years of age. <strong>IF YOU ARE UNDER THE AGE OF EIGHTEEN (18) YOU ARE NOT AUTHORIZED TO USE OUR SITE, EVEN IF YOU HAVE OBTAINED PARENTAL CONSENT TO DO SO.</strong> We do not knowingly collect, request, process, or disclose data of persons under eighteen (18). Upon notice that a person under eighteen (18) has provided us with personal information, or that another party has otherwise provided us with the personal information of a person under eighteen (18), we will delete that personal information from our records. If you are a parent or guardian and believe we have collected personal information of a person under eighteen (18), please contact us at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a> and we will remove such data.</p>
-        </div>
+        <h2 id="section-10">10. Children and Individuals Under the Age of Eighteen</h2>
+        <p>We are committed to protecting the privacy of children. Our Site is not intended for or directed to persons under eighteen (18) years of age. <strong>IF YOU ARE UNDER THE AGE OF EIGHTEEN (18) YOU ARE NOT AUTHORIZED TO USE OUR SITE, EVEN IF YOU HAVE OBTAINED PARENTAL CONSENT TO DO SO.</strong> We do not knowingly collect, request, process, or disclose data of persons under eighteen (18). Upon notice that a person under eighteen (18) has provided us with personal information, or that another party has otherwise provided us with the personal information of a person under eighteen (18), we will delete that personal information from our records. If you are a parent or guardian and believe we have collected personal information of a person under eighteen (18), please contact us at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a> and we will remove such data.</p>
 
         <!-- Section 11 -->
-        <div class="legal-section" id="section-11">
-            <h2>11. Newsletters and Emails</h2>
-            <p><strong>Newsletters and emails.</strong> At various times during your use of the Site, you may be given the option of opting in to recurring informational or promotional newsletters via email from Center Street Capital. When you provide your email address or sign up for one of our mailing lists, you may at any time choose to opt out of receiving additional informational or promotional newsletters by following the unsubscribe directions included at the bottom of each email or by contacting us at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>. We will process unsubscribe requests within ten (10) business days. When you communicate with us, we may retain your communications to process and respond to them and to improve our services.</p>
-        </div>
+        <h2 id="section-11">11. Newsletters and Emails</h2>
+        <p><strong>Newsletters and emails.</strong> At various times during your use of the Site, you may be given the option of opting in to recurring informational or promotional newsletters via email from Center Street Capital. When you provide your email address or sign up for one of our mailing lists, you may at any time choose to opt out of receiving additional informational or promotional newsletters by following the unsubscribe directions included at the bottom of each email or by contacting us at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>. We will process unsubscribe requests within ten (10) business days. When you communicate with us, we may retain your communications to process and respond to them and to improve our services.</p>
 
         <!-- Section 12 -->
-        <div class="legal-section" id="section-12">
-            <h2>12. Security of Your Information</h2>
-            <p>The security of your personal information is important to us. We follow generally accepted industry standards to protect the personal information submitted to us, both during transmission and once we receive it. However, no method of transmission over the Internet, or method of electronic storage, is 100% secure, and Center Street Capital cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security. If a breach of security involving personal information occurs, we will comply with all applicable breach-notification laws. If you believe you have identified a security vulnerability in the Site, please report it to us at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>. Do not access, modify, or delete data belonging to others or disrupt the Site when investigating or reporting a potential vulnerability. If you believe any personal information you have submitted to us is insecure, please notify us immediately at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>.</p>
-        </div>
+        <h2 id="section-12">12. Security of Your Information</h2>
+        <p>The security of your personal information is important to us. We follow generally accepted industry standards to protect the personal information submitted to us, both during transmission and once we receive it. However, no method of transmission over the Internet, or method of electronic storage, is 100% secure, and Center Street Capital cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security. If a breach of security involving personal information occurs, we will comply with all applicable breach-notification laws. If you believe you have identified a security vulnerability in the Site, please report it to us at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>. Do not access, modify, or delete data belonging to others or disrupt the Site when investigating or reporting a potential vulnerability. If you believe any personal information you have submitted to us is insecure, please notify us immediately at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>.</p>
 
         <!-- Section 13 -->
-        <div class="legal-section" id="section-13">
-            <h2>13. Retention of Personal Information</h2>
-            <p>We retain inquiry and diligence-request records for as long as necessary to respond to them and to meet applicable record-keeping and legal obligations, and then delete or de-identify them when they are no longer needed. Website logs are typically retained for a shorter operational period. To determine the appropriate retention period, we consider: the amount, nature, and sensitivity of the information; the potential risk of harm from unauthorized use or disclosure; the purposes for which we obtained the information and whether we can achieve those purposes through other means; whether the information is needed to provide and improve our services and respond to your inquiries; the need to maintain appropriate business and accounting records; compliance with our legal, regulatory, and contractual obligations; and our rights to establish, exercise, or defend legal claims. When personal information is no longer needed, we will delete, destroy, de-identify, or anonymize it in accordance with standard retention practices, subject to legal hold, backup retention, or other legal, regulatory, contractual, or operational obligations.</p>
-        </div>
+        <h2 id="section-13">13. Retention of Personal Information</h2>
+        <p>We retain inquiry and diligence-request records for as long as necessary to respond to them and to meet applicable record-keeping and legal obligations, and then delete or de-identify them when they are no longer needed. Website logs are typically retained for a shorter operational period. To determine the appropriate retention period, we consider: the amount, nature, and sensitivity of the information; the potential risk of harm from unauthorized use or disclosure; the purposes for which we obtained the information and whether we can achieve those purposes through other means; whether the information is needed to provide and improve our services and respond to your inquiries; the need to maintain appropriate business and accounting records; compliance with our legal, regulatory, and contractual obligations; and our rights to establish, exercise, or defend legal claims. When personal information is no longer needed, we will delete, destroy, de-identify, or anonymize it in accordance with standard retention practices, subject to legal hold, backup retention, or other legal, regulatory, contractual, or operational obligations.</p>
 
         <!-- Section 14 -->
-        <div class="legal-section" id="section-14">
-            <h2>14. Linked Materials</h2>
-            <p>The Site may contain links to third-party owned or operated websites, including social media websites and publications hosted on such third-party websites (each a "Linked Materials"), as a convenient method of accessing information that may be useful to you. When you click on a link to a Linked Material, you will leave the Site, and another entity may collect personal information or anonymous data from you. This Policy does not apply to Linked Materials; they have their own privacy and data collection practices, and we have no responsibility or liability relating to them.</p>
-        </div>
+        <h2 id="section-14">14. Linked Materials</h2>
+        <p>The Site may contain links to third-party owned or operated websites, including social media websites and publications hosted on such third-party websites (each a "Linked Materials"), as a convenient method of accessing information that may be useful to you. When you click on a link to a Linked Material, you will leave the Site, and another entity may collect personal information or anonymous data from you. This Policy does not apply to Linked Materials; they have their own privacy and data collection practices, and we have no responsibility or liability relating to them.</p>
 
         <!-- Section 15 -->
-        <div class="legal-section" id="section-15">
-            <h2>15. Changes to Our Privacy Policy</h2>
-            <p>We reserve the right to change or modify this Policy at any time. Any nonmaterial changes are effective upon being posted unless we advise otherwise. If we make any material changes to this Policy, we will notify you by email or post notice on the Site before the change becomes effective. Material changes will be effective thirty (30) days after we provide notice, except changes relating to new features or required by law, which are effective immediately. Use of information we collect is subject to the Policy in effect at the time such information is used. If we make a material change that would allow us to use previously collected personal information in a materially different manner, we will obtain your consent where required by applicable law before doing so. We encourage you to frequently review this Policy.</p>
-        </div>
+        <h2 id="section-15">15. Changes to Our Privacy Policy</h2>
+        <p>We reserve the right to change or modify this Policy at any time. Any nonmaterial changes are effective upon being posted unless we advise otherwise. If we make any material changes to this Policy, we will notify you by email or post notice on the Site before the change becomes effective. Material changes will be effective thirty (30) days after we provide notice, except changes relating to new features or required by law, which are effective immediately. Use of information we collect is subject to the Policy in effect at the time such information is used. If we make a material change that would allow us to use previously collected personal information in a materially different manner, we will obtain your consent where required by applicable law before doing so. We encourage you to frequently review this Policy.</p>
 
         <!-- Section 16 -->
-        <div class="legal-section" id="section-16">
-            <h2>16. Reasonable Fees</h2>
-            <p>Subject to applicable law, Center Street Capital may charge a reasonable fee for the administrative costs of any request that is manifestly unfounded or excessive.</p>
-        </div>
+        <h2 id="section-16">16. Reasonable Fees</h2>
+        <p>Subject to applicable law, Center Street Capital may charge a reasonable fee for the administrative costs of any request that is manifestly unfounded or excessive.</p>
 
         <!-- Section 17 -->
-        <div class="legal-section" id="section-17">
-            <h2>17. How to Contact Us</h2>
-            <p>If you have any questions about this Policy, you may contact us by email at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>, or by mail at:</p>
-            
-            <div class="contact-card">
-                <p style="font-size: 1.05rem; font-weight: 700; color: var(--primary-navy);">Privacy Officer</p>
-                <p style="font-weight: 600; color: var(--text-muted); margin-bottom: 12px !important;">Center Street Capital, LLC</p>
-                <div class="contact-detail">
-                    <span class="contact-detail-icon">&bull;</span>
-                    <span>18201 Von Karman Ave STE 400, Irvine, CA 92612</span>
-                </div>
-                <div class="contact-detail">
-                    <span class="contact-detail-icon">&bull;</span>
-                    <span>Phone: (949) 244-1090</span>
-                </div>
-                <div class="contact-detail">
-                    <span class="contact-detail-icon">&bull;</span>
-                    <span>Email: <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a></span>
-                </div>
-            </div>
-        </div>
+        <h2 id="section-17">17. How to Contact Us</h2>
+        <p>If you have any questions about this Policy, you may contact us by email at <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>, or by mail at:</p>
+        <p style="padding-left: 16px; border-left: 3px solid #4683b3; color: #0f172a;">
+            <strong>Privacy Officer</strong><br>
+            Center Street Capital, LLC<br>
+            18201 Von Karman Ave STE 400, Irvine, CA 92612<br>
+            (949) 244-1090
+        </p>
     </main>
 
     <!-- Footer -->
@@ -778,7 +472,7 @@
                     <h4 style="color: #ffffff; font-weight: 700; margin: 0 0 20px 0; font-size: 0.95rem;">Legal & Disclosures</h4>
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="margin-bottom: 12px;"><a href="legal-notice.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Important Legal Notice</a></li>
-                        <li style="margin-bottom: 12px;"><a href="terms-of-use.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Terms of Use</a></li>
+                        <li style="margin-bottom: 12px;"><a href="terms-of-use.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Terms of Service</a></li>
                         <li><a href="privacy-policy.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -793,12 +487,12 @@
     <script>
         const hamburgerBtn = document.querySelector('.hamburger-btn');
         const mobileMenu = document.querySelector('.mobile-menu');
-        if (hamburgerBtn && mobileMenu) {
-            hamburgerBtn.addEventListener('click', () => {
+        if (hamburgerBtn && mobileMenu) {{
+            hamburgerBtn.addEventListener('click', () => {{
                 hamburgerBtn.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
-            });
-        }
+            }});
+        }}
     </script>
 </body>
 </html>
