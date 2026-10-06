@@ -2812,6 +2812,15 @@ body.no-scroll {
         padding-bottom: 12px !important;
     }
 
+    /* Process Flow Mobile Rules */
+    .process-flow-grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+    }
+    .process-line {
+        display: none !important;
+    }
+
     /* Hero Buttons Group Stacking */
     .hero-buttons-group {
         flex-direction: column !important;
