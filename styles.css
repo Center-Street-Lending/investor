@@ -2728,6 +2728,16 @@ body.no-scroll {
         line-height: 1.3 !important;
     }
 
+    .leadership-grid-layout {
+        flex-direction: column !important;
+        gap: 32px !important;
+    }
+    .leadership-grid-layout > div {
+        width: 100% !important;
+        padding-left: 0 !important;
+        flex-wrap: wrap !important;
+    }
+
     /* Hero Buttons Group Stacking */
     .hero-buttons-group {
         flex-direction: column !important;
