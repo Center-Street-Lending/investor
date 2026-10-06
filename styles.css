@@ -2728,14 +2728,69 @@ body.no-scroll {
         line-height: 1.3 !important;
     }
 
+    /* Leadership Section Mobile Responsiveness */
+    .leadership-outer-card {
+        padding: 24px 16px !important;
+        border-radius: 12px !important;
+    }
+
     .leadership-grid-layout {
         flex-direction: column !important;
-        gap: 32px !important;
+        gap: 28px !important;
     }
-    .leadership-grid-layout > div {
+
+    .exec-cards-container {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 10px !important;
         width: 100% !important;
+    }
+
+    .exec-card-item {
+        flex: 1 1 0% !important;
+        width: 50% !important;
+        padding: 20px 10px !important;
+        min-width: 0 !important;
+    }
+
+    .exec-avatar-wrapper {
+        width: 76px !important;
+        height: 76px !important;
+        margin: 0 auto 12px auto !important;
+    }
+
+    .exec-card-name {
+        font-size: 0.95rem !important;
+        margin-bottom: 4px !important;
+    }
+
+    .exec-card-title {
+        font-size: 0.75rem !important;
+        min-height: 42px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .exec-card-btn {
+        padding: 6px 8px !important;
+        font-size: 0.72rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .senior-team-wrapper {
         padding-left: 0 !important;
-        flex-wrap: wrap !important;
+        width: 100% !important;
+    }
+
+    .senior-team-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .senior-team-item {
+        border-bottom: 1px solid #e2e8f0 !important;
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
     }
 
     /* Hero Buttons Group Stacking */
