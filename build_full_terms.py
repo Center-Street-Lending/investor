@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+import html
+
+html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Security & Privacy Meta Tags -->
@@ -578,3 +580,9 @@
     </script>
 </body>
 </html>
+"""
+
+with open('/Users/gregmontoya/AntiGravity Workspaces/CSLCompanies.com/terms-of-use.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("Generated terms-of-use.html perfectly with all 14 sections!")
