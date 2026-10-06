@@ -2697,11 +2697,13 @@ body.no-scroll {
     }
 
     /* Strategy Feature Bar mobile borders */
-    div[style*="grid-template-columns: repeat(4, 1fr)"] > div {
+    div[style*="grid-template-columns: repeat(4, 1fr)"] > div,
+    div[style*="grid-template-columns: repeat(5, 1fr)"] > div {
         border-right: none !important;
         border-bottom: 1px solid #334155 !important;
     }
-    div[style*="grid-template-columns: repeat(4, 1fr)"] > div:last-child {
+    div[style*="grid-template-columns: repeat(4, 1fr)"] > div:last-child,
+    div[style*="grid-template-columns: repeat(5, 1fr)"] > div:last-child {
         border-bottom: none !important;
     }
 
