@@ -1,4 +1,39 @@
-<!DOCTYPE html>
+import docx
+import html
+
+doc = docx.Document('/Users/gregmontoya/.gemini/antigravity/brain/9d721591-535b-4651-ba85-9e6a1aa3b496/.user_uploaded/media_1791303197568.docx')
+
+states_list = [
+    ("California", "https://oag.ca.gov/contact/consumer-complaint-against-business-or-company"),
+    ("Colorado", "https://coag.gov/file-complaint/"),
+    ("Connecticut", "https://portal.ct.gov/AG/Common/Complaint-Form-Landing-page"),
+    ("Delaware", "https://attorneygeneral.delaware.gov/fraud/cmu/complaint/"),
+    ("Florida", "https://www.myfloridalegal.com/how-to-contact-us/file-a-complaint"),
+    ("Indiana", "https://www.in.gov/attorneygeneral/consumer-protection-division/file-a-complaint/"),
+    ("Iowa", "https://www.iowaattorneygeneral.gov/for-consumers/file-a-consumer-complaint/complaint-form"),
+    ("Kentucky", "https://www.ag.ky.gov/about/Office-Divisions/OCP/Pages/default.aspx"),
+    ("Maryland", "https://portal.oag.state.md.us/cpdportal/?q=Home"),
+    ("Minnesota", "https://www.ag.state.mn.us/Office/Complaint.aspx"),
+    ("Montana", "https://dojmt.gov/office-of-consumer-protection/consumer-complaints/"),
+    ("Nebraska", "https://protectthegoodlife.nebraska.gov/data-privacy-homepage"),
+    ("New Hampshire", "https://www.doj.nh.gov/consumer/complaints/"),
+    ("New Jersey", "https://www.njconsumeraffairs.gov/Pages/Consumer-Complaints.aspx"),
+    ("Oklahoma", "https://oklahoma.gov/oag.html"),
+    ("Oregon", "https://www.doj.state.or.us/consumer-protection/id-theft-data-breaches/privacy/"),
+    ("Rhode Island", "https://riag.ri.gov/forms/consumer-complaint"),
+    ("Tennessee", "https://www.tn.gov/attorneygeneral/working-for-tennessee/consumer/file-a-complaint.html"),
+    ("Texas", "https://consumerprotection.texasattorneygeneral.gov/consumercomplaintportal/s/"),
+    ("Utah", "https://services.commerce.utah.gov/dcp-complaint/"),
+    ("Virginia", "https://www.oag.state.va.us/consumer-protection/index.php/file-a-complaint")
+]
+
+table = doc.tables[0]
+table_rows = []
+for row in table.rows[1:]:
+    cells = [cell.text.strip() for cell in row.cells]
+    table_rows.append(cells)
+
+html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Security & Privacy Meta Tags -->
@@ -18,7 +53,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css?v=5.00">
     <style>
-        :root {
+        :root {{
             --primary-navy: #0f172a;
             --secondary-navy: #1e293b;
             --brand-blue: #4683b3;
@@ -30,28 +65,28 @@
             --bg-light: #f8fafc;
             --border-light: #e2e8f0;
             --border-subtle: #cbd5e1;
-        }
+        }}
 
-        body {
+        body {{
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #ffffff !important;
             color: var(--text-dark) !important;
             line-height: 1.75;
             -webkit-font-smoothing: antialiased;
-        }
+        }}
 
         /* Hero Header Styling */
-        .privacy-hero {
+        .privacy-hero {{
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #ffffff;
             padding: 64px 5% 54px;
             border-bottom: 4px solid var(--brand-blue);
-        }
-        .privacy-hero-container {
+        }}
+        .privacy-hero-container {{
             max-width: 960px;
             margin: 0 auto;
-        }
-        .privacy-badge {
+        }}
+        .privacy-badge {{
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -65,23 +100,23 @@
             text-transform: uppercase;
             letter-spacing: 0.06em;
             margin-bottom: 18px;
-        }
-        .privacy-hero h1 {
+        }}
+        .privacy-hero h1 {{
             font-size: 2.75rem;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.025em;
             margin: 0 0 12px 0;
             line-height: 1.2;
-        }
-        .privacy-hero-subtitle {
+        }}
+        .privacy-hero-subtitle {{
             font-size: 1.12rem;
             color: #cbd5e1;
             max-width: 760px;
             margin: 0 0 24px 0;
             line-height: 1.6;
-        }
-        .privacy-hero-meta {
+        }}
+        .privacy-hero-meta {{
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -91,68 +126,59 @@
             border-top: 1px solid rgba(255, 255, 255, 0.12);
             font-size: 0.9rem;
             color: #94a3b8;
-        }
-        .privacy-hero-meta strong {
+        }}
+        .privacy-hero-meta strong {{
             color: #ffffff;
-        }
+        }}
 
         /* Main Content Container */
-        .legal-container {
+        .legal-container {{
             max-width: 960px;
             margin: 0 auto;
             padding: 54px 5% 90px;
-        }
+        }}
 
         /* Table of Contents Card */
-        .toc-card {
+        .toc-card {{
             background: var(--bg-light);
             border: 1px solid var(--border-light);
             border-radius: 12px;
             padding: 30px 34px;
             margin-bottom: 54px;
             box-shadow: 0 2px 5px rgba(15, 23, 42, 0.03);
-        }
-        .toc-card-header {
+        }}
+        .toc-card-header {{
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 22px;
             padding-bottom: 14px;
             border-bottom: 2px solid var(--border-light);
-        }
-        .toc-card-title {
+        }}
+        .toc-card-title {{
             font-size: 1.05rem;
             font-weight: 700;
             color: var(--primary-navy);
             text-transform: uppercase;
             letter-spacing: 0.05em;
-        }
-        .toc-grid {
+        }}
+        .toc-grid {{
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-auto-flow: column;
-            grid-template-rows: repeat(9, auto);
             gap: 12px 28px;
-        }
-        @media (max-width: 680px) {
-            .toc-grid {
+        }}
+        @media (max-width: 680px) {{
+            .toc-grid {{
                 grid-template-columns: 1fr;
-                grid-auto-flow: row;
-                grid-template-rows: none;
-            }
-        }
-        @media (max-width: 680px) {
-            .toc-grid {
-                grid-template-columns: 1fr;
-            }
-            .privacy-hero h1 {
+            }}
+            .privacy-hero h1 {{
                 font-size: 2.1rem;
-            }
-            .toc-card {
+            }}
+            .toc-card {{
                 padding: 22px 20px;
-            }
-        }
-        .toc-link {
+            }}
+        }}
+        .toc-link {{
             color: var(--brand-blue);
             text-decoration: none;
             font-size: 0.94rem;
@@ -161,18 +187,18 @@
             align-items: center;
             gap: 6px;
             transition: color 0.15s ease, transform 0.15s ease;
-        }
-        .toc-link:hover {
+        }}
+        .toc-link:hover {{
             color: var(--primary-navy);
             text-decoration: underline;
-        }
+        }}
 
         /* Typography & Section Styling */
-        .legal-section {
+        .legal-section {{
             margin-bottom: 48px;
             scroll-margin-top: 100px;
-        }
-        .legal-section h2 {
+        }}
+        .legal-section h2 {{
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-navy);
@@ -180,39 +206,39 @@
             padding-bottom: 12px;
             border-bottom: 2px solid var(--border-light);
             letter-spacing: -0.01em;
-        }
-        .legal-section p {
+        }}
+        .legal-section p {{
             color: var(--text-muted);
             font-size: 1.02rem;
             margin-bottom: 20px;
             line-height: 1.78;
-        }
-        .legal-section strong {
+        }}
+        .legal-section strong {{
             color: var(--primary-navy);
             font-weight: 700;
-        }
-        .legal-section ul {
+        }}
+        .legal-section ul {{
             margin: 0 0 24px 22px;
             padding: 0;
             color: var(--text-muted);
-        }
-        .legal-section li {
+        }}
+        .legal-section li {{
             margin-bottom: 12px;
             font-size: 1.02rem;
             line-height: 1.7;
-        }
-        .legal-section a {
+        }}
+        .legal-section a {{
             color: var(--brand-blue);
             text-decoration: underline;
             text-underline-offset: 3px;
             transition: color 0.15s;
-        }
-        .legal-section a:hover {
+        }}
+        .legal-section a:hover {{
             color: var(--brand-blue-hover);
-        }
+        }}
 
         /* Sub-rights block */
-        .sub-right-block {
+        .sub-right-block {{
             background: #ffffff;
             border-left: 3px solid var(--brand-blue);
             padding: 14px 20px;
@@ -222,28 +248,28 @@
             border-top: 1px solid var(--border-light);
             border-right: 1px solid var(--border-light);
             border-bottom: 1px solid var(--border-light);
-        }
-        .sub-right-block p {
+        }}
+        .sub-right-block p {{
             margin-bottom: 0 !important;
-        }
+        }}
 
         /* Table Styling (Section 3) */
-        .table-wrapper {
+        .table-wrapper {{
             overflow-x: auto;
             margin: 28px 0 34px;
             border: 1px solid var(--border-light);
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
             background-color: #ffffff;
-        }
-        .privacy-table {
+        }}
+        .privacy-table {{
             width: 100%;
             border-collapse: collapse;
             font-size: 0.9rem;
             text-align: left;
             min-width: 820px;
-        }
-        .privacy-table th {
+        }}
+        .privacy-table th {{
             background-color: var(--bg-light);
             color: var(--primary-navy);
             font-weight: 700;
@@ -252,21 +278,21 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.04em;
-        }
-        .privacy-table td {
+        }}
+        .privacy-table td {{
             padding: 16px 18px;
             border-bottom: 1px solid var(--border-light);
             vertical-align: top;
             color: var(--text-muted);
             line-height: 1.6;
-        }
-        .privacy-table tr:last-child td {
+        }}
+        .privacy-table tr:last-child td {{
             border-bottom: none;
-        }
-        .privacy-table tr:nth-child(even) {
+        }}
+        .privacy-table tr:nth-child(even) {{
             background-color: #fdfefe;
-        }
-        .badge-no {
+        }}
+        .badge-no {{
             display: inline-block;
             background: #e0f2fe;
             color: #0369a1;
@@ -274,26 +300,26 @@
             font-size: 0.8rem;
             padding: 3px 10px;
             border-radius: 4px;
-        }
+        }}
 
         /* State Attorney General Grid (Section 8) */
-        .ag-card-grid {
+        .ag-card-grid {{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 14px;
             margin: 26px 0 34px;
-        }
-        @media (max-width: 840px) {
-            .ag-card-grid {
+        }}
+        @media (max-width: 840px) {{
+            .ag-card-grid {{
                 grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 520px) {
-            .ag-card-grid {
+            }}
+        }}
+        @media (max-width: 520px) {{
+            .ag-card-grid {{
                 grid-template-columns: 1fr;
-            }
-        }
-        .ag-card {
+            }}
+        }}
+        .ag-card {{
             background: var(--bg-light);
             border: 1px solid var(--border-light);
             border-radius: 8px;
@@ -302,19 +328,19 @@
             align-items: center;
             justify-content: space-between;
             transition: all 0.2s ease;
-        }
-        .ag-card:hover {
+        }}
+        .ag-card:hover {{
             border-color: var(--brand-blue);
             background: #ffffff;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
             transform: translateY(-1px);
-        }
-        .ag-state-name {
+        }}
+        .ag-state-name {{
             font-weight: 600;
             color: var(--primary-navy);
             font-size: 0.94rem;
-        }
-        .ag-link {
+        }}
+        .ag-link {{
             color: var(--brand-blue);
             font-size: 0.84rem;
             font-weight: 600;
@@ -322,13 +348,13 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-        }
-        .ag-link:hover {
+        }}
+        .ag-link:hover {{
             text-decoration: underline;
-        }
+        }}
 
         /* Contact Box Styling (Section 17) */
-        .contact-card {
+        .contact-card {{
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             border: 1px solid var(--border-light);
             border-left: 4px solid var(--brand-blue);
@@ -336,33 +362,33 @@
             padding: 30px;
             margin-top: 24px;
             box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
-        }
-        .contact-card p {
+        }}
+        .contact-card p {{
             margin-bottom: 8px !important;
             color: var(--primary-navy) !important;
-        }
-        .contact-detail {
+        }}
+        .contact-detail {{
             display: flex;
             align-items: center;
             gap: 12px;
             margin-top: 14px;
             font-size: 0.98rem;
             color: var(--text-muted);
-        }
-        .contact-detail-icon {
+        }}
+        .contact-detail-icon {{
             color: var(--brand-blue);
             font-weight: 700;
             font-size: 1.1rem;
-        }
+        }}
 
         /* Header Navigation Sticky Fix */
-        .header-wrapper {
+        .header-wrapper {{
             background-color: #ffffff;
             border-bottom: 1px solid var(--border-light);
             position: sticky;
             top: 0;
             z-index: 1000;
-        }
+        }}
     </style>
 </head>
 <body>
@@ -475,49 +501,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><strong>Identifiers</strong></td>
-                            <td>Name, email address, phone number, postal address, IP address, device identifier, browser</td>
-                            <td>Responding to general inquiries and diligence-access requests; operating and securing the Site; routing communications; sending newsletters or other communications you request</td>
-                            <td><span class="badge-no" style="background:#fff7ed; color:#c2410c;">Operational Sharing</span><br><span style="font-size: 0.82rem; color: var(--text-muted);">Not sold for monetary consideration. Identifiers are shared with service providers to operate the site and provide analytics, which constitutes &quot;sharing&quot; and may constitute a &quot;sale&quot; under certain U.S. state privacy laws.</span></td>
-                            <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed. IP address and browser information are retained for a shorter operational period.</td>
+"""
+
+for row in table_rows:
+    cat, ex, purp, sold, ret = row
+    sold_badge = '<span class="badge-no">No</span>' if sold.strip() == 'No' else f'<span class="badge-no" style="background:#fff7ed; color:#c2410c;">Operational Sharing</span><br><span style="font-size: 0.82rem; color: var(--text-muted);">{html.escape(sold)}</span>'
+    html_content += f"""                        <tr>
+                            <td><strong>{html.escape(cat)}</strong></td>
+                            <td>{html.escape(ex)}</td>
+                            <td>{html.escape(purp)}</td>
+                            <td>{sold_badge}</td>
+                            <td>{html.escape(ret)}</td>
                         </tr>
-                        <tr>
-                            <td><strong>Professional or employment-related information</strong></td>
-                            <td>Firm, title</td>
-                            <td>Responding to inquiries and diligence-access requests; keeping professional records of those communications</td>
-                            <td><span class="badge-no">No</span></td>
-                            <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Customer-records information</strong></td>
-                            <td>Name, phone number, professional information,  and the content of messages you send us</td>
-                            <td>Responding to inquiries and diligence-access requests; sending newsletters or other communications you request; keeping professional records of those communications</td>
-                            <td><span class="badge-no" style="background:#fff7ed; color:#c2410c;">Operational Sharing</span><br><span style="font-size: 0.82rem; color: var(--text-muted);">Not sold for monetary consideration. Records are shared with service providers to operate the site and provide analytics, which constitutes &quot;sharing&quot; and may constitute a &quot;sale&quot; under certain U.S. state privacy laws.</span></td>
-                            <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Commercial information</strong></td>
-                            <td>Records of materials requested</td>
-                            <td>Responding to and documenting diligence-access requests</td>
-                            <td><span class="badge-no" style="background:#fff7ed; color:#c2410c;">Operational Sharing</span><br><span style="font-size: 0.82rem; color: var(--text-muted);">Not sold for monetary consideration. Only shared as necessary to respond to your request.</span></td>
-                            <td>As long as needed to respond and to meet record-keeping and legal obligations; deleted or de-identified when no longer needed.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Internet/network activity</strong></td>
-                            <td>Cookies, pixel data, pages viewed, browser type, device identifiers, and dates and times of visits</td>
-                            <td>Analytics; site improvement; customer support</td>
-                            <td><span class="badge-no" style="background:#fff7ed; color:#c2410c;">Operational Sharing</span><br><span style="font-size: 0.82rem; color: var(--text-muted);">Not sold for monetary consideration. Activity is shared with service providers to operate the site and provide analytics, which constitutes &quot;sharing&quot; and may constitute a &quot;sale&quot; under certain U.S. state</span></td>
-                            <td>Retained for a short operational period and then deleted or de-identified when no longer needed.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sensitive personal information</strong></td>
-                            <td>We do not intentionally collect sensitive personal information.  We only receive sensitive personal information that site visitors voluntarily provide in service requests or inquiries. Do not submit Social Security numbers, government IDs, or wire instructions through the public Site.</td>
-                            <td>Not requested; if voluntarily submitted, used only to respond, then deleted/redacted</td>
-                            <td><span class="badge-no">No</span></td>
-                            <td>Not requested; if voluntarily submitted, Redacted or deleted promptly after we respond to your inquiry, unless retention is required by law.</td>
-                        </tr>
-                    </tbody>
+"""
+
+html_content += """                    </tbody>
                 </table>
             </div>
 
@@ -591,91 +589,16 @@
 
             <!-- State Attorney General Grid -->
             <div class="ag-card-grid">
-                <div class="ag-card">
-                    <span class="ag-state-name">California</span>
-                    <a href="https://oag.ca.gov/contact/consumer-complaint-against-business-or-company" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
+"""
+
+for st_name, st_url in states_list:
+    html_content += f"""                <div class="ag-card">
+                    <span class="ag-state-name">{st_name}</span>
+                    <a href="{st_url}" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
                 </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Colorado</span>
-                    <a href="https://coag.gov/file-complaint/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Connecticut</span>
-                    <a href="https://portal.ct.gov/AG/Common/Complaint-Form-Landing-page" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Delaware</span>
-                    <a href="https://attorneygeneral.delaware.gov/fraud/cmu/complaint/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Florida</span>
-                    <a href="https://www.myfloridalegal.com/how-to-contact-us/file-a-complaint" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Indiana</span>
-                    <a href="https://www.in.gov/attorneygeneral/consumer-protection-division/file-a-complaint/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Iowa</span>
-                    <a href="https://www.iowaattorneygeneral.gov/for-consumers/file-a-consumer-complaint/complaint-form" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Kentucky</span>
-                    <a href="https://www.ag.ky.gov/about/Office-Divisions/OCP/Pages/default.aspx" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Maryland</span>
-                    <a href="https://portal.oag.state.md.us/cpdportal/?q=Home" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Minnesota</span>
-                    <a href="https://www.ag.state.mn.us/Office/Complaint.aspx" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Montana</span>
-                    <a href="https://dojmt.gov/office-of-consumer-protection/consumer-complaints/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Nebraska</span>
-                    <a href="https://protectthegoodlife.nebraska.gov/data-privacy-homepage" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">New Hampshire</span>
-                    <a href="https://www.doj.nh.gov/consumer/complaints/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">New Jersey</span>
-                    <a href="https://www.njconsumeraffairs.gov/Pages/Consumer-Complaints.aspx" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Oklahoma</span>
-                    <a href="https://oklahoma.gov/oag.html" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Oregon</span>
-                    <a href="https://www.doj.state.or.us/consumer-protection/id-theft-data-breaches/privacy/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Rhode Island</span>
-                    <a href="https://riag.ri.gov/forms/consumer-complaint" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Tennessee</span>
-                    <a href="https://www.tn.gov/attorneygeneral/working-for-tennessee/consumer/file-a-complaint.html" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Texas</span>
-                    <a href="https://consumerprotection.texasattorneygeneral.gov/consumercomplaintportal/s/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Utah</span>
-                    <a href="https://services.commerce.utah.gov/dcp-complaint/" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-                <div class="ag-card">
-                    <span class="ag-state-name">Virginia</span>
-                    <a href="https://www.oag.state.va.us/consumer-protection/index.php/file-a-complaint" target="_blank" rel="noopener" class="ag-link">State Portal &rarr;</a>
-                </div>
-            </div>
+"""
+
+html_content += """            </div>
 
             <p>If you would like to exercise your rights as a resident of one of these states, submit requests by calling (949) 244-1090 or sending an email to <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a>, providing enough information to identify you and enough specificity on the requested data. We will verify your request as required by law and respond within statutory time-frames (generally 45 days, extendable). To verify your identity we may ask you to confirm information we already hold (e.g., email address used to contact us). An authorized agent may submit a request on your behalf by providing signed written permission.</p>
             <p><strong>Non-discrimination for exercising your rights.</strong> We may not, and will not, treat you differently for exercising your privacy rights.</p>
@@ -811,3 +734,9 @@
     </script>
 </body>
 </html>
+"""
+
+with open('/Users/gregmontoya/AntiGravity Workspaces/CSLCompanies.com/privacy-policy.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("Generated privacy-policy.html perfectly!")
