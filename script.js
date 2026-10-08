@@ -101,6 +101,31 @@ window.closeInvestorModal = function(e) {
     }
 };
 
+window.handleDiligenceFormSubmit = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    
+    const name = (document.getElementById('req-name')?.value || '').trim();
+    const email = (document.getElementById('req-email')?.value || '').trim();
+    const company = (document.getElementById('req-company')?.value || '').trim() || 'N/A';
+    const phone = (document.getElementById('req-phone')?.value || '').trim() || 'N/A';
+    
+    const typeEl = document.querySelector('input[name="investor_type"]:checked');
+    const investorType = typeEl ? typeEl.value : 'General Investor';
+
+    const subject = `Diligence Access Request - ${investorType} - ${name}`;
+    const bodyText = `Full Name: ${name}\nEmail: ${email}\nCompany/Firm: ${company}\nPhone: ${phone}\nInvestor Type: ${investorType}\n\nRequesting diligence materials for Center Street Capital.`;
+
+    const mailtoUrl = `mailto:ir@centerstreetcapital.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+    
+    window.location.href = mailtoUrl;
+    
+    setTimeout(() => {
+        window.closeInvestorModal();
+    }, 400);
+
+    return false;
+};
+
 // Immediate Global Event Delegation for Diligence Modal
 document.addEventListener('click', function(e) {
     const modal = document.getElementById('investor-modal');
