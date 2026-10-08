@@ -75,39 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Cookie Banner Logic
-    const cookieBanner = document.getElementById('cookie-banner');
-    const acceptCookiesBtn = document.getElementById('accept-cookies');
-    const rejectCookiesBtn = document.getElementById('reject-cookies');
-    const openCookieSettingsBtn = document.getElementById('open-cookie-settings');
-
-    if (cookieBanner) {
-        const consent = localStorage.getItem('csc_cookie_consent');
-        if (!consent) {
-            cookieBanner.style.display = 'block';
-        }
-
-        if (acceptCookiesBtn) {
-            acceptCookiesBtn.addEventListener('click', () => {
-                localStorage.setItem('csc_cookie_consent', 'accepted');
-                cookieBanner.style.display = 'none';
-            });
-        }
-
-        if (rejectCookiesBtn) {
-            rejectCookiesBtn.addEventListener('click', () => {
-                localStorage.setItem('csc_cookie_consent', 'rejected');
-                cookieBanner.style.display = 'none';
-            });
-        }
-
-        if (openCookieSettingsBtn) {
-            openCookieSettingsBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                cookieBanner.style.display = 'block';
-            });
-        }
-    }
+    // Cookie Banner Logic Removed
 });
 
 // Global Diligence Modal Functions
@@ -252,18 +220,8 @@ window.closeBioModal = function(e) {
     return false;
 };
 
-// Global Click Delegation for Diligence Modal, Bio Modals, and Cookie Settings
+// Global Click Delegation for Diligence Modal and Bio Modals
 document.addEventListener('click', function(e) {
-    // Check Cookie Settings trigger
-    const cookieSettingsTrigger = e.target.closest('#open-cookie-settings, .open-cookie-settings, a[href="#cookie-settings"], a[href="#cookie-banner"]');
-    if (cookieSettingsTrigger) {
-        e.preventDefault();
-        const banner = document.getElementById('cookie-banner');
-        if (banner) {
-            banner.style.display = 'block';
-        }
-        return;
-    }
 
     // Check Diligence Modal trigger
     const triggerAccess = e.target.closest('.request-access-btn, .request-access-link');
