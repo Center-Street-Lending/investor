@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=9.50">
+    <link rel="stylesheet" href="styles.css?v=9.60">
     <style>
         body {
             background-color: #ffffff !important;
@@ -247,19 +247,22 @@
         </div>
     </div>
 
-<!-- Cookie Banner -->
-    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background-color: #0f172a; color: #cbd5e1; border-top: 1px solid #334155; padding: 18px 24px; z-index: 10000; box-shadow: 0 -4px 20px rgba(0,0,0,0.25);">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
-            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; max-width: 780px;">We use strictly necessary cookies to operate this site and, if you accept, optional analytics cookies to understand how the site is used. We do not use advertising cookies. See our <a onclick="return window.openInvestorModal(event);" href="cookie-policy.html" style="color: #70b4e6; text-decoration: underline;">Cookie Policy</a> and <a href="privacy-policy.html" style="color: #70b4e6; text-decoration: underline;">Privacy Policy</a>.</p>
-            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                <button id="accept-cookies" style="background-color: #4683b3; color: #ffffff; border: none; padding: 9px 18px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; cursor: pointer;">Accept optional cookies</button>
-                <button id="reject-cookies" style="background-color: transparent; border: 1px solid #64748b; color: #ffffff; padding: 9px 18px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; cursor: pointer;">Reject optional cookies</button>
-                <a href="cookie-policy.html" style="color: #cbd5e1; font-size: 0.85rem; text-decoration: none; margin-left: 6px;">Cookie settings</a>
+    <!-- Cookie Banner Popup -->
+    <div id="cookie-banner" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 1080px; background-color: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 12px; padding: 20px 28px; z-index: 999999; box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5), 0 10px 15px -5px rgba(0,0,0,0.3);">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+            <p style="margin: 0; font-size: 0.88rem; line-height: 1.55; color: #cbd5e1; max-width: 680px;">
+                We use strictly necessary cookies to operate this site and, if you accept, optional analytics cookies to understand how the site is used. We do not use advertising cookies. See our <a href="cookie-policy.html" style="color: #70b4e6; text-decoration: underline; font-weight: 500;">Cookie Policy</a> and <a href="privacy-policy.html" style="color: #70b4e6; text-decoration: underline; font-weight: 500;">Privacy Policy</a>.
+            </p>
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                <button id="accept-cookies" style="background-color: #f26522; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: background-color 0.2s;">Accept optional cookies</button>
+                <button id="reject-cookies" style="background-color: transparent; border: 1px solid #475569; color: #f8fafc; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: border-color 0.2s;">Reject optional cookies</button>
+                <a href="cookie-policy.html" style="color: #94a3b8; font-size: 0.82rem; text-decoration: none; margin-left: 4px; transition: color 0.2s;">Cookie settings</a>
             </div>
         </div>
     </div>
+    </div>
 
     <!-- Scripts -->
-    <script src="script.js?v=9.50"></script>
+    <script src="script.js?v=9.60"></script>
 </body>
 </html>

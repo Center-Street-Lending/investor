@@ -252,8 +252,19 @@ window.closeBioModal = function(e) {
     return false;
 };
 
-// Global Click Delegation for Diligence Modal and Bio Modals
+// Global Click Delegation for Diligence Modal, Bio Modals, and Cookie Settings
 document.addEventListener('click', function(e) {
+    // Check Cookie Settings trigger
+    const cookieSettingsTrigger = e.target.closest('#open-cookie-settings, .open-cookie-settings, a[href="#cookie-settings"], a[href="#cookie-banner"]');
+    if (cookieSettingsTrigger) {
+        e.preventDefault();
+        const banner = document.getElementById('cookie-banner');
+        if (banner) {
+            banner.style.display = 'block';
+        }
+        return;
+    }
+
     // Check Diligence Modal trigger
     const triggerAccess = e.target.closest('.request-access-btn, .request-access-link, a[href*="mailto:ir@centerstreetcapital.com"]');
     if (triggerAccess) {
