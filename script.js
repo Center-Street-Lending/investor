@@ -75,58 +75,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Modal Logic
-    const modal = document.getElementById('investor-modal');
-    const openBtns = document.querySelectorAll('.request-access-btn');
-    const closeBtn = document.querySelector('.close-modal');
+    // Global Diligence Access Modal Logic
+    document.addEventListener('click', (e) => {
+        const modal = document.getElementById('investor-modal');
+        if (!modal) return;
 
-    if (modal && openBtns.length > 0 && closeBtn) {
-        // Open Modal
-        openBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            });
-        });
+        // Trigger opening modal for any Request Access button/link outside modal
+        const trigger = e.target.closest('.request-access-btn, .request-access-link, a[href*="mailto:ir@centerstreetcapital.com"]');
+        if (trigger && !trigger.closest('#investor-modal')) {
+            e.preventDefault();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            return;
+        }
 
-        // Close Modal via X button
-        closeBtn.addEventListener('click', () => {
+        // Close via close button (x)
+        if (e.target.closest('.close-modal')) {
             modal.classList.remove('active');
             document.body.style.overflow = '';
-        });
+            return;
+        }
 
-        // Investor Card click handling inside modal
-        const investorCards = modal.querySelectorAll('.investor-card');
-        investorCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                const btn = card.querySelector('a.card-btn');
-                if (btn) {
-                    if (e.target !== btn) {
-                        window.location.href = btn.href;
-                    }
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
+        // Card click handling inside modal
+        const card = e.target.closest('#investor-modal .investor-card');
+        if (card) {
+            const btn = card.querySelector('a.card-btn');
+            if (btn && e.target !== btn) {
+                window.location.href = btn.href;
+            }
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            return;
+        }
 
-        // Close Modal via clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Escape key to close
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
+        // Close via clicking background overlay
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('investor-modal');
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
 
     // Bio Modal Trigger Handling
     const bioModal = document.getElementById('bio-modal');
