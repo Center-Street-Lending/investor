@@ -1484,6 +1484,19 @@ body {
     gap: 32px;
 }
 
+.modal-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.modal-type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
 /* Mobile responsive stacked modal form fields */
 @media (max-width: 768px) {
     .modal-content {
