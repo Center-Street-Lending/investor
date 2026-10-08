@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=7.70">
+    <link rel="stylesheet" href="styles.css?v=7.80">
 </head>
 <body>
 
@@ -42,7 +42,7 @@
                 <a href="who-we-are.html" class="nav-link active" style="color: #0f172a; text-decoration: none; font-weight: 700; font-size: 0.9rem; background-color: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px 14px; transition: all 0.2s;">Who we are</a>
                 <a href="csl-rtf.html" class="nav-link" style="color: #334155; text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 6px 14px; border-radius: 6px; transition: all 0.2s;">CSL RTL</a>
                 <a href="riviera-capital-partners.html" class="nav-link" style="color: #334155; text-decoration: none; font-weight: 500; font-size: 0.9rem; padding: 6px 14px; border-radius: 6px; transition: all 0.2s;">Riviera Capital Partners</a>
-                <a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" class="nav-btn request-access-btn" style="background-color: #f26522; color: #ffffff; padding: 10px 22px; border-radius: 4px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: background-color 0.2s;">Request Access</a>
+                <a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" onclick="return window.openInvestorModal(event);" class="nav-btn request-access-btn" style="background-color: #f26522; color: #ffffff; padding: 10px 22px; border-radius: 4px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: background-color 0.2s;">Request Access</a>
             </div>
 
             <!-- Hamburger Button (Mobile) -->
@@ -60,7 +60,7 @@
             <a href="who-we-are.html" class="mobile-nav-link active">Who we are <span>&rarr;</span></a>
             <a href="csl-rtf.html" class="mobile-nav-link">CSL RTL <span>&rarr;</span></a>
             <a href="riviera-capital-partners.html" class="mobile-nav-link">Riviera Capital Partners <span>&rarr;</span></a>
-            <a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" class="nav-btn request-access-btn mobile-cta-btn">Request Access</a>
+            <a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" onclick="return window.openInvestorModal(event);" class="nav-btn request-access-btn mobile-cta-btn">Request Access</a>
         </div>
     </div>
 
@@ -393,7 +393,7 @@
                 <!-- Column 4 -->
                 <div>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="margin-bottom: 16px;"><a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" class="request-access-btn" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Request Access</a></li>
+                        <li style="margin-bottom: 16px;"><a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" onclick="return window.openInvestorModal(event);" class="request-access-btn" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Request Access</a></li>
                         <li style="margin-bottom: 16px;"><a href="legal-notice.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Legal Notice</a></li>
                         <li style="margin-bottom: 16px;"><a href="terms-of-use.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Terms of Use</a></li>
                         <li style="margin-bottom: 16px;"><a href="privacy-policy.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Privacy Policy</a></li>
@@ -540,133 +540,4 @@
         });
     </script>
     <!-- Investor Type Modal -->
-    <div id="investor-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="section-kicker" style="color: #f26522; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px;">// PORTAL ACCESS</div>
-            <h2 class="modal-title">Select Your Investor Type</h2>
-            
-            <div class="modal-grid">
-                <!-- Card 1 -->
-                <div class="investor-card">
-                    <h3>Institutional Investor</h3>
-                    <p>You may represent or be a:</p>
-                    <ul>
-                        <li>Pension fund</li>
-                        <li>Insurance provider</li>
-                        <li>Investment consultant</li>
-                    </ul>
-                    <a href="#" class="card-btn">Select Profile</a>
-                </div>
-                
-                <!-- Card 2 -->
-                <div class="investor-card">
-                    <h3>Individual Investor</h3>
-                    <p>You may be a:</p>
-                    <ul>
-                        <li>Private investor</li>
-                        <li>Client of an investment advisor, wealth manager or private bank</li>
-                    </ul>
-                    <a href="#" class="card-btn">Select Profile</a>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="investor-card">
-                    <h3>Financial Intermediary</h3>
-                    <p>You may represent or be a:</p>
-                    <ul>
-                        <li>Registered investment advisor</li>
-                        <li>Independent broker-dealer</li>
-                        <li>Wirehouse</li>
-                        <li>Wealth manager</li>
-                        <li>Private bank</li>
-                    </ul>
-                    <a href="#" class="card-btn">Select Profile</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Executive Bio Modal -->
-    <div id="bio-modal" class="modal">
-        <div class="modal-content" style="max-width: 680px; padding: 48px 40px; border-radius: 16px;">
-            <span class="close-bio-modal" style="color: #cbd5e1; position: absolute; top: 20px; right: 24px; font-size: 32px; font-weight: 300; cursor: pointer; line-height: 1;">&times;</span>
-            <div class="bio-modal-inner" style="display: flex; gap: 28px; align-items: flex-start;">
-                <img id="bio-modal-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #f1f5f9; box-shadow: 0 8px 20px -4px rgba(0,0,0,0.1); flex-shrink: 0;">
-                <div style="flex-grow: 1;">
-                    <div class="section-kicker" style="color: #f26522; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px;">// EXECUTIVE BIOGRAPHY</div>
-                    <h2 id="bio-modal-name" style="font-size: 1.6rem; font-weight: 700; color: #0f172a; margin: 0 0 6px 0; line-height: 1.2;"></h2>
-                    <p id="bio-modal-title" style="font-size: 0.95rem; color: #f26522; font-weight: 600; margin: 0 0 20px 0; line-height: 1.4;"></p>
-                    
-                    <div id="bio-modal-text" style="font-size: 0.95rem; color: #475569; line-height: 1.7; margin-bottom: 24px;"></div>
-                    
-                    <div id="bio-modal-highlights" style="background-color: #f8fafc; border-left: 3px solid #f26522; padding: 12px 16px; font-size: 0.85rem; color: #334155; font-weight: 600; border-radius: 0 6px 6px 0;"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function initBioModal() {
-            const bioModal = document.getElementById('bio-modal');
-            const bioTriggers = document.querySelectorAll('.bio-trigger');
-            const closeBioBtn = document.querySelector('.close-bio-modal');
-
-            if (bioModal && bioTriggers.length > 0) {
-                bioTriggers.forEach(card => {
-                    card.style.cursor = 'pointer';
-                    card.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        const name = card.getAttribute('data-bio-name');
-                        const title = card.getAttribute('data-bio-title');
-                        const image = card.getAttribute('data-bio-image');
-                        const text = card.getAttribute('data-bio-text');
-                        const highlights = card.getAttribute('data-bio-highlights');
-
-                        document.getElementById('bio-modal-name').textContent = name;
-                        document.getElementById('bio-modal-title').textContent = title;
-                        document.getElementById('bio-modal-image').src = image;
-                        document.getElementById('bio-modal-image').alt = name;
-                        document.getElementById('bio-modal-text').textContent = text;
-                        document.getElementById('bio-modal-highlights').innerHTML = highlights;
-
-                        bioModal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    });
-                });
-
-                if (closeBioBtn) {
-                    closeBioBtn.addEventListener('click', () => {
-                        bioModal.classList.remove('active');
-                        document.body.style.overflow = '';
-                    });
-                }
-
-                window.addEventListener('click', (e) => {
-                    if (e.target === bioModal) {
-                        bioModal.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && bioModal.classList.contains('active')) {
-                        bioModal.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initBioModal);
-        } else {
-            initBioModal();
-        }
-    </script>
-
-    <script src="script.js?v=7.70"></script>
-</body>
-
-</html>
+    

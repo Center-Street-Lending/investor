@@ -75,53 +75,73 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Global Diligence Access Modal Logic
-    document.addEventListener('click', (e) => {
-        const modal = document.getElementById('investor-modal');
-        if (!modal) return;
+// Global Diligence Modal Functions
+window.openInvestorModal = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const modal = document.getElementById('investor-modal');
+    if (modal) {
+        modal.classList.add('active');
+        modal.style.display = 'flex';
+        modal.style.opacity = '1';
+        modal.style.pointerEvents = 'auto';
+        document.body.style.overflow = 'hidden';
+    }
+    return false;
+};
 
-        // Trigger opening modal for any Request Access button/link outside modal
-        const trigger = e.target.closest('.request-access-btn, .request-access-link, a[href*="mailto:ir@centerstreetcapital.com"]');
-        if (trigger && !trigger.closest('#investor-modal')) {
-            e.preventDefault();
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            return;
-        }
+window.closeInvestorModal = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const modal = document.getElementById('investor-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.style.display = 'none';
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+        document.body.style.overflow = '';
+    }
+};
 
-        // Close via close button (x)
-        if (e.target.closest('.close-modal')) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-            return;
-        }
+// Immediate Global Event Delegation for Diligence Modal
+document.addEventListener('click', function(e) {
+    const modal = document.getElementById('investor-modal');
+    if (!modal) return;
 
-        // Card click handling inside modal
-        const card = e.target.closest('#investor-modal .investor-card');
-        if (card) {
-            const btn = card.querySelector('a.card-btn');
-            if (btn && e.target !== btn) {
-                window.location.href = btn.href;
-            }
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-            return;
-        }
+    // Trigger opening modal for any Request Access button/link outside modal
+    const trigger = e.target.closest('.request-access-btn, .request-access-link, a[href*="mailto:ir@centerstreetcapital.com"]');
+    if (trigger && !trigger.closest('#investor-modal')) {
+        e.preventDefault();
+        window.openInvestorModal(e);
+        return;
+    }
 
-        // Close via clicking background overlay
-        if (e.target === modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
+    // Close via close button (x)
+    if (e.target.closest('.close-modal')) {
+        window.closeInvestorModal(e);
+        return;
+    }
 
-    document.addEventListener('keydown', (e) => {
-        const modal = document.getElementById('investor-modal');
-        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
+    // Card click handling inside modal
+    const card = e.target.closest('#investor-modal .investor-card');
+    if (card) {
+        const btn = card.querySelector('a.card-btn');
+        if (btn && e.target !== btn) {
+            window.location.href = btn.href;
         }
-    });
+        window.closeInvestorModal(e);
+        return;
+    }
+
+    // Close via clicking background overlay
+    if (e.target === modal) {
+        window.closeInvestorModal(e);
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        window.closeInvestorModal(e);
+    }
+});
 
     // Bio Modal Trigger Handling
     const bioModal = document.getElementById('bio-modal');
