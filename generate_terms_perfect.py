@@ -398,7 +398,7 @@ html_content = """<!DOCTYPE html>
                 </div>
                 <div class="contact-detail">
                     <span class="contact-detail-icon">&bull;</span>
-                    <span>General Inquiries: <a href="mailto:hello@centerstreetcapital.com">hello@centerstreetcapital.com</a></span>
+                    <span>General Inquiries: <a href="mailto:contact@centerstreetcapital.com">contact@centerstreetcapital.com</a></span>
                 </div>
                 <div class="contact-detail">
                     <span class="contact-detail-icon">&bull;</span>
