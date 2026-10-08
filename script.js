@@ -161,8 +161,8 @@ window.handleDiligenceFormSubmit = function(e) {
     return false;
 };
 
-// Bio Modal Helper
-function getOrCreateBioModal() {
+// Global Bio Modal Functions
+window.getOrCreateBioModal = function() {
     let modal = document.getElementById('bio-modal') || document.getElementById('bioModal');
     if (!modal) {
         modal = document.createElement('div');
@@ -171,7 +171,7 @@ function getOrCreateBioModal() {
         modal.style.cssText = 'display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.8); z-index: 100000; overflow-y: auto; align-items: center; justify-content: center; backdrop-filter: blur(6px);';
         modal.innerHTML = `
             <div class="modal-content" style="max-width: 680px; width: 90%; padding: 36px; border-radius: 16px; position: relative; background-color: #ffffff; margin: 40px auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); text-align: left;">
-                <span class="close-bio-modal close-modal" style="position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #94a3b8; line-height: 1;">&times;</span>
+                <span class="close-bio-modal close-modal" onclick="window.closeBioModal(event)" style="position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #94a3b8; line-height: 1;">&times;</span>
                 <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 24px;" class="bio-header-flex">
                     <div style="width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 2px solid #e2e8f0; flex-shrink: 0;">
                         <img id="bio-modal-image" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
@@ -189,27 +189,70 @@ function getOrCreateBioModal() {
         `;
         document.body.appendChild(modal);
 
-        const closeBtn = modal.querySelector('.close-bio-modal');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', function() {
-                modal.classList.remove('active');
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            });
-        }
-
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
-                modal.classList.remove('active');
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
+                window.closeBioModal(e);
             }
         });
     }
     return modal;
-}
+};
 
-// Immediate Global Click Delegation for Diligence Modal and Bio Modals
+window.openBioModal = function(element, e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (e && e.stopPropagation) e.stopPropagation();
+
+    const trigger = element || (e ? e.currentTarget : null);
+    if (!trigger) return false;
+
+    const name = trigger.getAttribute('data-bio-name') || '';
+    const title = trigger.getAttribute('data-bio-title') || '';
+    const image = trigger.getAttribute('data-bio-image') || '';
+    const text = trigger.getAttribute('data-bio-text') || '';
+    const highlights = trigger.getAttribute('data-bio-highlights') || '';
+
+    const modal = window.getOrCreateBioModal();
+    const nameEl = document.getElementById('bio-modal-name');
+    const titleEl = document.getElementById('bio-modal-title');
+    const imageEl = document.getElementById('bio-modal-image');
+    const textEl = document.getElementById('bio-modal-text');
+    const highlightsEl = document.getElementById('bio-modal-highlights');
+
+    if (nameEl) nameEl.textContent = name;
+    if (titleEl) titleEl.textContent = title;
+    if (imageEl) { imageEl.src = image; imageEl.alt = name; }
+    if (textEl) textEl.textContent = text;
+    if (highlightsEl) {
+        if (highlights) {
+            highlightsEl.innerHTML = highlights;
+            highlightsEl.style.display = 'inline-block';
+        } else {
+            highlightsEl.style.display = 'none';
+        }
+    }
+
+    modal.classList.add('active');
+    modal.style.display = 'flex';
+    modal.style.opacity = '1';
+    modal.style.pointerEvents = 'auto';
+    document.body.style.overflow = 'hidden';
+    return false;
+};
+
+window.closeBioModal = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const modal = document.getElementById('bio-modal') || document.getElementById('bioModal');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.style.display = 'none';
+        modal.style.opacity = '0';
+        modal.style.pointerEvents = 'none';
+        document.body.style.overflow = '';
+    }
+    return false;
+};
+
+// Global Click Delegation for Diligence Modal and Bio Modals
 document.addEventListener('click', function(e) {
     // Check Diligence Modal trigger
     const triggerAccess = e.target.closest('.request-access-btn, .request-access-link, a[href*="mailto:ir@centerstreetcapital.com"]');
@@ -228,43 +271,16 @@ document.addEventListener('click', function(e) {
         return;
     }
 
+    // Check Close Bio Modal
+    if (e.target.closest('.close-bio-modal')) {
+        window.closeBioModal(e);
+        return;
+    }
+
     // Check Executive Bio Modal trigger
     const bioTrigger = e.target.closest('.bio-trigger, [data-bio-name]');
     if (bioTrigger) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const name = bioTrigger.getAttribute('data-bio-name') || '';
-        const title = bioTrigger.getAttribute('data-bio-title') || '';
-        const image = bioTrigger.getAttribute('data-bio-image') || '';
-        const text = bioTrigger.getAttribute('data-bio-text') || '';
-        const highlights = bioTrigger.getAttribute('data-bio-highlights') || '';
-
-        const modal = getOrCreateBioModal();
-        const nameEl = document.getElementById('bio-modal-name');
-        const titleEl = document.getElementById('bio-modal-title');
-        const imageEl = document.getElementById('bio-modal-image');
-        const textEl = document.getElementById('bio-modal-text');
-        const highlightsEl = document.getElementById('bio-modal-highlights');
-
-        if (nameEl) nameEl.textContent = name;
-        if (titleEl) titleEl.textContent = title;
-        if (imageEl) { imageEl.src = image; imageEl.alt = name; }
-        if (textEl) textEl.textContent = text;
-        if (highlightsEl) {
-            if (highlights) {
-                highlightsEl.innerHTML = highlights;
-                highlightsEl.style.display = 'inline-block';
-            } else {
-                highlightsEl.style.display = 'none';
-            }
-        }
-
-        modal.classList.add('active');
-        modal.style.display = 'flex';
-        modal.style.opacity = '1';
-        modal.style.pointerEvents = 'auto';
-        document.body.style.overflow = 'hidden';
+        window.openBioModal(bioTrigger, e);
         return;
     }
 
@@ -273,16 +289,17 @@ document.addEventListener('click', function(e) {
     if (e.target === invModal) {
         window.closeInvestorModal(e);
     }
+    
+    // Close Bio Modal via backdrop click
+    const bioModal = document.getElementById('bio-modal') || document.getElementById('bioModal');
+    if (e.target === bioModal) {
+        window.closeBioModal(e);
+    }
 });
 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         window.closeInvestorModal(e);
-        const bioModal = document.getElementById('bio-modal') || document.getElementById('bioModal');
-        if (bioModal && (bioModal.classList.contains('active') || bioModal.style.display === 'flex')) {
-            bioModal.classList.remove('active');
-            bioModal.style.display = 'none';
-            document.body.style.overflow = '';
-        }
+        window.closeBioModal(e);
     }
 });
