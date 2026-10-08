@@ -96,6 +96,21 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         });
 
+        // Investor Card click handling inside modal
+        const investorCards = modal.querySelectorAll('.investor-card');
+        investorCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                const btn = card.querySelector('a.card-btn');
+                if (btn) {
+                    if (e.target !== btn) {
+                        window.location.href = btn.href;
+                    }
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
         // Close Modal via clicking outside
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
