@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=9.40">
+    <link rel="stylesheet" href="styles.css?v=9.50">
 </head>
 <body>
 
@@ -74,8 +74,8 @@
                     <h1 class="about-title">Disciplined underwriting. Aligned capital.</h1>
                     <p class="about-desc">Private credit and private equity, built on rigorous underwriting, conservative structure and our own capital in every strategy.</p>
                     <div class="hero-buttons-group">
-                        <a href="#strategies-detail" class="btn-group-primary">View Strategies</a>
-                        <a href="who-we-are.html" class="btn-group-secondary">Who We Are</a>
+                        <a onclick="return window.openInvestorModal(event);" href="#strategies-detail" class="btn-group-primary request-access-btn">View Strategies</a>
+                        <a onclick="return window.openInvestorModal(event);" href="who-we-are.html" class="btn-group-secondary request-access-btn">Who We Are</a>
                     </div>
                 </div>
             </div>
@@ -83,36 +83,36 @@
 
 
         <!-- Strategies Section -->
-        <section id="strategies-detail" class="strategies-section" style="padding: 100px 0; background-color: #ffffff;">
-            <div class="container strategies-container">
-                <div class="strategies-header" style="text-align: center; max-width: 800px; margin: 0 auto 60px auto;">
-                    <div class="section-kicker" style="color: #4683b3; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">// STRATEGIES</div>
-                    <h2 class="strategies-title" style="font-size: 2.35rem; font-weight: 700; color: #0f172a; margin: 0 0 16px 0; line-height: 1.2; letter-spacing: -0.02em;">Two strategies, each led by specialists.</h2>
-                    <p class="strategies-subtitle" style="font-size: 1.05rem; color: #475569; margin: 0; line-height: 1.65;">Residential credit and lower-middle-market investing demand different expertise. Each is managed by a team devoted to it alone, with our own capital committed alongside investors.</p>
+        <section id="strategies-detail" class="strategies-section request-access-btn" style="padding: 100px 0; background-color: #ffffff;">
+            <div class="container strategies-container request-access-btn">
+                <div class="strategies-header request-access-btn" style="text-align: center; max-width: 800px; margin: 0 auto 60px auto;">
+                    <div class="section-kicker request-access-btn" style="color: #4683b3; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">// STRATEGIES</div>
+                    <h2 class="strategies-title request-access-btn" style="font-size: 2.35rem; font-weight: 700; color: #0f172a; margin: 0 0 16px 0; line-height: 1.2; letter-spacing: -0.02em;">Two strategies, each led by specialists.</h2>
+                    <p class="strategies-subtitle request-access-btn" style="font-size: 1.05rem; color: #475569; margin: 0; line-height: 1.65;">Residential credit and lower-middle-market investing demand different expertise. Each is managed by a team devoted to it alone, with our own capital committed alongside investors.</p>
                 </div>
 
-                <div class="strategies-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto;">
+                <div class="strategies-grid request-access-btn" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto;">
                     <!-- Card 1 -->
-                    <div class="strategy-card" style="background-color: #ffffff; border: 1.5px solid #4683b3; border-radius: 8px; padding: 40px; display: flex; flex-direction: column; height: 100%; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); text-align: left;">
+                    <div class="strategy-card request-access-btn" style="background-color: #ffffff; border: 1.5px solid #4683b3; border-radius: 8px; padding: 40px; display: flex; flex-direction: column; height: 100%; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); text-align: left;">
                         <div style="flex-grow: 1;">
-                            <div class="strategy-kicker" style="color: #4683b3; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px;">RESIDENTIAL TRANSITIONAL LENDING &middot; MANAGED BY CENTER STREET</div>
-                            <h3 class="strategy-title" style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin: 0 0 16px 0; line-height: 1.3;">Center Street Lending RTL</h3>
+                            <div class="strategy-kicker request-access-btn" style="color: #4683b3; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px;">RESIDENTIAL TRANSITIONAL LENDING &middot; MANAGED BY CENTER STREET</div>
+                            <h3 class="strategy-title request-access-btn" style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin: 0 0 16px 0; line-height: 1.3;">Center Street Lending RTL</h3>
                             <p style="font-size: 0.95rem; color: #475569; line-height: 1.65; margin: 0;">Short-duration, first-lien loans to experienced residential investors, originated, underwritten and serviced entirely by our own team.</p>
                         </div>
                         <div style="margin-top: 40px;">
-                            <a href="csl-rtf.html" style="color: #4683b3; font-weight: 600; font-size: 0.92rem; text-decoration: none; transition: opacity 0.2s;">Explore CSL RTL &rarr;</a>
+                            <a onclick="return window.openInvestorModal(event);" href="csl-rtf.html" style="color: #4683b3; font-weight: 600; font-size: 0.92rem; text-decoration: none; transition: opacity 0.2s;">Explore CSL RTL &rarr;</a>
                         </div>
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="strategy-card" style="background-color: #ffffff; border: 1.5px solid #4683b3; border-radius: 8px; padding: 40px; display: flex; flex-direction: column; height: 100%; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); text-align: left;">
+                    <div class="strategy-card request-access-btn" style="background-color: #ffffff; border: 1.5px solid #4683b3; border-radius: 8px; padding: 40px; display: flex; flex-direction: column; height: 100%; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); text-align: left;">
                         <div style="flex-grow: 1;">
-                            <div class="strategy-kicker" style="color: #4683b3; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px;">PRIVATE EQUITY &amp; CREDIT &middot; MANAGED BY RIVIERA CAPITAL</div>
-                            <h3 class="strategy-title" style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin: 0 0 16px 0; line-height: 1.3;">Riviera Capital Partners</h3>
+                            <div class="strategy-kicker request-access-btn" style="color: #4683b3; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px;">PRIVATE EQUITY &amp; CREDIT &middot; MANAGED BY RIVIERA CAPITAL</div>
+                            <h3 class="strategy-title request-access-btn" style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin: 0 0 16px 0; line-height: 1.3;">Riviera Capital Partners</h3>
                             <p style="font-size: 0.95rem; color: #475569; line-height: 1.65; margin: 0;">Equity and senior secured credit in enduring lower-middle-market businesses, sourced through a network of seasoned operators.</p>
                         </div>
                         <div style="margin-top: 40px;">
-                            <a href="riviera-capital-partners.html" style="color: #4683b3; font-weight: 600; font-size: 0.92rem; text-decoration: none; transition: opacity 0.2s;">Explore Riviera &rarr;</a>
+                            <a onclick="return window.openInvestorModal(event);" href="riviera-capital-partners.html" style="color: #4683b3; font-weight: 600; font-size: 0.92rem; text-decoration: none; transition: opacity 0.2s;">Explore Riviera &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -122,13 +122,13 @@
 
         <!-- How We Invest Section -->
         <section id="our-approach" style="padding: 100px 0; background-color: #f1f7fc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
-            <div class="container">
+            <div class="container request-access-btn">
                 <div style="margin-bottom: 50px;">
-                    <div class="section-kicker" style="color: #4683b3; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">// HOW WE INVEST</div>
+                    <div class="section-kicker request-access-btn" style="color: #4683b3; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">// HOW WE INVEST</div>
                     <h2 style="font-size: 2.35rem; font-weight: 700; color: #0f172a; margin: 0; line-height: 1.2; letter-spacing: -0.02em;">Different strategies. The same convictions.</h2>
                 </div>
 
-                <div class="grid-4-col" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 24px;">
+                <div class="grid-4-col request-access-btn" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 24px;">
                     <!-- Column 1 -->
                     <div style="background-color: #ffffff; border-top: 3.5px solid #4683b3; padding: 28px 24px 36px 24px; border-radius: 0 0 6px 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
                         <div style="color: #4683b3; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px;">SOURCING</div>
@@ -158,7 +158,7 @@
                     </div>
                 </div>
 
-                <a href="who-we-are.html" style="color: #4683b3; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: opacity 0.2s; display: inline-block; margin-top: 24px;">Philosophy, leadership and governance &rarr;</a>
+                <a onclick="return window.openInvestorModal(event);" href="who-we-are.html" style="color: #4683b3; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: opacity 0.2s; display: inline-block; margin-top: 24px;">Philosophy, leadership and governance &rarr;</a>
             </div>
         </section>
 
@@ -166,14 +166,14 @@
         
         <!-- Who We Serve Section -->
         <section id="who-we-serve" style="padding: 100px 0; background-color: #f1f7fc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
-            <div class="container">
+            <div class="container request-access-btn">
                 <div style="text-align: center; max-width: 840px; margin: 0 auto 50px auto;">
-                    <div class="section-kicker" style="color: #4683b3; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">// WHO WE SERVE</div>
+                    <div class="section-kicker request-access-btn" style="color: #4683b3; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">// WHO WE SERVE</div>
                     <h2 style="font-size: 2.35rem; font-weight: 700; color: #0f172a; margin: 0; line-height: 1.2; letter-spacing: -0.02em;">Partners to institutions, advisors and the investors they represent.</h2>
                 </div>
                 
                 <!-- Unified White Boxed Container -->
-                <div class="serve-card-container" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03); display: grid; grid-template-columns: repeat(3, 1fr);">
+                <div class="serve-card-container request-access-btn" style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03); display: grid; grid-template-columns: repeat(3, 1fr);">
                     <!-- Column 1 -->
                     <div style="padding: 40px 36px; border-right: 1px solid #e2e8f0;">
                         <h3 style="font-size: 1.15rem; font-weight: 700; color: #0f172a; margin: 0 0 14px 0;">Institutional investors</h3>
@@ -199,11 +199,11 @@
 
                 <!-- For Investors Section -->
         <section id="for-investors" style="padding: 100px 0; background-color: #1e2638; color: #ffffff;">
-            <div class="container" style="max-width: 1140px; margin: 0 auto; padding: 0 5%;">
+            <div class="container request-access-btn" style="max-width: 1140px; margin: 0 auto; padding: 0 5%;">
                 <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: flex-end;">
                     <!-- Left Side -->
                     <div>
-                        <div class="section-kicker" style="color: #70b4e6; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px;">// FOR INVESTORS</div>
+                        <div class="section-kicker request-access-btn" style="color: #70b4e6; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px;">// FOR INVESTORS</div>
                         <h2 style="font-size: 2.35rem; font-weight: 700; color: #ffffff; margin: 0 0 24px 0; line-height: 1.25; letter-spacing: -0.02em; max-width: 540px;">Diligence for prospective investors. Reporting for existing ones.</h2>
                         <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin: 0 0 20px 0; max-width: 540px;">Accredited and qualified investors may request full diligence materials, including terms and historical results, subject to verification.</p>
                         <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.65; margin: 0; max-width: 540px;">Existing investors and their advisors access statements, reporting, and fund documents through a secure portal provisioned by Investor Relations.</p>
@@ -211,7 +211,7 @@
 
                     <!-- Right Side -->
                     <div style="text-align: left; max-width: 280px;">
-                        <a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" style="display: block; width: 100%; text-align: center; background-color: #f26522; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; transition: background-color 0.2s; box-sizing: border-box;">Request Access</a>
+                        <a onclick="return window.openInvestorModal(event);" href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" style="display: block; width: 100%; text-align: center; background-color: #f26522; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; transition: background-color 0.2s; box-sizing: border-box;">Request Access</a>
                         <a href="mailto:ir@centerstreetcapital.com?subject=Investor%20Portal%20Access%20Request" style="display: block; width: 100%; text-align: center; background-color: transparent; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 0.95rem; border: 1.5px solid #475569; margin-bottom: 20px; transition: border-color 0.2s; box-sizing: border-box;">Investor portal</a>
                         <p style="color: #94a3b8; font-size: 0.88rem; margin: 0;">Questions: <a href="mailto:ir@centerstreetcapital.com" style="color: #93c5fd; text-decoration: none; font-weight: 600;">ir@centerstreetcapital.com</a></p>
                     </div>
@@ -250,31 +250,31 @@
                 <div>
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="margin-bottom: 16px;"><a href="mailto:ir@centerstreetcapital.com?subject=Diligence%20Access%20Request" onclick="return window.openInvestorModal(event);" class="request-access-btn" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Request Access</a></li>
-                        <li style="margin-bottom: 16px;"><a href="legal-notice.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Legal Notice</a></li>
-                        <li style="margin-bottom: 16px;"><a href="terms-of-use.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Terms of Use</a></li>
-                        <li style="margin-bottom: 16px;"><a href="privacy-policy.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Privacy Policy</a></li>
-                        <li><a href="cookie-policy.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Cookie Policy</a></li>
+                        <li style="margin-bottom: 16px;"><a onclick="return window.openInvestorModal(event);" href="legal-notice.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Legal Notice</a></li>
+                        <li style="margin-bottom: 16px;"><a onclick="return window.openInvestorModal(event);" href="terms-of-use.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Terms of Use</a></li>
+                        <li style="margin-bottom: 16px;"><a onclick="return window.openInvestorModal(event);" href="privacy-policy.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Privacy Policy</a></li>
+                        <li><a onclick="return window.openInvestorModal(event);" href="cookie-policy.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.85rem; transition: color 0.2s;">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
 
             <div style="border-top: 1px solid #1e293b; padding-top: 30px;">
                 <p style="margin: 0 0 16px 0; color: #94a3b8; font-size: 0.75rem; line-height: 1.6;">This website is for informational purposes only and does not constitute an offer to sell, or a solicitation of an offer to buy, any security. Any such offer will be made only by means of definitive offering documents to qualified and accredited investors. Past performance is not indicative of future results. Private credit and private equity investments involve substantial risk, including loss of principal, and are illiquid. Descriptions of underwriting standards and risk-management features are not guarantees against loss.</p>
-                <p style="margin: 0; color: #94a3b8; font-size: 0.75rem;">&copy; 2026 Center Street Capital. All rights reserved. &middot; <a href="#" id="open-cookie-settings" style="color: #cbd5e1; text-decoration: none;">Cookie Settings</a></p>
+                <p style="margin: 0; color: #94a3b8; font-size: 0.75rem;">&copy; 2026 Center Street Capital. All rights reserved. &middot; <a onclick="return window.openInvestorModal(event);" href="#" id="open-cookie-settings" style="color: #cbd5e1; text-decoration: none;">Cookie Settings</a></p>
             </div>
         </div>
     </footer>
 
     <!-- Diligence Access Modal -->
-    <div id="investorModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.7); z-index: 10000; overflow-y: auto; align-items: center; justify-content: center;">
-        <div class="modal-content" style="max-width: 650px; width: 90%; padding: 32px; border-radius: 12px; position: relative; background-color: #ffffff; margin: 40px auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);">
-            <span class="close-modal" onclick="window.closeInvestorModal(event)" style="position: absolute; top: 18px; right: 22px; font-size: 28px; cursor: pointer; color: #94a3b8; line-height: 1;">&times;</span>
-            <div class="section-kicker" style="color: #f26522; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px;">// DILIGENCE MATERIALS</div>
+    <div id="investorModal" class="modal request-access-btn" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.7); z-index: 10000; overflow-y: auto; align-items: center; justify-content: center;">
+        <div class="modal-content request-access-btn" style="max-width: 650px; width: 90%; padding: 32px; border-radius: 12px; position: relative; background-color: #ffffff; margin: 40px auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);">
+            <span class="close-modal request-access-btn" onclick="window.closeInvestorModal(event)" style="position: absolute; top: 18px; right: 22px; font-size: 28px; cursor: pointer; color: #94a3b8; line-height: 1;">&times;</span>
+            <div class="section-kicker request-access-btn" style="color: #f26522; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px;">// DILIGENCE MATERIALS</div>
             <h2 class="modal-title" style="font-size: 1.65rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.2;">Request Access to Diligence Materials</h2>
             <p style="color: #475569; font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;">Please complete your contact info and select your investor type below to request full diligence materials.</p>
             
             <form id="diligence-request-form" onsubmit="return window.handleDiligenceFormSubmit(event)">
-                <div class="modal-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+                <div class="modal-form-grid request-access-btn" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
                     <div>
                         <label style="display: block; font-size: 0.82rem; font-weight: 600; color: #0f172a; margin-bottom: 4px;">Full Name *</label>
                         <input type="text" id="req-name" required placeholder="John Doe" style="width: 100%; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box; outline: none;">
@@ -285,7 +285,7 @@
                     </div>
                 </div>
 
-                <div class="modal-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+                <div class="modal-form-grid request-access-btn" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
                     <div>
                         <label style="display: block; font-size: 0.82rem; font-weight: 600; color: #0f172a; margin-bottom: 4px;">Company / Firm</label>
                         <input type="text" id="req-company" placeholder="Acme Capital" style="width: 100%; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.9rem; box-sizing: border-box; outline: none;">
@@ -298,7 +298,7 @@
 
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; font-size: 0.82rem; font-weight: 600; color: #0f172a; margin-bottom: 8px;">Select Investor Type *</label>
-                    <div class="modal-type-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                    <div class="modal-type-grid request-access-btn" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
                         
                         <label style="border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; cursor: pointer; transition: all 0.2s; display: flex; flex-direction: column; background: #f8fafc;">
                             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;">
@@ -335,10 +335,10 @@
     </div>
 
     <!-- Executive Bio Modal -->
-    <div id="bio-modal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.8); z-index: 100000; overflow-y: auto; align-items: center; justify-content: center; backdrop-filter: blur(6px);">
-        <div class="modal-content" style="max-width: 680px; width: 90%; padding: 36px; border-radius: 16px; position: relative; background-color: #ffffff; margin: 40px auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); text-align: left;">
-            <span class="close-bio-modal close-modal" onclick="window.closeBioModal(event)" style="position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #94a3b8; line-height: 1;">&times;</span>
-            <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 24px;" class="bio-header-flex">
+    <div id="bio-modal" class="modal request-access-btn" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.8); z-index: 100000; overflow-y: auto; align-items: center; justify-content: center; backdrop-filter: blur(6px);">
+        <div class="modal-content request-access-btn" style="max-width: 680px; width: 90%; padding: 36px; border-radius: 16px; position: relative; background-color: #ffffff; margin: 40px auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); text-align: left;">
+            <span class="close-bio-modal close-modal request-access-btn" onclick="window.closeBioModal(event)" style="position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #94a3b8; line-height: 1;">&times;</span>
+            <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 24px;" class="bio-header-flex request-access-btn">
                 <div style="width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 2px solid #e2e8f0; flex-shrink: 0;">
                     <img id="bio-modal-image" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
@@ -357,7 +357,7 @@
 <!-- Cookie Banner -->
     <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background-color: #0f172a; color: #cbd5e1; border-top: 1px solid #334155; padding: 18px 24px; z-index: 10000; box-shadow: 0 -4px 20px rgba(0,0,0,0.25);">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
-            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; max-width: 780px;">We use strictly necessary cookies to operate this site and, if you accept, optional analytics cookies to understand how the site is used. We do not use advertising cookies. See our <a href="cookie-policy.html" style="color: #70b4e6; text-decoration: underline;">Cookie Policy</a> and <a href="privacy-policy.html" style="color: #70b4e6; text-decoration: underline;">Privacy Policy</a>.</p>
+            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; max-width: 780px;">We use strictly necessary cookies to operate this site and, if you accept, optional analytics cookies to understand how the site is used. We do not use advertising cookies. See our <a onclick="return window.openInvestorModal(event);" href="cookie-policy.html" style="color: #70b4e6; text-decoration: underline;">Cookie Policy</a> and <a href="privacy-policy.html" style="color: #70b4e6; text-decoration: underline;">Privacy Policy</a>.</p>
             <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
                 <button id="accept-cookies" style="background-color: #4683b3; color: #ffffff; border: none; padding: 9px 18px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; cursor: pointer;">Accept optional cookies</button>
                 <button id="reject-cookies" style="background-color: transparent; border: 1px solid #64748b; color: #ffffff; padding: 9px 18px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; cursor: pointer;">Reject optional cookies</button>
@@ -367,6 +367,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="script.js?v=9.40"></script>
+    <script src="script.js?v=9.50"></script>
 </body>
 </html>
