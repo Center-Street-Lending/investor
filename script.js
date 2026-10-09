@@ -225,7 +225,7 @@ document.addEventListener('click', function(e) {
 
     // Check Diligence Modal trigger
     const triggerAccess = e.target.closest('.request-access-btn, .request-access-link');
-    if (triggerAccess) {
+    if (triggerAccess && !triggerAccess.closest('.exec-card-item') && !triggerAccess.closest('.bio-trigger')) {
         const modal = document.getElementById('investorModal') || document.getElementById('investor-modal');
         if (modal && !triggerAccess.closest('#investorModal') && !triggerAccess.closest('#investor-modal')) {
             e.preventDefault();
