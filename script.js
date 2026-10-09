@@ -78,17 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cookie Banner Logic Removed
 });
 
-// Global Diligence Modal Functions
+// Direct Email Action for Request Access
 window.openInvestorModal = function(e) {
     if (e && e.preventDefault) e.preventDefault();
-    const modal = document.getElementById('investorModal') || document.getElementById('investor-modal');
-    if (modal) {
-        modal.classList.add('active');
-        modal.style.display = 'flex';
-        modal.style.opacity = '1';
-        modal.style.pointerEvents = 'auto';
-        document.body.style.overflow = 'hidden';
-    }
+    window.location.href = "mailto:ir@centerstreetcapital.com?subject=" + encodeURIComponent("Diligence Access Request - Center Street Capital");
     return false;
 };
 
@@ -223,15 +216,12 @@ window.closeBioModal = function(e) {
 // Global Click Delegation for Diligence Modal and Bio Modals
 document.addEventListener('click', function(e) {
 
-    // Check Diligence Modal trigger
+    // Check Request Access trigger (direct email action)
     const triggerAccess = e.target.closest('.request-access-btn, .request-access-link');
     if (triggerAccess && !triggerAccess.closest('.exec-card-item') && !triggerAccess.closest('.bio-trigger')) {
-        const modal = document.getElementById('investorModal') || document.getElementById('investor-modal');
-        if (modal && !triggerAccess.closest('#investorModal') && !triggerAccess.closest('#investor-modal')) {
-            e.preventDefault();
-            window.openInvestorModal(e);
-            return;
-        }
+        e.preventDefault();
+        window.openInvestorModal(e);
+        return;
     }
 
     // Check Close Diligence Modal
