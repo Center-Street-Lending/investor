@@ -78,10 +78,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cookie Banner Logic Removed
 });
 
-// Direct Email Action for Request Access
+// Direct Pop-up Modal Action for Request Access
 window.openInvestorModal = function(e) {
     if (e && e.preventDefault) e.preventDefault();
-    window.location.href = "mailto:ir@centerstreetcapital.com?subject=" + encodeURIComponent("Diligence Access Request - Center Street Capital");
+    const modal = document.getElementById('investorModal') || document.getElementById('investor-modal');
+    if (modal) {
+        modal.classList.add('active');
+        modal.style.display = 'flex';
+        modal.style.opacity = '1';
+        modal.style.pointerEvents = 'auto';
+        document.body.style.overflow = 'hidden';
+    }
     return false;
 };
 
