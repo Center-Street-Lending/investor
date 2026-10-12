@@ -132,15 +132,16 @@ window.handleDiligenceFormSubmit = function(e) {
         return match ? match[1] : '';
     })();
 
+    const formattedMessage = `=== DILIGENCE ACCESS REQUEST ===\nFull Name: ${fullName}\nEmail: ${email}\nCompany / Firm: ${company}\nPhone Number: ${phone}\nInvestor Type: ${investorType}\n\nRequesting full diligence materials for Center Street Capital.`;
+
     const payload = {
         fields: [
+            { name: 'email', value: email },
             { name: 'firstname', value: firstName },
             { name: 'lastname', value: lastName },
-            { name: 'email', value: email },
             { name: 'company', value: company },
             { name: 'phone', value: phone },
-            { name: 'investor_type', value: investorType },
-            { name: 'message', value: `Investor Type: ${investorType}\nCompany/Firm: ${company}\nPhone: ${phone}` }
+            { name: 'message', value: formattedMessage }
         ],
         context: {
             hutk: hubspotutk,
