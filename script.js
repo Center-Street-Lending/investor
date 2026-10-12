@@ -100,7 +100,10 @@ window.closeInvestorModal = function(e) {
 window.handleDiligenceFormSubmit = function(e) {
     if (e && e.preventDefault) e.preventDefault();
     
-    const name = (document.getElementById('req-name')?.value || '').trim();
+    const submitBtn = document.querySelector('#diligence-request-form button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Request Access &rarr;';
+    
+    const fullName = (document.getElementById('req-name')?.value || '').trim();
     const email = (document.getElementById('req-email')?.value || '').trim();
     const company = (document.getElementById('req-company')?.value || '').trim() || 'N/A';
     const phone = (document.getElementById('req-phone')?.value || '').trim() || 'N/A';
@@ -108,16 +111,71 @@ window.handleDiligenceFormSubmit = function(e) {
     const typeEl = document.querySelector('input[name="investor_type"]:checked');
     const investorType = typeEl ? typeEl.value : 'General Investor';
 
-    const subject = `Diligence Access Request - ${investorType} - ${name}`;
-    const bodyText = `Full Name: ${name}\nEmail: ${email}\nCompany/Firm: ${company}\nPhone: ${phone}\nInvestor Type: ${investorType}\n\nRequesting diligence materials for Center Street Capital.`;
+    const nameParts = fullName.split(' ');
+    const firstName = nameParts[0] || fullName;
+    const lastName = nameParts.slice(1).join(' ') || '';
 
-    const mailtoUrl = `mailto:ir@centerstreetcapital.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-    
-    window.location.href = mailtoUrl;
-    
-    setTimeout(() => {
-        window.closeInvestorModal();
-    }, 400);
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Submitting Request...';
+    }
+
+    const hubspotutk = (function() {
+        const match = document.cookie.match(/hubspotutk=([^;]+)/);
+        return match ? match[1] : '';
+    })();
+
+    const payload = {
+        fields: [
+            { name: 'firstname', value: firstName },
+            { name: 'lastname', value: lastName },
+            { name: 'email', value: email },
+            { name: 'company', value: company },
+            { name: 'phone', value: phone },
+            { name: 'investor_type', value: investorType },
+            { name: 'message', value: `Investor Type: ${investorType}\nCompany/Firm: ${company}\nPhone: ${phone}` }
+        ],
+        context: {
+            hutk: hubspotutk,
+            pageUri: window.location.href,
+            pageName: document.title
+        }
+    };
+
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/22311313/907a59ec-7731-4a37-a7e5-45068480a51c', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(res => res.json().catch(() => ({})))
+    .then(data => {
+        const formContainer = document.getElementById('diligence-request-form');
+        if (formContainer) {
+            formContainer.innerHTML = `
+                <div style="text-align: center; padding: 28px 14px;">
+                    <div style="width: 56px; height: 56px; border-radius: 50%; background-color: #dcfce7; color: #166534; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px auto; font-weight: bold;">✓</div>
+                    <h3 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Diligence Request Received</h3>
+                    <p style="color: #475569; font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px;">Thank you, ${firstName}. Your request has been submitted directly to our Investor Relations team.</p>
+                    <p style="color: #64748b; font-size: 0.85rem; margin: 0;">Jeff Swope (Head of Capital Formation) will review your information and reach out shortly.</p>
+                </div>
+            `;
+        }
+        setTimeout(() => {
+            window.closeInvestorModal();
+        }, 4000);
+    })
+    .catch(err => {
+        console.error('HubSpot submit error:', err);
+        const subject = `Diligence Access Request - ${investorType} - ${fullName}`;
+        const bodyText = `Full Name: ${fullName}\nEmail: ${email}\nCompany/Firm: ${company}\nPhone: ${phone}\nInvestor Type: ${investorType}\n\nRequesting diligence materials for Center Street Capital.`;
+        window.location.href = `mailto:ir@centerstreetcapital.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    });
 
     return false;
 };
