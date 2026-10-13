@@ -88,6 +88,7 @@ window.openInvestorModal = function(e) {
         modal.style.opacity = '1';
         modal.style.pointerEvents = 'auto';
         document.body.style.overflow = 'hidden';
+        modal.scrollTop = 0;
     }
     return false;
 };
@@ -263,6 +264,7 @@ window.openBioModal = function(element, e) {
     modal.style.opacity = '1';
     modal.style.pointerEvents = 'auto';
     document.body.style.overflow = 'hidden';
+    modal.scrollTop = 0;
     return false;
 };
 
