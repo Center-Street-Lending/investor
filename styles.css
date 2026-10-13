@@ -2846,6 +2846,30 @@ body.no-scroll {
         letter-spacing: 0.05em !important;
         padding: 4px 2px !important;
     }
+
+    /* Executive Cards 2-Column on Tablet */
+    .exec-cards-container {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 16px !important;
+        width: 100% !important;
+        justify-content: space-between !important;
+        align-items: stretch !important;
+    }
+    .exec-cards-trio {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 16px !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+    .exec-cards-trio .exec-card-item {
+        flex: 0 0 calc(50% - 8px) !important;
+        width: calc(50% - 8px) !important;
+        max-width: calc(50% - 8px) !important;
+    }
 }
 
 @media (max-width: 640px) {
@@ -2912,9 +2936,9 @@ body.no-scroll {
         line-height: 1.3 !important;
     }
 
-    /* Leadership Section Mobile Responsiveness */
+    /* Leadership Section Mobile Responsiveness - 2 Columns */
     .leadership-outer-card {
-        padding: 24px 16px !important;
+        padding: 24px 14px !important;
         border-radius: 12px !important;
     }
 
@@ -2928,52 +2952,103 @@ body.no-scroll {
         flex-direction: row !important;
         gap: 10px !important;
         width: 100% !important;
+        justify-content: space-between !important;
+        align-items: stretch !important;
     }
 
     .exec-cards-trio {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
+        justify-content: center !important;
         gap: 10px !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+
+    .exec-cards-container .exec-card-item,
+    .exec-cards-trio .exec-card-item,
+    .exec-card-item {
+        flex: 0 0 calc(50% - 5px) !important;
+        width: calc(50% - 5px) !important;
+        max-width: calc(50% - 5px) !important;
+        padding: 16px 8px 14px 8px !important;
+        border-radius: 12px !important;
+        box-sizing: border-box !important;
+        min-width: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        justify-content: space-between !important;
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03) !important;
+    }
+
+    .exec-card-item .exec-avatar-wrapper,
+    .exec-avatar-wrapper {
+        width: 66px !important;
+        height: 66px !important;
+        min-width: 66px !important;
+        min-height: 66px !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        margin: 0 auto 10px auto !important;
+        border: 2px solid #f1f5f9 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .exec-card-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+
+    .exec-card-name,
+    .exec-card-item h3,
+    .exec-card-item h4 {
+        font-size: 0.92rem !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+        margin: 0 0 3px 0 !important;
+        line-height: 1.25 !important;
+        text-align: center !important;
         width: 100% !important;
     }
 
-    .exec-cards-trio .exec-card-item {
-        flex: 0 0 calc(50% - 5px) !important;
-        width: calc(50% - 5px) !important;
-        padding: 20px 10px !important;
-        box-sizing: border-box !important;
-    }
-
-    .exec-card-item {
-        flex: 1 1 0% !important;
-        width: 50% !important;
-        padding: 20px 10px !important;
-        min-width: 0 !important;
-    }
-
-    .exec-avatar-wrapper {
-        width: 76px !important;
-        height: 76px !important;
-        margin: 0 auto 12px auto !important;
-    }
-
-    .exec-card-name {
-        font-size: 0.95rem !important;
-        margin-bottom: 4px !important;
-    }
-
-    .exec-card-title {
-        font-size: 0.75rem !important;
-        min-height: 42px !important;
-        margin-bottom: 14px !important;
+    .exec-card-title,
+    .exec-card-item p.exec-card-title {
+        font-size: 0.70rem !important;
+        color: #64748b !important;
+        line-height: 1.35 !important;
+        margin: 0 0 10px 0 !important;
+        min-height: 34px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
     }
 
     .exec-card-btn {
-        padding: 6px 8px !important;
-        font-size: 0.72rem !important;
+        margin-top: auto !important;
+        padding: 5px 6px !important;
+        font-size: 0.70rem !important;
+        font-weight: 600 !important;
+        border-radius: 20px !important;
+        background-color: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        color: #0f172a !important;
         width: 100% !important;
         box-sizing: border-box !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 3px !important;
+        white-space: nowrap !important;
+        letter-spacing: -0.01em !important;
     }
 
     .senior-team-wrapper {
@@ -3005,16 +3080,31 @@ body.no-scroll {
     }
 }
 
-@media (max-width: 480px) {
-    .exec-cards-container,
-    .exec-cards-trio {
-        flex-direction: column !important;
-        gap: 12px !important;
+@media (max-width: 360px) {
+    .exec-cards-container .exec-card-item,
+    .exec-cards-trio .exec-card-item,
+    .exec-card-item {
+        padding: 14px 4px 12px 4px !important;
     }
-
-    .exec-card-item,
-    .exec-cards-trio .exec-card-item {
-        width: 100% !important;
-        flex: 1 1 100% !important;
+    .exec-card-item .exec-avatar-wrapper,
+    .exec-avatar-wrapper {
+        width: 58px !important;
+        height: 58px !important;
+        min-width: 58px !important;
+        min-height: 58px !important;
+    }
+    .exec-card-name,
+    .exec-card-item h3,
+    .exec-card-item h4 {
+        font-size: 0.85rem !important;
+    }
+    .exec-card-title,
+    .exec-card-item p.exec-card-title {
+        font-size: 0.65rem !important;
+        min-height: 30px !important;
+    }
+    .exec-card-btn {
+        font-size: 0.65rem !important;
+        padding: 4px 4px !important;
     }
 }
