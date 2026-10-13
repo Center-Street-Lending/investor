@@ -1256,6 +1256,14 @@ body {
     margin: 0;
 }
 
+/* Riviera Executive Cards Trio Desktop */
+.exec-cards-trio.riviera-exec-trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
 @media (max-width: 900px) {
     .leadership-grid {
         grid-template-columns: 1fr;
@@ -2939,7 +2947,8 @@ body.no-scroll {
         justify-content: space-between !important;
         align-items: stretch !important;
     }
-    .exec-cards-trio {
+    .exec-cards-trio,
+    .exec-cards-trio.riviera-exec-trio {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
@@ -2948,7 +2957,8 @@ body.no-scroll {
         width: 100% !important;
         align-items: stretch !important;
     }
-    .exec-cards-trio .exec-card-item {
+    .exec-cards-trio .exec-card-item,
+    .exec-cards-trio.riviera-exec-trio .exec-card-item {
         flex: 0 0 calc(50% - 8px) !important;
         width: calc(50% - 8px) !important;
         max-width: calc(50% - 8px) !important;
@@ -2957,14 +2967,14 @@ body.no-scroll {
 
 @media (max-width: 640px) {
     .grid-4-col,
-    .grid-3-col,
+    .grid-3-col:not(.exec-cards-trio):not(.riviera-exec-trio),
     .grid-2-col,
     .strategies-grid,
     .serve-card-container,
     .strategy-features-bar,
     div[style*="grid-template-columns: repeat(5, 1fr)"],
     div[style*="grid-template-columns: repeat(4, 1fr)"],
-    div[style*="grid-template-columns: repeat(3, 1fr)"],
+    div[style*="grid-template-columns: repeat(3, 1fr)"]:not(.exec-cards-trio):not(.riviera-exec-trio),
     div[style*="grid-template-columns: repeat(2, 1fr)"],
     div[style*="grid-template-columns: 1.1fr 1fr"],
     div[style*="grid-template-columns: 1.5fr 1fr"] {
@@ -3119,18 +3129,20 @@ body.no-scroll {
         align-items: stretch !important;
     }
 
-    .exec-cards-trio {
+    .exec-cards-trio,
+    .exec-cards-trio.riviera-exec-trio {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
-        gap: 10px !important;
+        gap: 12px 10px !important;
         width: 100% !important;
         align-items: stretch !important;
     }
 
     .exec-cards-container .exec-card-item,
     .exec-cards-trio .exec-card-item,
+    .exec-cards-trio.riviera-exec-trio .exec-card-item,
     .exec-card-item {
         flex: 0 0 calc(50% - 5px) !important;
         width: calc(50% - 5px) !important;
@@ -3182,17 +3194,29 @@ body.no-scroll {
     }
 
     .exec-card-title,
-    .exec-card-item p.exec-card-title {
+    .exec-card-item p.exec-card-title,
+    .exec-card-item .exec-card-title {
         font-size: 0.70rem !important;
         color: #64748b !important;
         line-height: 1.35 !important;
         margin: 0 0 10px 0 !important;
         min-height: 34px !important;
         display: flex !important;
+        flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
         text-align: center !important;
         width: 100% !important;
+    }
+
+    .exec-card-title strong,
+    .exec-card-item .exec-card-title strong {
+        font-size: 0.72rem !important;
+        color: #4683b3 !important;
+        display: block !important;
+        margin-bottom: 2px !important;
+        font-weight: 600 !important;
+        text-align: center !important;
     }
 
     .exec-card-btn {
