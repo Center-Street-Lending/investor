@@ -22,11 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
             menuBtn.classList.toggle('active');
             navLinks.classList.toggle('open');
             navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.contains('open') || navLinks.classList.contains('active');
+            document.body.classList.toggle('mobile-menu-open', isOpen);
             
             // Toggle hamburger animation
             const spans = menuBtn.querySelectorAll('span');
             if (spans.length >= 3) {
-                if (navLinks.classList.contains('open') || navLinks.classList.contains('active')) {
+                if (isOpen) {
                     spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
                     spans[1].style.opacity = '0';
                     spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
@@ -44,7 +46,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 menuBtn.classList.remove('active');
                 navLinks.classList.remove('open');
                 navLinks.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+                const spans = menuBtn.querySelectorAll('span');
+                if (spans.length >= 3) {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
             }
+        });
+
+        // Close mobile menu when clicking any nav link inside it
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                navLinks.classList.remove('open');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+                const spans = menuBtn.querySelectorAll('span');
+                if (spans.length >= 3) {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
         });
     }
 

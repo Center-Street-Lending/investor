@@ -103,7 +103,7 @@ body {
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10001 !important;
     box-sizing: border-box;
 }
 
@@ -1685,7 +1685,7 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001; /* Above mobile menu */
+    z-index: 10002 !important; /* Above mobile menu */
 }
 
 .hamburger-btn span {
@@ -1712,7 +1712,7 @@ body {
     left: 0;
     width: 100%;
     background-color: #ffffff;
-    z-index: 999;
+    z-index: 10000 !important;
     padding: 16px 20px 24px 20px;
     box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.12), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
     border-bottom: 3px solid #4683b3;
@@ -1727,6 +1727,20 @@ body {
     transform: translateY(0) !important;
     opacity: 1 !important;
     pointer-events: auto !important;
+}
+
+/* Ensure sticky sub-nav stays below mobile menu and completely hides when open */
+.sub-nav-wrapper {
+    z-index: 90 !important;
+}
+
+.mobile-menu.open ~ main .sub-nav-wrapper,
+.mobile-menu.active ~ main .sub-nav-wrapper,
+body.mobile-menu-open .sub-nav-wrapper {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 .mobile-menu-inner {
@@ -2866,6 +2880,7 @@ body.no-scroll {
         background-color: #ffffff !important;
         border-bottom: 1px solid #e2e8f0 !important;
         scrollbar-width: none !important;
+        z-index: 90 !important;
     }
     .sub-nav-wrapper::-webkit-scrollbar {
         display: none !important;
