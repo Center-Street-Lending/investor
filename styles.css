@@ -1370,6 +1370,26 @@ body {
     margin: 0;
 }
 
+.footer-logo-link {
+    display: inline-block;
+    margin-bottom: 14px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.footer-logo-link:hover {
+    opacity: 0.85;
+}
+
+.footer-logo {
+    height: 24px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left;
+    display: block;
+}
+
 .footer-divider {
     height: 1px;
     background-color: #1e293b;
@@ -2980,6 +3000,16 @@ body.no-scroll {
     footer a {
         word-break: break-word !important;
         overflow-wrap: anywhere !important;
+    }
+
+    .footer-logo-link {
+        margin-bottom: 12px !important;
+        display: inline-block !important;
+    }
+
+    .footer-logo {
+        height: 20px !important;
+        max-width: 100% !important;
     }
 
     footer ul {
