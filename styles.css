@@ -1264,6 +1264,41 @@ body {
     width: 100%;
 }
 
+/* Portfolio Companies Grid Desktop */
+.portfolio-companies-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.portfolio-company-card {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-company-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-company-name {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.portfolio-company-desc {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
 @media (max-width: 900px) {
     .leadership-grid {
         grid-template-columns: 1fr;
@@ -2871,16 +2906,23 @@ body.no-scroll {
 
     /* 5-Column Feature Bar Tablet Stacking */
     .strategy-features-bar,
-    div[style*="grid-template-columns: repeat(5, 1fr)"] {
+    div[style*="grid-template-columns: repeat(5, 1fr)"]:not(.portfolio-companies-grid) {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 0 !important;
     }
 
     .strategy-features-bar > div,
-    div[style*="grid-template-columns: repeat(5, 1fr)"] > div {
+    div[style*="grid-template-columns: repeat(5, 1fr)"]:not(.portfolio-companies-grid) > div {
         padding: 24px 20px !important;
         border-right: none !important;
         border-bottom: 1px solid #334155 !important;
+    }
+
+    /* Portfolio Companies Grid Tablet */
+    .portfolio-companies-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 14px !important;
     }
 
     /* Process Flow Tablet Stacking */
@@ -2972,7 +3014,7 @@ body.no-scroll {
     .strategies-grid,
     .serve-card-container,
     .strategy-features-bar,
-    div[style*="grid-template-columns: repeat(5, 1fr)"],
+    div[style*="grid-template-columns: repeat(5, 1fr)"]:not(.portfolio-companies-grid),
     div[style*="grid-template-columns: repeat(4, 1fr)"],
     div[style*="grid-template-columns: repeat(3, 1fr)"]:not(.exec-cards-trio):not(.riviera-exec-trio),
     div[style*="grid-template-columns: repeat(2, 1fr)"],
@@ -2980,6 +3022,38 @@ body.no-scroll {
     div[style*="grid-template-columns: 1.5fr 1fr"] {
         grid-template-columns: 1fr !important;
         gap: 24px !important;
+    }
+
+    /* Portfolio Companies 2 Columns on Mobile */
+    .portfolio-companies-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px 10px !important;
+        margin-bottom: 32px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .portfolio-company-card {
+        padding: 14px 12px !important;
+        border-radius: 10px !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .portfolio-company-name {
+        font-size: 0.90rem !important;
+        margin-bottom: 3px !important;
+        line-height: 1.25 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .portfolio-company-desc {
+        font-size: 0.74rem !important;
+        line-height: 1.35 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
     }
 
     /* Footer 2 Columns on Mobile */
