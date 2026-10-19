@@ -167,7 +167,7 @@ window.handleDiligenceFormSubmit = function(e) {
         return match ? match[1] : '';
     })();
 
-    const formattedMessage = `=== DILIGENCE ACCESS REQUEST ===\nFull Name: ${fullName}\nEmail: ${email}\nCompany / Firm: ${company}\nPhone Number: ${phone}\nInvestor Type: ${investorType}\n\nRequesting full diligence materials for Center Street Capital.`;
+    const formattedMessage = `=== DILIGENCE ACCESS REQUEST ===\nFull Name: ${fullName}\nEmail: ${email}\nCompany / Firm: ${company}\nPhone Number: ${phone}\nInvestor Type: ${investorType}\nLead Owner: Jeffrey Swope (100986431)\n\nRequesting full diligence materials for Center Street Capital.`;
 
     const payload = {
         fields: [
@@ -176,6 +176,7 @@ window.handleDiligenceFormSubmit = function(e) {
             { name: 'lastname', value: lastName },
             { name: 'company', value: company },
             { name: 'phone', value: phone },
+            { name: 'hubspot_owner_id', value: '100986431' },
             { name: 'message', value: formattedMessage }
         ],
         context: {
