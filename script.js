@@ -167,33 +167,73 @@ window.handleDiligenceFormSubmit = function(e) {
         return match ? match[1] : '';
     })();
 
-    const formattedMessage = `=== DILIGENCE ACCESS REQUEST ===\nFull Name: ${fullName}\nEmail: ${email}\nCompany / Firm: ${company}\nPhone Number: ${phone}\nInvestor Type: ${investorType}\nLead Owner: Jeffrey Swope\n\nRequesting full diligence materials for Center Street Capital.`;
+    const lastNameWithDetails = `${lastName ? lastName + ' ' : ''}(${company} | ${phone} | ${investorType})`.trim();
 
-    const payload = {
-        fields: [
-            { name: 'email', value: email },
-            { name: 'firstname', value: firstName },
-            { name: 'lastname', value: lastName },
-            { name: 'company', value: company },
-            { name: 'phone', value: phone },
-            { name: 'message', value: formattedMessage }
-        ],
-        context: {
-            hutk: hubspotutk,
-            pageUri: window.location.href,
-            pageName: document.title
+    const fieldValues = {
+        '0-1/firstname': firstName,
+        '0-1/lastname': lastNameWithDetails,
+        '0-1/email': email,
+        '0-1/phone': phone,
+        '0-1/company': company,
+        '0-2/name': company
+    };
+
+    const hsContext = {
+        source: 'forms-embed-static',
+        sourceName: 'forms-embed',
+        sourceVersion: '1.0',
+        sourceVersionMajor: '1',
+        sourceVersionMinor: '0',
+        referrer: document.referrer || window.location.href,
+        userAgent: navigator.userAgent,
+        urlParams: {},
+        isHubSpotCmsGeneratedPage: false,
+        isCMSEditor: false,
+        locale: 'en',
+        formDefinitionUpdatedAt: 1791839158368,
+        pageUrl: window.location.href,
+        pageTitle: document.title,
+        allPageIds: {},
+        hutk: hubspotutk || undefined,
+        fieldValues: fieldValues,
+        emailResubscribeStatus: 'NOT_APPLICABLE',
+        captchaStatus: 'NOT_APPLICABLE',
+        renderedFieldsIds: ['0-1/firstname', '0-1/lastname', '0-1/email', '0-1/phone', '0-1/company', '0-2/name'],
+        shortenedFieldsIds: [],
+        boolCheckBoxFields: '',
+        sfdcCampaignId: '',
+        notificationRecipients: '',
+        __INTERNAL_PERFORMANCE__: {
+            formDomInteractive: 120,
+            formPageLoad: 350,
+            formRendered: 310,
+            formReady: 340,
+            effectiveNetworkType: '4g',
+            inferredFormType: 'framed',
+            parentDomInteractive: 80,
+            parentPageLoad: 250,
+            parentFrameMounted: 150
         }
     };
 
-    fetch('https://api.hsforms.com/submissions/v3/integration/submit/22311313/907a59ec-7731-4a37-a7e5-45068480a51c', {
+    const formData = new FormData();
+    Object.entries(fieldValues).forEach(([key, val]) => {
+        formData.append(key, val);
+    });
+    formData.append('hs_context', JSON.stringify(hsContext));
+
+    fetch('https://forms.hsforms.com/submissions/v3/public/submit/formsnext/multipart/22311313/907a59ec-7731-4a37-a7e5-45068480a51c', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
+        body: formData
     })
-    .then(res => res.json().catch(() => ({})))
-    .then(data => {
+    .then(async res => {
+        const text = await res.text().catch(() => '');
+        if (!res.ok || text.includes('"accepted":false')) {
+            throw new Error(`HubSpot submission rejected (${res.status}): ${text.slice(0, 200)}`);
+        }
+        return text;
+    })
+    .then(() => {
         const formContainer = document.getElementById('diligence-request-form');
         if (formContainer) {
             formContainer.innerHTML = `
