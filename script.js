@@ -138,11 +138,20 @@ window.handleDiligenceFormSubmit = function(e) {
     
     const fullName = (document.getElementById('req-name')?.value || '').trim();
     const email = (document.getElementById('req-email')?.value || '').trim();
-    const company = (document.getElementById('req-company')?.value || '').trim() || 'N/A';
-    const phone = (document.getElementById('req-phone')?.value || '').trim() || 'N/A';
+    const company = (document.getElementById('req-company')?.value || '').trim();
+    const phone = (document.getElementById('req-phone')?.value || '').trim();
     
     const typeEl = document.querySelector('input[name="investor_type"]:checked');
-    const investorType = typeEl ? typeEl.value : 'General Investor';
+    const investorType = typeEl ? typeEl.value : '';
+
+    if (!fullName || !email || !company || !phone || !investorType) {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+        alert('Please complete all 5 required fields before submitting.');
+        return false;
+    }
 
     const nameParts = fullName.split(' ');
     const firstName = nameParts[0] || fullName;
