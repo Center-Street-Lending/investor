@@ -50,15 +50,31 @@ body {
     max-width: 100vw;
 }
 
+/* Container & Layout Architecture */
 .container,
-.nav-container,
-.sub-nav-container,
 .strategies-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 5% !important;
-    margin: 0 auto !important;
-    box-sizing: border-box !important;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+
+.sub-nav-container,
+.sub-nav-links-row {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 32px !important;
+    box-sizing: border-box;
 }
 
 /* Top Bar */
@@ -2880,10 +2896,258 @@ body.no-scroll {
 }
 
 /* ==========================================
+   DESKTOP INSTITUTIONAL TYPOGRAPHY & UX SCALE
+   (Screens > 900px)
+   ========================================== */
+@media (min-width: 901px) {
+    /* Desktop Hero Titles & Leads */
+    .about-hero {
+        padding: 96px 0 84px !important;
+    }
+
+    h1,
+    .hero-title,
+    .about-title {
+        font-size: 3.5rem !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.025em !important;
+        font-weight: 700 !important;
+        margin-bottom: 24px !important;
+    }
+
+    .about-hero-content {
+        max-width: 860px !important;
+    }
+
+    .hero-subtitle,
+    .about-desc,
+    .about-hero-content p {
+        font-size: 1.22rem !important;
+        line-height: 1.68 !important;
+        color: #cbd5e1 !important;
+        margin-bottom: 36px !important;
+    }
+
+    .hero-buttons-group {
+        display: flex !important;
+        gap: 18px !important;
+    }
+
+    .hero-buttons-group .btn-group-primary,
+    .hero-buttons-group .btn-group-secondary {
+        padding: 14px 28px !important;
+        font-size: 0.98rem !important;
+        font-weight: 600 !important;
+        border-radius: 6px !important;
+        transition: all 0.2s ease !important;
+    }
+
+    /* Desktop Section Kickers */
+    .section-kicker,
+    .hero-kicker,
+    .about-kicker,
+    .strategy-kicker {
+        font-size: 0.88rem !important;
+        letter-spacing: 0.08em !important;
+        font-weight: 700 !important;
+        margin-bottom: 16px !important;
+    }
+
+    /* Desktop Section Headings */
+    h2,
+    .strategies-title,
+    .section-header-block h2 {
+        font-size: 2.85rem !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.025em !important;
+        font-weight: 700 !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Desktop Section Header Blocks & Lead Copy */
+    .section-header-block,
+    .strategies-header,
+    .serve-header-block,
+    .criteria-header-block,
+    .approach-header-block,
+    .insights-header-block,
+    .leadership-header-block {
+        max-width: 880px !important;
+        margin-bottom: 48px !important;
+    }
+
+    .section-header-block p,
+    .strategies-subtitle,
+    .strategies-header p {
+        font-size: 1.18rem !important;
+        line-height: 1.68 !important;
+        color: #475569 !important;
+    }
+
+    /* Subheadings / Card Titles */
+    h3,
+    .strategy-title {
+        font-size: 1.35rem !important;
+        line-height: 1.32 !important;
+        font-weight: 700 !important;
+        margin-bottom: 16px !important;
+    }
+
+    /* Main Section Body Paragraphs */
+    #strategy .grid-2-col > div:first-child p,
+    #capital-preservation p:first-of-type,
+    #who-we-are p,
+    .philosophy-text p,
+    .about-text p {
+        font-size: 1.08rem !important;
+        line-height: 1.72 !important;
+        color: #334155 !important;
+    }
+
+    /* Overview Section (CSL RTL) Columns */
+    #strategy .grid-2-col {
+        gap: 56px !important;
+        align-items: start !important;
+    }
+
+    #strategy h3 {
+        font-size: 1.35rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    #strategy ul li {
+        font-size: 1.04rem !important;
+        line-height: 1.65 !important;
+        margin-bottom: 14px !important;
+    }
+
+    #strategy ul li span:first-child {
+        font-size: 1.15rem !important;
+    }
+
+    /* Strategy Feature Bar (5 columns) */
+    .strategy-features-bar {
+        border-radius: 10px !important;
+    }
+
+    .strategy-features-bar > div {
+        padding: 28px 24px !important;
+    }
+
+    .strategy-features-bar div[style*="font-size: 1rem"],
+    .strategy-features-bar div[style*="font-size: 1.05rem"] {
+        font-size: 1.08rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Process Flow / 5 Steps */
+    .process-flow-grid > div h3 {
+        font-size: 1.12rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .process-flow-grid > div p {
+        font-size: 0.94rem !important;
+        line-height: 1.62 !important;
+    }
+
+    /* Strategy Profile / Structure 3 Columns */
+    #portfolio-fit .grid-3-col > div h3 {
+        font-size: 1.25rem !important;
+        margin-bottom: 14px !important;
+    }
+
+    #portfolio-fit .grid-3-col > div p {
+        font-size: 1.02rem !important;
+        line-height: 1.68 !important;
+        color: #475569 !important;
+    }
+
+    /* Dark For Investors Section */
+    #for-investors {
+        padding: 96px 0 !important;
+    }
+
+    #for-investors h2 {
+        font-size: 2.85rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 24px !important;
+        max-width: 620px !important;
+    }
+
+    #for-investors p {
+        font-size: 1.12rem !important;
+        line-height: 1.68 !important;
+        max-width: 620px !important;
+    }
+
+    #for-investors .container > div {
+        gap: 72px !important;
+    }
+
+    #for-investors a.request-access-btn,
+    #for-investors a[style*="background-color: transparent"] {
+        padding: 15px 28px !important;
+        font-size: 0.98rem !important;
+    }
+
+    /* Homepage Strategy Cards */
+    .strategies-grid .strategy-card {
+        padding: 44px 38px !important;
+    }
+
+    .strategies-grid .strategy-card .strategy-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 16px !important;
+    }
+
+    .strategies-grid .strategy-card p {
+        font-size: 1.02rem !important;
+        line-height: 1.68 !important;
+    }
+
+    /* Homepage Who We Serve (3 columns in unified card) */
+    .serve-card-container > div {
+        padding: 44px 38px !important;
+    }
+
+    .serve-card-container > div h3 {
+        font-size: 1.28rem !important;
+        margin-bottom: 14px !important;
+    }
+
+    .serve-card-container > div p {
+        font-size: 0.98rem !important;
+        line-height: 1.65 !important;
+    }
+
+    /* Riviera Stats Bar */
+    .stats-section .stat-item h4 {
+        font-size: 2.85rem !important;
+        font-weight: 700 !important;
+    }
+
+    .stats-section .stat-item p {
+        font-size: 1rem !important;
+    }
+}
+
+/* ==========================================
    GLOBAL MOBILE RESPONSIVENESS OVERRIDES
    ========================================== */
 
 @media (max-width: 900px) {
+    .container,
+    .strategies-container,
+    .nav-container,
+    .sub-nav-container,
+    .sub-nav-links-row {
+        max-width: 100% !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+
     .grid-4-col,
     div[style*="grid-template-columns: repeat(4, 1fr)"] {
         grid-template-columns: repeat(2, 1fr) !important;
