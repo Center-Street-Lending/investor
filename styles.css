@@ -974,13 +974,6 @@ body {
     padding: 100px 0;
 }
 
-.strategies-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-    box-sizing: border-box;
-}
-
 .strategies-header {
     margin-bottom: 60px;
     text-align: left;
@@ -2612,8 +2605,7 @@ body.no-scroll {
     section#insights,
     section.map-texture-section,
     #who-we-serve .container > div:first-child,
-    .strategies-container > div:first-child,
-    .container > div[style*="text-align: center"]:not(.exec-cards-container):not(.exec-cards-trio):not(.exec-card-item):not(.stat-box):not(.stat-item):not(.stats-grid) {
+    .container > div[style*="text-align: center"]:not(.exec-cards-container):not(.exec-cards-trio):not(.exec-card-item):not(.stat-box):not(.stat-item):not(.stats-grid):not(.strategy-features-bar) {
         text-align: left !important;
         margin-left: 0 !important;
         margin-right: auto !important;
@@ -2908,8 +2900,9 @@ body.no-scroll {
         margin-bottom: 24px !important;
     }
 
+    .hero-content,
     .about-hero-content {
-        max-width: 860px !important;
+        max-width: 880px !important;
     }
 
     .hero-subtitle,
@@ -2967,8 +2960,7 @@ body.no-scroll {
     .leadership-header-block,
     .governance-header-block,
     .philosophy-header-block,
-    #who-we-serve .container > div:first-child,
-    .strategies-container > div:first-child {
+    #who-we-serve .container > div:first-child {
         max-width: 880px !important;
         margin-left: 0 !important;
         margin-right: auto !important;
@@ -3056,7 +3048,18 @@ body.no-scroll {
 
     /* Strategy Feature Bar (5 columns) */
     .strategy-features-bar {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
         border-radius: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .stats-grid {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
     }
 
     .strategy-features-bar > div {
