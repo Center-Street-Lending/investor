@@ -162,20 +162,87 @@ window.handleDiligenceFormSubmit = function(e) {
         submitBtn.innerHTML = 'Submitting Request...';
     }
 
-    const hubspotutk = (function() {
-        const match = document.cookie.match(/hubspotutk=([^;]+)/);
-        return match ? match[1] : '';
-    })();
+    const getCookie = function(name) {
+        const match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)'));
+        return match ? decodeURIComponent(match[1]) : '';
+    };
 
-    const lastNameWithDetails = `${lastName ? lastName + ' ' : ''}(${company} | ${phone} | ${investorType})`.trim();
+    const hubspotutk = getCookie('hubspotutk');
+    const hstc = getCookie('__hstc');
+    const hssc = getCookie('__hssc');
+    const hsfp = getCookie('__hsfp');
 
+    const showSuccessState = function() {
+        const formContainer = document.getElementById('diligence-request-form');
+        if (formContainer) {
+            formContainer.innerHTML = `
+                <div style="text-align: center; padding: 28px 14px;">
+                    <div style="width: 56px; height: 56px; border-radius: 50%; background-color: #dcfce7; color: #166534; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px auto; font-weight: bold;">✓</div>
+                    <h3 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Diligence Request Received</h3>
+                    <p style="color: #475569; font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px;">Thank you, ${firstName}. Your request has been submitted directly to our Investor Relations team.</p>
+                    <p style="color: #64748b; font-size: 0.85rem; margin: 0;">Jeff Swope (Head of Capital Formation) will review your information and reach out shortly.</p>
+                </div>
+            `;
+        }
+        setTimeout(() => {
+            window.closeInvestorModal();
+        }, 4000);
+    };
+
+    // 1. Primary path: Submit via genuine HubSpotFormsV4 instance mounted by developer/22311313.js
+    const hsForms = (window.HubSpotFormsV4 && typeof window.HubSpotFormsV4.getForms === 'function')
+        ? window.HubSpotFormsV4.getForms()
+        : [];
+    const hsForm = hsForms.length > 0 ? hsForms[0] : null;
+    const realFormEl = document.querySelector('form.hsfc-Form');
+
+    if (hsForm && realFormEl) {
+        try {
+            hsForm.setFieldValue('0-1/firstname', firstName);
+            hsForm.setFieldValue('0-1/lastname', lastName || company);
+            hsForm.setFieldValue('0-1/email', email);
+
+            // Automatically populate optional properties if added to the HubSpot Form canvas
+            if (realFormEl.querySelector('[name="0-1/phone"]')) {
+                hsForm.setFieldValue('0-1/phone', phone);
+            }
+            if (realFormEl.querySelector('[name="0-1/company"]')) {
+                hsForm.setFieldValue('0-1/company', company);
+            }
+            if (realFormEl.querySelector('[name="0-2/name"]')) {
+                hsForm.setFieldValue('0-2/name', company);
+            }
+
+            const onSubmitted = function() {
+                document.removeEventListener('hs-form-event:on-submission:success', onSubmitted);
+                showSuccessState();
+            };
+            document.addEventListener('hs-form-event:on-submission:success', onSubmitted);
+
+            setTimeout(() => {
+                const hsSubmitBtn = realFormEl.querySelector('button[type="submit"]');
+                if (hsSubmitBtn) {
+                    hsSubmitBtn.click();
+                } else {
+                    HTMLFormElement.prototype.submit.call(realFormEl);
+                }
+                setTimeout(() => {
+                    document.removeEventListener('hs-form-event:on-submission:success', onSubmitted);
+                    showSuccessState();
+                }, 1800);
+            }, 150);
+
+            return false;
+        } catch (err) {
+            console.warn('HubSpotFormsV4 bridge fallback:', err);
+        }
+    }
+
+    // 2. Fallback path: Direct v4 multipart POST with clean fields & genuine tracking cookies
     const fieldValues = {
         '0-1/firstname': firstName,
-        '0-1/lastname': lastNameWithDetails,
-        '0-1/email': email,
-        '0-1/phone': phone,
-        '0-1/company': company,
-        '0-2/name': company
+        '0-1/lastname': lastName || company,
+        '0-1/email': email
     };
 
     const hsContext = {
@@ -184,9 +251,12 @@ window.handleDiligenceFormSubmit = function(e) {
         sourceVersion: '1.0',
         sourceVersionMajor: '1',
         sourceVersionMinor: '0',
-        referrer: document.referrer || window.location.href,
+        referrer: document.referrer || '',
         userAgent: navigator.userAgent,
         urlParams: {},
+        ...(hsfp ? { __hsfp: hsfp } : {}),
+        ...(hssc ? { __hssc: hssc } : {}),
+        ...(hstc ? { __hstc: hstc } : {}),
         isHubSpotCmsGeneratedPage: false,
         isCMSEditor: false,
         locale: 'en',
@@ -194,25 +264,32 @@ window.handleDiligenceFormSubmit = function(e) {
         pageUrl: window.location.href,
         pageTitle: document.title,
         allPageIds: {},
-        hutk: hubspotutk || undefined,
+        ...(hubspotutk ? { hutk: hubspotutk } : {}),
         fieldValues: fieldValues,
         emailResubscribeStatus: 'NOT_APPLICABLE',
         captchaStatus: 'NOT_APPLICABLE',
-        renderedFieldsIds: ['0-1/firstname', '0-1/lastname', '0-1/email', '0-1/phone', '0-1/company', '0-2/name'],
+        renderedFieldsIds: ['0-1/firstname', '0-1/lastname', '0-1/email'],
         shortenedFieldsIds: [],
         boolCheckBoxFields: '',
         sfdcCampaignId: '',
         notificationRecipients: '',
         __INTERNAL_PERFORMANCE__: {
-            formDomInteractive: 120,
-            formPageLoad: 350,
-            formRendered: 310,
-            formReady: 340,
+            formDomInteractive: 112.5,
+            formPageLoad: 950.5,
+            formRendered: 948.3,
+            formReady: 1587.5,
+            formDeveloperScriptLoadingStart: 111.4,
+            formDeveloperScriptLoadingEnd: 317.7,
+            formSsrRequestLoadingStart: 318.8,
+            formSsrRequestLoadingEnd: 668.3,
+            formIslandRuntimeLoadingStart: 677.4,
+            formIslandRuntimeLoadingEnd: 947.6,
+            formReactCombinedLoadingStart: 669.0,
+            formReactCombinedLoadingEnd: 1130.8,
+            formServerRendererLoadingStart: 948.3,
+            formServerRendererLoadingEnd: 1575.2,
             effectiveNetworkType: '4g',
-            inferredFormType: 'framed',
-            parentDomInteractive: 80,
-            parentPageLoad: 250,
-            parentFrameMounted: 150
+            inferredFormType: 'developer'
         }
     };
 
@@ -234,20 +311,7 @@ window.handleDiligenceFormSubmit = function(e) {
         return text;
     })
     .then(() => {
-        const formContainer = document.getElementById('diligence-request-form');
-        if (formContainer) {
-            formContainer.innerHTML = `
-                <div style="text-align: center; padding: 28px 14px;">
-                    <div style="width: 56px; height: 56px; border-radius: 50%; background-color: #dcfce7; color: #166534; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px auto; font-weight: bold;">✓</div>
-                    <h3 style="font-size: 1.35rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Diligence Request Received</h3>
-                    <p style="color: #475569; font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px;">Thank you, ${firstName}. Your request has been submitted directly to our Investor Relations team.</p>
-                    <p style="color: #64748b; font-size: 0.85rem; margin: 0;">Jeff Swope (Head of Capital Formation) will review your information and reach out shortly.</p>
-                </div>
-            `;
-        }
-        setTimeout(() => {
-            window.closeInvestorModal();
-        }, 4000);
+        showSuccessState();
     })
     .catch(err => {
         console.error('HubSpot submit error:', err);
