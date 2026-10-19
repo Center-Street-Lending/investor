@@ -167,33 +167,34 @@ window.handleDiligenceFormSubmit = function(e) {
         return match ? match[1] : '';
     })();
 
-    const formattedMessage = `=== DILIGENCE ACCESS REQUEST ===\nFull Name: ${fullName}\nEmail: ${email}\nCompany / Firm: ${company}\nPhone Number: ${phone}\nInvestor Type: ${investorType}\nLead Owner: Jeffrey Swope (100986431)\n\nRequesting full diligence materials for Center Street Capital.`;
-
-    const payload = {
-        fields: [
-            { name: 'email', value: email },
-            { name: 'firstname', value: firstName },
-            { name: 'lastname', value: lastName },
-            { name: 'company', value: company },
-            { name: 'phone', value: phone },
-            { name: 'hubspot_owner_id', value: '100986431' },
-            { name: 'message', value: formattedMessage }
-        ],
-        context: {
-            hutk: hubspotutk,
-            pageUri: window.location.href,
-            pageName: document.title
-        }
+    const leadPayload = {
+        fullName,
+        firstName,
+        lastName,
+        email,
+        company,
+        phone,
+        investorType,
+        hutk: hubspotutk,
+        pageUri: window.location.href,
+        pageName: document.title
     };
 
-    fetch('https://api.hsforms.com/submissions/v3/integration/submit/22311313/907a59ec-7731-4a37-a7e5-45068480a51c', {
+    const apiEndpoint = window.location.hostname.includes('vercel.app')
+        ? '/api/submit-lead'
+        : 'https://investor-csl.vercel.app/api/submit-lead';
+
+    fetch(apiEndpoint, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(leadPayload)
     })
-    .then(res => res.json().catch(() => ({})))
+    .then(res => {
+        if (!res.ok) throw new Error('Submission rejected');
+        return res.json();
+    })
     .then(data => {
         const formContainer = document.getElementById('diligence-request-form');
         if (formContainer) {
