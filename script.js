@@ -130,6 +130,27 @@ window.closeInvestorModal = function(e) {
     }
 };
 
+// Live-sync #req-name and #req-email into HubSpotFormsV4 while user fills out the modal
+// so HubSpot's 500ms live email validation completes before they click Submit
+document.addEventListener('input', function(ev) {
+    if (!ev.target || (ev.target.id !== 'req-name' && ev.target.id !== 'req-email')) return;
+    const forms = (window.HubSpotFormsV4 && typeof window.HubSpotFormsV4.getForms === 'function')
+        ? window.HubSpotFormsV4.getForms()
+        : [];
+    if (!forms.length) return;
+    const hsForm = forms[0];
+    try {
+        if (ev.target.id === 'req-name') {
+            const val = (ev.target.value || '').trim();
+            const parts = val.split(' ');
+            hsForm.setFieldValue('0-1/firstname', parts[0] || '');
+            hsForm.setFieldValue('0-1/lastname', parts.slice(1).join(' ') || '');
+        } else if (ev.target.id === 'req-email') {
+            hsForm.setFieldValue('0-1/email', (ev.target.value || '').trim());
+        }
+    } catch (_) {}
+});
+
 window.handleDiligenceFormSubmit = function(e) {
     if (e && e.preventDefault) e.preventDefault();
     
@@ -213,12 +234,16 @@ window.handleDiligenceFormSubmit = function(e) {
                 hsForm.setFieldValue('0-2/name', company);
             }
 
-            const onSubmitted = function() {
-                document.removeEventListener('hs-form-event:on-submission:success', onSubmitted);
+            let completed = false;
+            const finishOnce = function() {
+                if (completed) return;
+                completed = true;
+                document.removeEventListener('hs-form-event:on-submission:success', finishOnce);
                 showSuccessState();
             };
-            document.addEventListener('hs-form-event:on-submission:success', onSubmitted);
+            document.addEventListener('hs-form-event:on-submission:success', finishOnce);
 
+            // Wait 850ms for HubSpot's 500ms debounced live email validation to finish before clicking submit
             setTimeout(() => {
                 const hsSubmitBtn = realFormEl.querySelector('button[type="submit"]');
                 if (hsSubmitBtn) {
@@ -227,10 +252,13 @@ window.handleDiligenceFormSubmit = function(e) {
                     HTMLFormElement.prototype.submit.call(realFormEl);
                 }
                 setTimeout(() => {
-                    document.removeEventListener('hs-form-event:on-submission:success', onSubmitted);
-                    showSuccessState();
-                }, 1800);
-            }, 150);
+                    if (!completed && (!hsForm.getConversionId || !hsForm.getConversionId())) {
+                        const retryBtn = realFormEl.querySelector('button[type="submit"]');
+                        if (retryBtn) retryBtn.click();
+                    }
+                    setTimeout(finishOnce, 1200);
+                }, 1000);
+            }, 850);
 
             return false;
         } catch (err) {
