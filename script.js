@@ -223,16 +223,12 @@ window.handleDiligenceFormSubmit = function(e) {
             hsForm.setFieldValue('0-1/lastname', lastName || company);
             hsForm.setFieldValue('0-1/email', email);
 
-            // Automatically populate optional properties if added to the HubSpot Form canvas
-            if (realFormEl.querySelector('[name="0-1/phone"]')) {
-                hsForm.setFieldValue('0-1/phone', phone);
-            }
-            if (realFormEl.querySelector('[name="0-1/company"]')) {
-                hsForm.setFieldValue('0-1/company', company);
-            }
-            if (realFormEl.querySelector('[name="0-2/name"]')) {
-                hsForm.setFieldValue('0-2/name', company);
-            }
+            // Website Form Loophole: Automatically assign Contact Owner to Jeffrey Swope (100986431)
+            // and populate Phone / Company (works for both Hidden and Visible fields on the HubSpot form)
+            try { hsForm.setFieldValue('0-1/hubspot_owner_id', '100986431'); } catch (_) {}
+            try { hsForm.setFieldValue('0-1/phone', phone); } catch (_) {}
+            try { hsForm.setFieldValue('0-1/company', company); } catch (_) {}
+            try { hsForm.setFieldValue('0-2/name', company); } catch (_) {}
 
             let completed = false;
             const finishOnce = function() {
