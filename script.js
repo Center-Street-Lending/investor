@@ -130,27 +130,6 @@ window.closeInvestorModal = function(e) {
     }
 };
 
-// Live-sync #req-name and #req-email into HubSpotFormsV4 while user fills out the modal
-// so HubSpot's 500ms live email validation completes before they click Submit
-document.addEventListener('input', function(ev) {
-    if (!ev.target || (ev.target.id !== 'req-name' && ev.target.id !== 'req-email')) return;
-    const forms = (window.HubSpotFormsV4 && typeof window.HubSpotFormsV4.getForms === 'function')
-        ? window.HubSpotFormsV4.getForms()
-        : [];
-    if (!forms.length) return;
-    const hsForm = forms[0];
-    try {
-        if (ev.target.id === 'req-name') {
-            const val = (ev.target.value || '').trim();
-            const parts = val.split(' ');
-            hsForm.setFieldValue('0-1/firstname', parts[0] || '');
-            hsForm.setFieldValue('0-1/lastname', parts.slice(1).join(' ') || '');
-        } else if (ev.target.id === 'req-email') {
-            hsForm.setFieldValue('0-1/email', (ev.target.value || '').trim());
-        }
-    } catch (_) {}
-});
-
 window.handleDiligenceFormSubmit = function(e) {
     if (e && e.preventDefault) e.preventDefault();
     
@@ -183,17 +162,42 @@ window.handleDiligenceFormSubmit = function(e) {
         submitBtn.innerHTML = 'Submitting Request...';
     }
 
-    const getCookie = function(name) {
-        const match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)'));
+    const hubspotutk = (function() {
+        const match = document.cookie.match(/hubspotutk=([^;]+)/);
         return match ? decodeURIComponent(match[1]) : '';
+    })();
+
+    const formattedMessage = `=== DILIGENCE ACCESS REQUEST ===\nFull Name: ${fullName}\nEmail: ${email}\nCompany / Firm: ${company}\nPhone Number: ${phone}\nInvestor Type: ${investorType}\nLead Owner: Jeffrey Swope\n\nRequesting full diligence materials for Center Street Capital.`;
+
+    const contextObj = {
+        pageUri: window.location.href,
+        pageName: document.title
+    };
+    if (hubspotutk) {
+        contextObj.hutk = hubspotutk;
+    }
+
+    const payload = {
+        fields: [
+            { name: 'email', value: email },
+            { name: 'firstname', value: firstName },
+            { name: 'lastname', value: lastName },
+            { name: 'company', value: company },
+            { name: 'phone', value: phone },
+            { name: 'message', value: formattedMessage }
+        ],
+        context: contextObj
     };
 
-    const hubspotutk = getCookie('hubspotutk');
-    const hstc = getCookie('__hstc');
-    const hssc = getCookie('__hssc');
-    const hsfp = getCookie('__hsfp');
-
-    const showSuccessState = function() {
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/22311313/907a59ec-7731-4a37-a7e5-45068480a51c', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(res => res.json().catch(() => ({})))
+    .then(() => {
         const formContainer = document.getElementById('diligence-request-form');
         if (formContainer) {
             formContainer.innerHTML = `
@@ -208,132 +212,6 @@ window.handleDiligenceFormSubmit = function(e) {
         setTimeout(() => {
             window.closeInvestorModal();
         }, 4000);
-    };
-
-    // 1. Primary path: Submit via genuine HubSpotFormsV4 instance mounted by developer/22311313.js
-    const hsForms = (window.HubSpotFormsV4 && typeof window.HubSpotFormsV4.getForms === 'function')
-        ? window.HubSpotFormsV4.getForms()
-        : [];
-    const hsForm = hsForms.length > 0 ? hsForms[0] : null;
-    const realFormEl = document.querySelector('form.hsfc-Form');
-
-    if (hsForm && realFormEl) {
-        try {
-            hsForm.setFieldValue('0-1/firstname', firstName);
-            hsForm.setFieldValue('0-1/lastname', lastName || company);
-            hsForm.setFieldValue('0-1/email', email);
-
-            // Populate Phone / Company if present on the HubSpot form
-            try { hsForm.setFieldValue('0-1/phone', phone); } catch (_) {}
-            try { hsForm.setFieldValue('0-1/company', company); } catch (_) {}
-            try { hsForm.setFieldValue('0-2/name', company); } catch (_) {}
-
-            let completed = false;
-            const finishOnce = function() {
-                if (completed) return;
-                completed = true;
-                document.removeEventListener('hs-form-event:on-submission:success', finishOnce);
-                showSuccessState();
-            };
-            document.addEventListener('hs-form-event:on-submission:success', finishOnce);
-
-            // Wait 850ms for HubSpot's 500ms debounced live email validation to finish before clicking submit
-            setTimeout(() => {
-                const hsSubmitBtn = realFormEl.querySelector('button[type="submit"]');
-                if (hsSubmitBtn) {
-                    hsSubmitBtn.click();
-                } else {
-                    HTMLFormElement.prototype.submit.call(realFormEl);
-                }
-                setTimeout(() => {
-                    if (!completed && (!hsForm.getConversionId || !hsForm.getConversionId())) {
-                        const retryBtn = realFormEl.querySelector('button[type="submit"]');
-                        if (retryBtn) retryBtn.click();
-                    }
-                    setTimeout(finishOnce, 1200);
-                }, 1000);
-            }, 850);
-
-            return false;
-        } catch (err) {
-            console.warn('HubSpotFormsV4 bridge fallback:', err);
-        }
-    }
-
-    // 2. Fallback path: Direct v4 multipart POST with clean fields & genuine tracking cookies
-    const fieldValues = {
-        '0-1/firstname': firstName,
-        '0-1/lastname': lastName || company,
-        '0-1/email': email
-    };
-
-    const hsContext = {
-        source: 'forms-embed-static',
-        sourceName: 'forms-embed',
-        sourceVersion: '1.0',
-        sourceVersionMajor: '1',
-        sourceVersionMinor: '0',
-        referrer: document.referrer || '',
-        userAgent: navigator.userAgent,
-        urlParams: {},
-        ...(hsfp ? { __hsfp: hsfp } : {}),
-        ...(hssc ? { __hssc: hssc } : {}),
-        ...(hstc ? { __hstc: hstc } : {}),
-        isHubSpotCmsGeneratedPage: false,
-        isCMSEditor: false,
-        locale: 'en',
-        formDefinitionUpdatedAt: 1791839158368,
-        pageUrl: window.location.href,
-        pageTitle: document.title,
-        allPageIds: {},
-        ...(hubspotutk ? { hutk: hubspotutk } : {}),
-        fieldValues: fieldValues,
-        emailResubscribeStatus: 'NOT_APPLICABLE',
-        captchaStatus: 'NOT_APPLICABLE',
-        renderedFieldsIds: ['0-1/firstname', '0-1/lastname', '0-1/email'],
-        shortenedFieldsIds: [],
-        boolCheckBoxFields: '',
-        sfdcCampaignId: '',
-        notificationRecipients: '',
-        __INTERNAL_PERFORMANCE__: {
-            formDomInteractive: 112.5,
-            formPageLoad: 950.5,
-            formRendered: 948.3,
-            formReady: 1587.5,
-            formDeveloperScriptLoadingStart: 111.4,
-            formDeveloperScriptLoadingEnd: 317.7,
-            formSsrRequestLoadingStart: 318.8,
-            formSsrRequestLoadingEnd: 668.3,
-            formIslandRuntimeLoadingStart: 677.4,
-            formIslandRuntimeLoadingEnd: 947.6,
-            formReactCombinedLoadingStart: 669.0,
-            formReactCombinedLoadingEnd: 1130.8,
-            formServerRendererLoadingStart: 948.3,
-            formServerRendererLoadingEnd: 1575.2,
-            effectiveNetworkType: '4g',
-            inferredFormType: 'developer'
-        }
-    };
-
-    const formData = new FormData();
-    Object.entries(fieldValues).forEach(([key, val]) => {
-        formData.append(key, val);
-    });
-    formData.append('hs_context', JSON.stringify(hsContext));
-
-    fetch('https://forms.hsforms.com/submissions/v3/public/submit/formsnext/multipart/22311313/907a59ec-7731-4a37-a7e5-45068480a51c', {
-        method: 'POST',
-        body: formData
-    })
-    .then(async res => {
-        const text = await res.text().catch(() => '');
-        if (!res.ok || text.includes('"accepted":false')) {
-            throw new Error(`HubSpot submission rejected (${res.status}): ${text.slice(0, 200)}`);
-        }
-        return text;
-    })
-    .then(() => {
-        showSuccessState();
     })
     .catch(err => {
         console.error('HubSpot submit error:', err);
