@@ -223,9 +223,7 @@ window.handleDiligenceFormSubmit = function(e) {
             hsForm.setFieldValue('0-1/lastname', lastName || company);
             hsForm.setFieldValue('0-1/email', email);
 
-            // Website Form Loophole: Automatically assign Contact Owner to Jeffrey Swope (100986431)
-            // and populate Phone / Company (works for both Hidden and Visible fields on the HubSpot form)
-            try { hsForm.setFieldValue('0-1/hubspot_owner_id', '100986431'); } catch (_) {}
+            // Populate Phone / Company if present on the HubSpot form
             try { hsForm.setFieldValue('0-1/phone', phone); } catch (_) {}
             try { hsForm.setFieldValue('0-1/company', company); } catch (_) {}
             try { hsForm.setFieldValue('0-2/name', company); } catch (_) {}
