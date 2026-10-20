@@ -166,7 +166,9 @@ window.handleDiligenceFormSubmit = function(e) {
         fields: [
             { name: 'email', value: email },
             { name: 'firstname', value: firstName },
-            { name: 'lastname', value: lastName }
+            { name: 'lastname', value: lastName },
+            { name: 'phone', value: phone },
+            { name: 'company', value: company }
         ]
     };
 
