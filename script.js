@@ -162,31 +162,12 @@ window.handleDiligenceFormSubmit = function(e) {
         submitBtn.innerHTML = 'Submitting Request...';
     }
 
-    const hubspotutk = (function() {
-        const match = document.cookie.match(/hubspotutk=([^;]+)/);
-        return match ? decodeURIComponent(match[1]) : '';
-    })();
-
-    const formattedMessage = `=== DILIGENCE ACCESS REQUEST ===\nFull Name: ${fullName}\nEmail: ${email}\nCompany / Firm: ${company}\nPhone Number: ${phone}\nInvestor Type: ${investorType}\nLead Owner: Jeffrey Swope\n\nRequesting full diligence materials for Center Street Capital.`;
-
-    const contextObj = {
-        pageUri: window.location.href,
-        pageName: document.title
-    };
-    if (hubspotutk) {
-        contextObj.hutk = hubspotutk;
-    }
-
     const payload = {
         fields: [
             { name: 'email', value: email },
             { name: 'firstname', value: firstName },
-            { name: 'lastname', value: lastName },
-            { name: 'company', value: company },
-            { name: 'phone', value: phone },
-            { name: 'message', value: formattedMessage }
-        ],
-        context: contextObj
+            { name: 'lastname', value: lastName }
+        ]
     };
 
     fetch('https://api.hsforms.com/submissions/v3/integration/submit/22311313/907a59ec-7731-4a37-a7e5-45068480a51c', {
