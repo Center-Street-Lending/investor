@@ -3665,3 +3665,29 @@ body.no-scroll {
         padding: 4px 4px !important;
     }
 }
+
+/* Single-Portfolio Feature Card Layout (B8) */
+.strategy-feature-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.strategy-feature-tags {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+@media (max-width: 900px) {
+    .strategy-feature-layout {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+}
+@media (max-width: 480px) {
+    .strategy-feature-tags {
+        grid-template-columns: 1fr !important;
+    }
+}

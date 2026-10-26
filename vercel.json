@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/riviera-capital-partners.html", "destination": "/", "permanent": true },
+    { "source": "/riviera-capital-partners", "destination": "/", "permanent": true }
+  ]
+}
