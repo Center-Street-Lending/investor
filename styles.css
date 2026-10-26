@@ -2743,12 +2743,21 @@ body.no-scroll {
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
     gap: 32px; 
-    text-align: center;
+    text-align: left;
 }
 
 .stat-item {
-    padding: 0 16px;
+    padding: 0 24px;
     position: relative;
+    text-align: left;
+}
+
+.stat-item:first-child {
+    padding-left: 0;
+}
+
+.stat-item:last-child {
+    padding-right: 0;
 }
 
 /* Add dividers between items */
@@ -2756,40 +2765,48 @@ body.no-scroll {
     content: '';
     position: absolute;
     right: -16px;
-    top: 10%;
-    height: 80%;
+    top: 8%;
+    height: 84%;
     width: 1px;
     background-color: #e2e8f0;
 }
 
 .stat-item h4 {
-    font-size: 2.5rem; 
+    font-size: 2.25rem; 
     font-weight: 700; 
     color: #0f172a; 
-    margin: 0 0 12px 0;
+    margin: 0 0 10px 0;
     letter-spacing: -0.03em;
+    line-height: 1.2;
 }
 
 .stat-item p {
-    font-size: 1.05rem; 
+    font-size: 0.98rem; 
     color: #64748b; 
     margin: 0;
     font-weight: 500;
+    line-height: 1.5;
 }
 
 /* Mobile responsiveness for stats */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 48px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 32px 24px !important;
+        margin-bottom: 0 !important;
     }
-    .stat-item:nth-child(2)::after {
-        display: none;
+    .stat-item {
+        padding: 0 !important;
+        text-align: left !important;
+    }
+    .stat-item::after {
+        display: none !important;
     }
 }
 @media (max-width: 480px) {
     .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
     }
     .stat-item::after {
         display: none !important;
@@ -3148,12 +3165,14 @@ body.no-scroll {
 
     /* Stats Bar */
     .stats-section .stat-item h4 {
-        font-size: 2.85rem !important;
+        font-size: 2.25rem !important;
         font-weight: 700 !important;
+        line-height: 1.2 !important;
     }
 
     .stats-section .stat-item p {
-        font-size: 1rem !important;
+        font-size: 0.98rem !important;
+        line-height: 1.5 !important;
     }
 }
 
@@ -3428,7 +3447,11 @@ body.no-scroll {
     }
 
     /* Mobile Container Margins */
-    .container {
+    .container,
+    .strategies-container,
+    .nav-container,
+    .sub-nav-container,
+    .sub-nav-links-row {
         padding-left: 18px !important;
         padding-right: 18px !important;
     }
@@ -3461,7 +3484,7 @@ body.no-scroll {
     .serve-header-block,
     .governance-header-block,
     #who-we-serve .container > div:first-child,
-    .strategies-container > div:first-child,
+    .strategies-container > div:first-child:not(.stats-grid):not(.strategy-features-bar),
     .container > div[style*="text-align: center"]:not(.exec-cards-container):not(.exec-cards-trio):not(.exec-card-item):not(.stat-box):not(.stat-item):not(.stats-grid) {
         text-align: left !important;
         margin-left: 0 !important;
