@@ -1,6 +1,8 @@
 {
   "redirects": [
     { "source": "/riviera-capital-partners.html", "destination": "/", "permanent": true },
-    { "source": "/riviera-capital-partners", "destination": "/", "permanent": true }
+    { "source": "/riviera-capital-partners", "destination": "/", "permanent": true },
+    { "source": "/csl-rtf.html", "destination": "/csl-rtl.html", "permanent": true },
+    { "source": "/csl-rtf", "destination": "/csl-rtl.html", "permanent": true }
   ]
 }
