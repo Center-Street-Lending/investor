@@ -4,5 +4,13 @@
     { "source": "/riviera-capital-partners", "destination": "/", "permanent": true },
     { "source": "/csl-rtf.html", "destination": "/csl-rtl.html", "permanent": true },
     { "source": "/csl-rtf", "destination": "/csl-rtl.html", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/riviera-capital-partners(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    }
   ]
 }
