@@ -1258,14 +1258,6 @@ body {
     margin: 0;
 }
 
-/* Riviera Executive Cards Trio Desktop */
-.exec-cards-trio.riviera-exec-trio {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    width: 100%;
-}
-
 /* Portfolio Companies Grid Desktop */
 .portfolio-companies-grid {
     display: grid;
@@ -1925,7 +1917,7 @@ body.no-scroll {
     color: #4683b3;
 }
 
-.hero, .about-hero, .riviera-hero {
+.hero, .about-hero {
     min-height: 520px;
     padding: 135px 0 125px;
     display: flex;
@@ -2489,7 +2481,7 @@ body.no-scroll {
     }
 
     /* Hero */
-    .hero, .about-hero, .riviera-hero {
+    .hero, .about-hero {
         padding: 60px 0 60px;
         min-height: auto;
     }
@@ -3154,7 +3146,7 @@ body.no-scroll {
         line-height: 1.65 !important;
     }
 
-    /* Riviera Stats Bar */
+    /* Stats Bar */
     .stats-section .stat-item h4 {
         font-size: 2.85rem !important;
         font-weight: 700 !important;
@@ -3285,8 +3277,7 @@ body.no-scroll {
         justify-content: space-between !important;
         align-items: stretch !important;
     }
-    .exec-cards-trio,
-    .exec-cards-trio.riviera-exec-trio {
+    .exec-cards-trio {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
@@ -3295,8 +3286,7 @@ body.no-scroll {
         width: 100% !important;
         align-items: stretch !important;
     }
-    .exec-cards-trio .exec-card-item,
-    .exec-cards-trio.riviera-exec-trio .exec-card-item {
+    .exec-cards-trio .exec-card-item {
         flex: 0 0 calc(50% - 8px) !important;
         width: calc(50% - 8px) !important;
         max-width: calc(50% - 8px) !important;
@@ -3305,14 +3295,14 @@ body.no-scroll {
 
 @media (max-width: 640px) {
     .grid-4-col,
-    .grid-3-col:not(.exec-cards-trio):not(.riviera-exec-trio),
+    .grid-3-col:not(.exec-cards-trio),
     .grid-2-col,
     .strategies-grid,
     .serve-card-container,
     .strategy-features-bar,
     div[style*="grid-template-columns: repeat(5, 1fr)"]:not(.portfolio-companies-grid),
     div[style*="grid-template-columns: repeat(4, 1fr)"],
-    div[style*="grid-template-columns: repeat(3, 1fr)"]:not(.exec-cards-trio):not(.riviera-exec-trio),
+    div[style*="grid-template-columns: repeat(3, 1fr)"]:not(.exec-cards-trio),
     div[style*="grid-template-columns: repeat(2, 1fr)"],
     div[style*="grid-template-columns: 1.1fr 1fr"],
     div[style*="grid-template-columns: 1.5fr 1fr"] {
@@ -3499,8 +3489,7 @@ body.no-scroll {
         align-items: stretch !important;
     }
 
-    .exec-cards-trio,
-    .exec-cards-trio.riviera-exec-trio {
+    .exec-cards-trio {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
@@ -3512,7 +3501,6 @@ body.no-scroll {
 
     .exec-cards-container .exec-card-item,
     .exec-cards-trio .exec-card-item,
-    .exec-cards-trio.riviera-exec-trio .exec-card-item,
     .exec-card-item {
         flex: 0 0 calc(50% - 5px) !important;
         width: calc(50% - 5px) !important;
